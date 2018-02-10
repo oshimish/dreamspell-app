@@ -1,0 +1,10 @@
+{
+
+  "author": "example.com",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./Sign.js",
+  "name": "Sign",
+  "private": true,
+  "version": "1.0.0"
+}
