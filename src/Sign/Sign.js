@@ -1,6 +1,13 @@
 // Vendor
 import React from 'react';
-import sign17 from './signs/17y.png';
+
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/));
 
 // Internal
 
@@ -35,8 +42,8 @@ class Sign extends React.Component {
     return (
       <div className="sign"
         onClick={this.onClick}>
-        <p className="huge">{this.props.kin}</p>
-        <img src={sign17} onClick={this.onClick}></img>
+        {/* <p className="huge">{this.props.kin}</p> */}
+        <img src={signs[this.props.kin + 'y.png']} onClick={this.onClick}></img>
       </div>
     );
   }

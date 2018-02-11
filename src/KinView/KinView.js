@@ -35,7 +35,7 @@ class KinView extends React.Component {
     return (
       <div className="kin-view"
         onClick={ this.onClick }>
-        <Kin kin="17" />
+        <Kin kin="4" />
       </div>
     );
   }

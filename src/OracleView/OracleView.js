@@ -1,5 +1,6 @@
 // Vendor
 import React from 'react';
+import Kin from '../Kin/Kin';
 
 // Internal
 
@@ -22,27 +23,6 @@ class OracleView extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  // https://goo.gl/JF9C1l
-  componentWillMount() {}
-
-  // https://goo.gl/cYkK3s
-  componentDidMount() {}
-
-  // https://goo.gl/5wgkZj
-  componentWillReceiveProps(nextProps) {}
-
-  // https://goo.gl/eIiU56
-  shouldComponentUpdate(nextProps, nextState) {}
-
-  // https://goo.gl/lLPyps
-  componentWillUpdate(nextProps, nextState) {}
-
-  // https://goo.gl/WgsPWE
-  componentDidUpdate(prevProps, prevState) {}
-
-  // https://goo.gl/cGM9sI
-  componentWillUnmount() {}
-
   /**
    * Just a sample click event
    */
@@ -55,7 +35,22 @@ class OracleView extends React.Component {
     return (
       <div className="oracle-view"
         onClick={ this.onClick }>
-        <h2>OracleView</h2>
+        <h2>Крест Оракула</h2>
+        <table>
+          <tr>
+            <td></td>
+            <td><Kin kin='0' /></td>
+            <td></td>
+          </tr><tr>
+            <td><Kin kin='15' /></td>
+            <td><Kin kin='4' /></td>
+            <td><Kin kin='14' /></td>
+          </tr><tr>
+            <td></td>
+            <td><Kin kin='17' /></td>
+            <td></td>
+          </tr>
+        </table>
       </div>
     );
   }
