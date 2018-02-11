@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TopHeader.scss';
+import './TopHeader.css';
 
 class TopHeader extends Component {
   render() {

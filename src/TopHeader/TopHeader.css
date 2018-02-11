@@ -1,0 +1,8 @@
+.top-header {
+  padding: 3px; }
+
+.menu {
+  padding: 10px; }
+  .menu li {
+    margin-left: 10px;
+    display: inline-block; }
