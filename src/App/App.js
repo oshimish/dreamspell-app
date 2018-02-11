@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TopHeader from '../TopHeader/TopHeader';
-import Sign from '../Sign/Sign';
+import KinView from '../KinView/KinView';
 
 class App extends Component {
 
@@ -13,9 +13,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <TopHeader title="Dream spell" />
-        <Sign kin="17" />
+      <div className="App">        
+        <section className="screen">
+          <TopHeader />
+          <div className="center_block">
+            <KinView />
+          </div>
+          <div className="bottom_block vertical_pulsate">
+            <p>Scroll!</p>
+          </div>
+        </section>
       </div>
     );
   }

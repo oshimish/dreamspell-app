@@ -1,0 +1,10 @@
+{
+
+  "author": "example.com",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./OracleView.js",
+  "name": "OracleView",
+  "private": true,
+  "version": "1.0.0"
+}

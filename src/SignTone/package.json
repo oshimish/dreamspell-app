@@ -1,0 +1,10 @@
+{
+
+  "author": "example.com",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./SignTone.js",
+  "name": "SignTone",
+  "private": true,
+  "version": "1.0.0"
+}

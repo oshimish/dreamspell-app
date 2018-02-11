@@ -1,0 +1,10 @@
+{
+
+  "author": "example.com",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./Kin.js",
+  "name": "Kin",
+  "private": true,
+  "version": "1.0.0"
+}

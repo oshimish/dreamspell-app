@@ -7,7 +7,7 @@ class TopHeader extends Component {
       <div className="top-header">
         <ul className="menu">
           <li>
-            <a href="{ href }">Dream Spell</a>
+            <a href="#">Dream Spell</a>
           </li>
         </ul>
       </div>

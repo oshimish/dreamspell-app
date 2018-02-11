@@ -1,16 +1,16 @@
 // Vendor
 import React from 'react';
-import sign17 from './signs/17y.png';
+import Kin from '../Kin/Kin';
 
 // Internal
 
 // Setup
 
 /**
- * @class Sign
+ * @class KinView
  * @description Brief description
  */
-class Sign extends React.Component {
+class KinView extends React.Component {
   // https://goo.gl/g1KBEL
   constructor() {
     super();
@@ -22,7 +22,7 @@ class Sign extends React.Component {
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
   }
-  
+
   /**
    * Just a sample click event
    */
@@ -33,18 +33,17 @@ class Sign extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     return (
-      <div className="sign"
-        onClick={this.onClick}>
-        <p className="huge">{this.props.kin}</p>
-        <img src={sign17} onClick={this.onClick}></img>
+      <div className="kin-view"
+        onClick={ this.onClick }>
+        <Kin kin="17" />
       </div>
     );
   }
 };
 
 // Enforce required properies or methods
-Sign.propTypes = {
+KinView.propTypes = {
   // active: React.PropTypes.bool.isRequired
 };
 
-export default Sign;
+export default KinView;

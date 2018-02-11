@@ -1,0 +1,10 @@
+{
+
+  "author": "example.com",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./KinView.js",
+  "name": "KinView",
+  "private": true,
+  "version": "1.0.0"
+}
