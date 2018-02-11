@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import TopHeader from '../TopHeader/TopHeader';
 import KinView from '../KinView/KinView';
+import OracleView from '../OracleView/OracleView';
 
 class App extends Component {
 
@@ -12,17 +14,21 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">        
-        <section className="screen">
-          <TopHeader />
-          <div className="center_block">
-            <KinView />
-          </div>
-          <div className="bottom_block vertical_pulsate">
-            <p>Scroll!</p>
-          </div>
-        </section>
+    return (      
+      <div className="App">    
+        <Router>
+          <section className="screen">
+            <TopHeader />
+            <div className="center_block">
+              <Route exact path="/" component={KinView} />
+              <Route path="/oracle" component={OracleView} />
+              <Route path="/kin" component={KinView} />
+            </div>
+            <div className="bottom_block vertical_pulsate">
+              <p>Scroll!</p>
+            </div>
+          </section>
+        </Router>
       </div>
     );
   }
