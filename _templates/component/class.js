@@ -22,32 +22,11 @@ class <%= name %> extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  // https://goo.gl/JF9C1l
-  componentWillMount() {}
-
-  // https://goo.gl/cYkK3s
-  componentDidMount() {}
-
-  // https://goo.gl/5wgkZj
-  componentWillReceiveProps(nextProps) {}
-
-  // https://goo.gl/eIiU56
-  shouldComponentUpdate(nextProps, nextState) {}
-
-  // https://goo.gl/lLPyps
-  componentWillUpdate(nextProps, nextState) {}
-
-  // https://goo.gl/WgsPWE
-  componentDidUpdate(prevProps, prevState) {}
-
-  // https://goo.gl/cGM9sI
-  componentWillUnmount() {}
-
   /**
    * Just a sample click event
    */
   onClick() {
-    console.log(`- onClick event`, this.state);
+    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
@@ -59,7 +38,7 @@ class <%= name %> extends React.Component {
       </div>
     );
   }
-};
+}
 
 // Enforce required properies or methods
 <%= name %>.propTypes = {

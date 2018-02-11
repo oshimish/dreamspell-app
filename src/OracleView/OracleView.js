@@ -1,7 +1,7 @@
 // Vendor
 import React from 'react';
 import Kin from '../Kin/Kin';
-
+import './styles.css';
 // Internal
 
 // Setup
@@ -36,7 +36,7 @@ class OracleView extends React.Component {
       <div className="oracle-view"
         onClick={ this.onClick }>
         <h2>Крест Оракула</h2>
-        <table>
+        <table className="oracle-table">
           <tr>
             <td></td>
             <td><Kin kin='0' /></td>

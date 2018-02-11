@@ -7,7 +7,7 @@ function importAll(r) {
   return images;
 }
 
-const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/));
+const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 
 // Internal
 

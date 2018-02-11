@@ -24,9 +24,9 @@ class App extends Component {
               <Route path="/oracle" component={OracleView} />
               <Route path="/kin" component={KinView} />
             </div>
-            <div className="bottom_block vertical_pulsate">
+            {/* <div className="bottom_block vertical_pulsate">
               <p>Scroll!</p>
-            </div>
+            </div> */}
           </section>
         </Router>
       </div>

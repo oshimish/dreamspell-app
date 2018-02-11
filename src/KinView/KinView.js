@@ -1,6 +1,7 @@
 // Vendor
 import React from 'react';
 import Kin from '../Kin/Kin';
+import Plasma from '../Plasma/Plasma';
 
 // Internal
 
@@ -27,7 +28,7 @@ class KinView extends React.Component {
    * Just a sample click event
    */
   onClick() {
-    console.log(`- onClick event`, this.state);
+    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
@@ -35,7 +36,8 @@ class KinView extends React.Component {
     return (
       <div className="kin-view"
         onClick={ this.onClick }>
-        <Kin kin="4" />
+        <div className="kin-view-plasma"><Plasma plasma="5" /></div>
+        <div className="kin-view-kin"><Kin kin="4" /></div>         
       </div>
     );
   }
