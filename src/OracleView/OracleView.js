@@ -27,7 +27,7 @@ class OracleView extends React.Component {
    * Just a sample click event
    */
   onClick() {
-    console.log(`- onClick event`, this.state);
+    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
@@ -37,19 +37,21 @@ class OracleView extends React.Component {
         onClick={ this.onClick }>
         <h2>Крест Оракула</h2>
         <table className="oracle-table">
-          <tr>
-            <td></td>
-            <td><Kin kin='0' /></td>
-            <td></td>
-          </tr><tr>
-            <td><Kin kin='15' /></td>
-            <td><Kin kin='4' /></td>
-            <td><Kin kin='14' /></td>
-          </tr><tr>
-            <td></td>
-            <td><Kin kin='17' /></td>
-            <td></td>
-          </tr>
+          <tbody>
+            <tr>
+              <td></td>
+              <td><Kin kin='0' /></td>
+              <td></td>
+            </tr><tr>
+              <td><Kin kin='15' /></td>
+              <td><Kin kin='4' /></td>
+              <td><Kin kin='14' /></td>
+            </tr><tr>
+              <td></td>
+              <td><Kin kin='17' /></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     );

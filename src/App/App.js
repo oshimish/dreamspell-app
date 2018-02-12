@@ -1,33 +1,50 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import './transitions.css';
 import TopHeader from '../TopHeader/TopHeader';
 import KinView from '../KinView/KinView';
 import OracleView from '../OracleView/OracleView';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = { date: new Date() };
   }
 
   render() {
-    return (      
-      <div className="App">    
+    return (
+      <div className="App">
         <Router>
-          <section className="screen">
-            <TopHeader />
-            <div className="center_block">
-              <Route exact path="/" component={KinView} />
-              <Route path="/oracle" component={OracleView} />
-              <Route path="/kin" component={KinView} />
-            </div>
-            {/* <div className="bottom_block vertical_pulsate">
+          <Route
+            render={({ location }) => (
+              <section className="screen">
+                <TopHeader />
+                <div className="center_block">
+                  <CSSTransitionGroup key={location.key}
+                    transitionName="fade"
+                    transitionEnterTimeout={600}
+                    transitionLeaveTimeout={600}
+                    transitionAppear={true}
+                    transitionAppearTimeout={600}>
+
+                    <Switch location={location}>
+                      <Route exact path="/" key={location.key} component={KinView} />
+                      <Route path="/oracle" key={location.key} component={OracleView} />
+                      <Route path="/kin" key={location.key} component={KinView} />
+                      <Route render={() => <div>Not Found</div>} />
+                    </Switch>
+                  </CSSTransitionGroup>
+                </div>
+                {/* <div className="bottom_block vertical_pulsate">
               <p>Scroll!</p>
             </div> */}
-          </section>
+              </section>
+            )}
+          />
         </Router>
       </div>
     );
