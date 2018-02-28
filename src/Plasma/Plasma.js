@@ -34,7 +34,7 @@ class Plasma extends React.Component {
    * Just a sample click event
    */
   onClick() {
-    console.log(`- onClick event`, this.state);
+    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32

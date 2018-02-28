@@ -17,8 +17,7 @@ class KinView extends React.Component {
     super(props);
 
     this.state = {
-      open: false,
-      kin: kin(this.props.kin)
+      dsdate: this.props.dsdate
     };
 
     // Chance to bind anything we need to.
@@ -37,8 +36,9 @@ class KinView extends React.Component {
     return (
       <div className="kin-view"
         onClick={ this.onClick }>
-        <div className="kin-view-plasma"><Plasma plasma={ this.state.kin.Plasma } /></div>
-        <div className="kin-view-kin"><Kin kin={ this.state.kin.Index } /></div>         
+        <div className="kin-view-plasma"><Plasma plasma={ this.state.dsdate.Plasma } /></div>
+        <div>{ this.state.dsdate.Day }.{ this.state.dsdate.Moon }</div>
+        <div className="kin-view-kin"><Kin kin={ this.state.dsdate.Kin.Index } /></div>         
       </div>
     );
   }

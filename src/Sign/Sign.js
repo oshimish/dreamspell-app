@@ -22,8 +22,13 @@ class Sign extends React.Component {
   constructor(props) {
     super(props);
 
+    var sign = this.props.sign;
+    if(sign == 20) {
+      sign = 0;
+    }
+
     this.state = {
-      open: false
+      sign: sign
     };
 
     // Chance to bind anything we need to.
@@ -43,7 +48,7 @@ class Sign extends React.Component {
       <div className="sign"
         onClick={this.onClick}>
         {/* <p className="huge">{this.props.kin}</p> */}
-        <img src={signs[this.props.sign + 'y.png']} onClick={this.onClick}></img>
+        <img src={signs[this.state.sign + 'y.png']} onClick={this.onClick}></img>
       </div>
     );
   }

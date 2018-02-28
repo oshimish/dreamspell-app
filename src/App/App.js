@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import ArrowKeysReact from 'arrow-keys-react';
 import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
@@ -8,26 +9,39 @@ import KinView from '../KinView/KinView';
 import OracleView from '../OracleView/OracleView';
 import { CSSTransitionGroup } from 'react-transition-group';
 import {dreamdate, kin} from 'dreamspell-math';
+import moment from 'moment';
+
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    let ddate = dreamdate(new Date());
-    let kin = ddate.Kin;
-
     this.state = { 
-      date: new Date(),
-      kin: kin
+      date: moment()
     };
+
+    ArrowKeysReact.config({
+      left: () => {
+        const date = this.state.date.add(-1, 'd');
+        this.setState({ date: date });
+      },
+      right: () => {
+        const date = this.state.date.add(1, 'd');
+        this.setState({ date: date });
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.nameInput.focus();
   }
 
   render() {
     return (
-      <div className="App">
+      <div {...ArrowKeysReact.events} tabIndex="1" className="App" ref={(input) => { this.nameInput = input; }} >
         <Router>
-          <Route
+          <Route 
             render={({ location }) => (
               <section className="screen">
                 <TopHeader />
@@ -40,15 +54,9 @@ class App extends Component {
                     transitionAppearTimeout={600}>
 
                     <Switch location={location}>
-                      <Route exact path="/" key={location.key} render={(props)=>
-                        <KinView kin={ this.state.kin.Index } />
-                      }  />
-                      <Route path="/oracle" key={location.key} render={(props)=>
-                        <OracleView kin={ this.state.kin.Index } />
-                      }  />
-                      <Route exact path="/kin" key={location.key} render={(props)=>
-                        <KinView kin={ this.state.kin.Index } />
-                      }  />
+                      <Route exact path="/" key={location.key} component={(props) => <KinView dsdate={dreamdate(this.state.date)} {...props} />} />
+                      <Route exact path="/oracle" key={location.key} component={(props) => <OracleView kin={dreamdate(this.state.date).Kin.Index} {...props} />} />
+                      <Route exact path="/kin" key={location.key} component={(props) => <KinView dsdate={dreamdate(this.state.date)} {...props} />} />
                       <Route render={() => <div>Not Found</div>} />
                     </Switch>
                   </CSSTransitionGroup>
