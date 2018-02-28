@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "arrow-keys-react": "^1.0.6",
-    "dreamspell-math": "0.0.5",
+    "dreamspell-math": "0.0.6",
     "moment": "^2.20.1",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
