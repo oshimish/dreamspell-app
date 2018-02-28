@@ -37,7 +37,7 @@ class KinView extends React.Component {
       <div className="kin-view"
         onClick={ this.onClick }>
         <div className="kin-view-plasma"><Plasma plasma={ this.state.dsdate.Plasma } /></div>
-        <div>{ this.state.dsdate.Day }.{ this.state.dsdate.Moon }</div>
+        <div className="kin-view-date" style={{fontSize: 'x-large',  padding: '23px'}} >{ this.state.dsdate.Day }.{ this.state.dsdate.Moon }</div>
         <div className="kin-view-kin"><Kin kin={ this.state.dsdate.Kin.Index } /></div>         
       </div>
     );

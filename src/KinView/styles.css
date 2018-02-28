@@ -1,2 +1,6 @@
 .kin-view {
   border: 1px solid #ccc; }
+
+.kin-view-date {
+  font-size: x-large;
+  padding: 23px; }
