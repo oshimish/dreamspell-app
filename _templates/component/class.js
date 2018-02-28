@@ -11,8 +11,8 @@ import React from 'react';
  */
 class <%= name %> extends React.Component {
   // https://goo.gl/g1KBEL
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       open: false

@@ -7,12 +7,20 @@ import TopHeader from '../TopHeader/TopHeader';
 import KinView from '../KinView/KinView';
 import OracleView from '../OracleView/OracleView';
 import { CSSTransitionGroup } from 'react-transition-group';
+import {dreamdate, kin} from 'dreamspell-math';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
+
+    let ddate = dreamdate(new Date());
+    let kin = ddate.Kin;
+
+    this.state = { 
+      date: new Date(),
+      kin: kin
+    };
   }
 
   render() {
@@ -32,9 +40,15 @@ class App extends Component {
                     transitionAppearTimeout={600}>
 
                     <Switch location={location}>
-                      <Route exact path="/" key={location.key} component={KinView} />
-                      <Route path="/oracle" key={location.key} component={OracleView} />
-                      <Route path="/kin" key={location.key} component={KinView} />
+                      <Route exact path="/" key={location.key} render={(props)=>
+                        <KinView kin={ this.state.kin.Index } />
+                      }  />
+                      <Route path="/oracle" key={location.key} render={(props)=>
+                        <OracleView kin={ this.state.kin.Index } />
+                      }  />
+                      <Route exact path="/kin" key={location.key} render={(props)=>
+                        <KinView kin={ this.state.kin.Index } />
+                      }  />
                       <Route render={() => <div>Not Found</div>} />
                     </Switch>
                   </CSSTransitionGroup>

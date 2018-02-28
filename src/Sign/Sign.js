@@ -19,8 +19,8 @@ const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
  */
 class Sign extends React.Component {
   // https://goo.gl/g1KBEL
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       open: false
@@ -34,7 +34,7 @@ class Sign extends React.Component {
    * Just a sample click event
    */
   onClick() {
-    console.log(`- onClick event`, this.state);
+    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
@@ -43,7 +43,7 @@ class Sign extends React.Component {
       <div className="sign"
         onClick={this.onClick}>
         {/* <p className="huge">{this.props.kin}</p> */}
-        <img src={signs[this.props.kin + 'y.png']} onClick={this.onClick}></img>
+        <img src={signs[this.props.sign + 'y.png']} onClick={this.onClick}></img>
       </div>
     );
   }
@@ -51,7 +51,7 @@ class Sign extends React.Component {
 
 // Enforce required properies or methods
 Sign.propTypes = {
-  // active: React.PropTypes.bool.isRequired
+  // sign: React.PropTypes.bool.isRequired
 };
 
 export default Sign;

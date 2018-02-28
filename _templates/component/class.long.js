@@ -18,8 +18,8 @@ class <%= name %> extends React.Component {
    * you should call super(props) before any other statement. Otherwise, this.props
    * will be undefined in the constructor, which can lead to bugs.
    */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       open: false

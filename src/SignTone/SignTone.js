@@ -49,7 +49,7 @@ class SignTone extends React.Component {
 
 // Enforce required properies or methods
 SignTone.propTypes = {
-  // active: React.PropTypes.bool.isRequired
+  //tone: React.PropTypes.bool.isRequired
 };
 
 export default SignTone;

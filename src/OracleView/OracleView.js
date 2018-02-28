@@ -1,6 +1,7 @@
 // Vendor
 import React from 'react';
 import Kin from '../Kin/Kin';
+import {kin} from 'dreamspell-math';
 import './styles.css';
 // Internal
 
@@ -12,11 +13,14 @@ import './styles.css';
  */
 class OracleView extends React.Component {
   // https://goo.gl/g1KBEL
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
+    const k = kin(this.props.kin);
     this.state = {
-      open: false
+      open: false,
+      kin: k,
+      oracle: k.Oracle()
     };
 
     // Chance to bind anything we need to.
@@ -40,15 +44,15 @@ class OracleView extends React.Component {
           <tbody>
             <tr>
               <td></td>
-              <td><Kin kin='0' /></td>
+              <td><Kin kin={this.state.oracle.Driver.Index} /></td>
               <td></td>
             </tr><tr>
-              <td><Kin kin='15' /></td>
-              <td><Kin kin='4' /></td>
-              <td><Kin kin='14' /></td>
+              <td><Kin kin={this.state.oracle.Antipod.Index} /></td>
+              <td><Kin kin={this.state.kin.Index} /></td>
+              <td><Kin kin={this.state.oracle.Analog.Index} /></td>
             </tr><tr>
               <td></td>
-              <td><Kin kin='17' /></td>
+              <td><Kin kin={this.state.oracle.Occult.Index} /></td>
               <td></td>
             </tr>
           </tbody>
