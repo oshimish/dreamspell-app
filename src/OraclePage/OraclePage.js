@@ -8,17 +8,16 @@ import './styles.css';
 // Setup
 
 /**
- * @class OracleView
+ * @class OraclePage
  * @description Brief description
  */
-class OracleView extends React.Component {
+class OraclePage extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
 
     const k = kin(this.props.kin);
-    this.state = {
-      open: false,
+    this.state = {      open: false,
       kin: k,
       oracle: k.Oracle()
     };
@@ -63,8 +62,8 @@ class OracleView extends React.Component {
 };
 
 // Enforce required properies or methods
-OracleView.propTypes = {
+OraclePage.propTypes = {
   // active: React.PropTypes.bool.isRequired
 };
 
-export default OracleView;
+export default OraclePage;

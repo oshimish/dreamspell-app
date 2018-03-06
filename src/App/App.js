@@ -5,8 +5,11 @@ import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
 import TopHeader from '../TopHeader/TopHeader';
-import KinView from '../KinView/KinView';
-import OracleView from '../OracleView/OracleView';
+import KinPage from '../KinPage/KinPage';
+import SignPage from '../SignPage/SignPage';
+import TonePage from '../TonePage/TonePage';
+import PlasmaPage from '../PlasmaPage/PlasmaPage';
+import OraclePage from '../OraclePage/OraclePage';
 import { CSSTransitionGroup } from 'react-transition-group';
 import {dreamdate, kin} from 'dreamspell-math';
 import moment from 'moment';
@@ -54,9 +57,11 @@ class App extends Component {
                     transitionAppearTimeout={600}>
 
                     <Switch location={location}>
-                      <Route exact path="/" key={location.key} component={(props) => <KinView dsdate={dreamdate(this.state.date)} {...props} />} />
-                      <Route exact path="/oracle" key={location.key} component={(props) => <OracleView kin={dreamdate(this.state.date).Kin.Index} {...props} />} />
-                      <Route exact path="/kin" key={location.key} component={(props) => <KinView dsdate={dreamdate(this.state.date)} {...props} />} />
+                      <Route exact path="/" key={location.key} component={(props) => <KinPage dsdate={dreamdate(this.state.date)} {...props} />} />
+                      <Route exact path="/tone" key={location.key} component={(props) => <TonePage kin={dreamdate(this.state.date).Kin} {...props} />} />
+                      <Route exact path="/sign" key={location.key} component={(props) => <SignPage kin={dreamdate(this.state.date).Kin} {...props} />} />
+                      <Route exact path="/plasma" key={location.key} component={(props) => <PlasmaPage dsdate={dreamdate(this.state.date)} {...props} />} />
+                      <Route exact path="/oracle" key={location.key} component={(props) => <OraclePage kin={dreamdate(this.state.date).Kin} {...props} />} />
                       <Route render={() => <div>Not Found</div>} />
                     </Switch>
                   </CSSTransitionGroup>

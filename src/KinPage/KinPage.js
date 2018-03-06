@@ -8,10 +8,10 @@ import {kin} from 'dreamspell-math';
 // Setup
 
 /**
- * @class KinView
+ * @class KinPage
  * @description Brief description
  */
-class KinView extends React.Component {
+class KinPage extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
@@ -45,8 +45,8 @@ class KinView extends React.Component {
 };
 
 // Enforce required properies or methods
-KinView.propTypes = {
+KinPage.propTypes = {
   // kin: React.PropTypes.bool.isRequired
 };
 
-export default KinView;
+export default KinPage;

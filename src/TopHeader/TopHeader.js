@@ -29,9 +29,15 @@ class TopHeader extends React.Component {
           <li>
             <Link to="/">Кин</Link>
           </li>
-          {/* <li>
-            <Link to="/kin">Кин</Link>
-          </li> */}
+          <li>
+            <Link to="/tone">Тон</Link>
+          </li>          
+          <li>
+            <Link to="/sign">Печать</Link>
+          </li>          
+          <li>
+            <Link to="/plasma">Плазма</Link>
+          </li>
           <li>
             <Link to="/oracle">Оракул</Link>
           </li>

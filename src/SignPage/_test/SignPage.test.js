@@ -5,9 +5,9 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 // Internal
-import KinView from '../KinView';
+import SignPage from '../SignPage';
 
-describe('KinView: test', () => {
+describe('SignPage: test', () => {
   let props;
 
   // Any initialization
@@ -19,7 +19,7 @@ describe('KinView: test', () => {
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<KinView {...props} />);
+    const wrapper = shallow(<SignPage {...props} />);
 
     expect(wrapper).to.not.be.empty();
   });

@@ -5,9 +5,9 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 // Internal
-import OracleView from '../OracleView';
+import PlasmaPage from '../PlasmaPage';
 
-describe('OracleView: test', () => {
+describe('PlasmaPage: test', () => {
   let props;
 
   // Any initialization
@@ -19,7 +19,7 @@ describe('OracleView: test', () => {
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<OracleView {...props} />);
+    const wrapper = shallow(<PlasmaPage {...props} />);
 
     expect(wrapper).to.not.be.empty();
   });
