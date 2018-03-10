@@ -37,7 +37,7 @@ class SignPage extends React.Component {
         onClick={ this.onClick }>
         <Sign sign={ this.state.num } />
         <h2 className="title">
-          {this.tt('.title')} ({this.tt('.maya_name')})
+          { this.state.num }. {this.tt('.title')} ({this.tt('.maya_name')})
         </h2> 
         <p className="info">{this.tt('.info')}</p> 
         <p className="about">

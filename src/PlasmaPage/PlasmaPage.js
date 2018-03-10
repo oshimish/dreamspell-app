@@ -32,7 +32,7 @@ class PlasmaPage extends React.Component {
       <div className="plasma-page"
         onClick={ this.onClick }>
         <div className="kin-view-plasma"><Plasma plasma={ this.state.dsdate.Plasma } /></div>
-        <h2>{this.tt('.title')} {i18n.t('plasmas:name')}</h2>        
+        <h2>{i18n.t('plasmas:name')} {this.tt('.title')}</h2>        
         <p className="about">
           {this.tt('.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
         </p>

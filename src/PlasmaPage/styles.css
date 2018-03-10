@@ -1,2 +1,5 @@
+.plasma-page h2 {
+  font-variant-caps: all-small-caps; }
+
 .plasma-page .about {
   white-space: pre; }

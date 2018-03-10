@@ -1,2 +1,8 @@
-.tone-about {
+.tone-page .tone-head, .tone-page h2 {
+  font-variant-caps: all-petite-caps; }
+
+.tone-page .about {
   white-space: pre; }
+
+.tone-page .sign-tone {
+  margin: 17px; }

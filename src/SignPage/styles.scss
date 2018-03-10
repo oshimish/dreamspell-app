@@ -1,12 +1,15 @@
 .sign-page {
   p {
-    margin-top: 5px;
+    margin: 1em;
     font-stretch: condensed;
   }
   .title {
-    margin-top: 10px;
+    margin: 1em;
   }
   .about {
     white-space: pre;
+  }
+  .sign{
+    margin: 2em;
   }
 }
