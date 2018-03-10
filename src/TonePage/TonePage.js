@@ -34,7 +34,7 @@ class TonePage extends React.Component {
         onClick={ this.onClick }>
         <SignTone tone={ this.state.num } />
         <h2>{i18n.t('tones:tone'+this.state.num+'.title')} {i18n.t('tones:name')}</h2>        
-        <p class="tone-about">
+        <p class="about">
           {i18n.t('tones:tone'+this.state.num+'.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
         </p>
       </div>

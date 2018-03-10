@@ -1,2 +1,11 @@
 .sign-page {
-  border: 1px solid #ccc; }
+}
+
+.sign-page p {
+  margin-top: 5px;
+  font-stretch: condensed;
+}
+
+.sign-page .title {
+  margin-top: 10px;
+}
