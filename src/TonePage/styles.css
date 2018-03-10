@@ -1,2 +1,6 @@
 .tone-page {
-  border: 1px solid #ccc; }
+}
+
+.tone-about{
+  white-space: pre;
+}

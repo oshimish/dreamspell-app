@@ -8,13 +8,16 @@ import {kin} from 'dreamspell-math';
 // Import a pre-configured instance of i18next
 import i18n from '../i18n';
 
+import './styles.css';
+
 // Setup
 class TonePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
+      num: this.props.kin.Tone.Number
     };
 
     // Chance to bind anything we need to.
@@ -29,8 +32,11 @@ class TonePage extends React.Component {
     return (
       <div className="tone-page"
         onClick={ this.onClick }>
-        <h2>{i18n.t('tones:def')}</h2>        
-        <SignTone tone={ this.props.kin.Tone.Number } />
+        <h2>{i18n.t('tones:tone'+this.state.num+'.title')} {i18n.t('tones:name')}</h2>        
+        <SignTone tone={ this.state.num } />
+        <p class="tone-about">
+          {i18n.t('tones:tone'+this.state.num+'.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
+        </p>
       </div>
     );
   }
