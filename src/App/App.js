@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { translate, Trans } from 'react-i18next';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import ArrowKeysReact from 'arrow-keys-react';
+import { CSSTransitionGroup } from 'react-transition-group';
+import {dreamdate, kin} from 'dreamspell-math';
+import moment from 'moment';
+
+
 import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
@@ -10,9 +16,6 @@ import SignPage from '../SignPage/SignPage';
 import TonePage from '../TonePage/TonePage';
 import PlasmaPage from '../PlasmaPage/PlasmaPage';
 import OraclePage from '../OraclePage/OraclePage';
-import { CSSTransitionGroup } from 'react-transition-group';
-import {dreamdate, kin} from 'dreamspell-math';
-import moment from 'moment';
 
 
 class App extends Component {
@@ -78,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default translate()(App);
