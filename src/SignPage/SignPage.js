@@ -19,44 +19,37 @@ class SignPage extends React.Component {
       open: false,
       num: this.props.kin.Sign.Number
     };
-    this.state.key =  'signs:sign' + this.state.num,
+
+    this.tt = (key, opt) => i18n.t('signs:sign'+this.state.num+key, opt);
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
   }
 
-  /**
-   * Just a sample click event
-   */
+
   onClick() {
     console.log('- onClick event', this.state);
   }
 
-  // https://goo.gl/HBJp32
   render() {
     return (
       <div className="sign-page"
         onClick={ this.onClick }>
         <Sign sign={ this.state.num } />
         <h2 className="title">
-          {i18n.t(this.state.key + '.title')} ({i18n.t(this.state.key + '.maya_name')})
+          {this.tt('.title')} ({this.tt('.maya_name')})
         </h2> 
-        <p className="info">{i18n.t(this.state.key + '.info')}</p> 
+        <p className="info">{this.tt('.info')}</p> 
         <p className="about">
-          {i18n.t(this.state.key + '.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
+          {this.tt('.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
         </p>
-        <p>{i18n.t(this.state.key + '.direction')} {i18n.t(this.state.key + '.direction_action')}</p>
-        <p>{i18n.t(this.state.key + '.chakra')}</p>
-        <p>{i18n.t(this.state.key + '.deviz')}</p>
+        <p>{this.tt('.direction')} {this.tt('.direction_action')}</p>
+        <p>{this.tt('.chakra')}</p>
+        <p>{this.tt('.deviz')}</p>
       </div>
     );
   }
 }
-
-// Enforce required properies or methods
-SignPage.propTypes = {
-  // active: React.PropTypes.bool.isRequired
-};
 
 export default SignPage;
 

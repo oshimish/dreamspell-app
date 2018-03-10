@@ -1,11 +1,9 @@
-.sign-page {
-}
-
 .sign-page p {
   margin-top: 5px;
-  font-stretch: condensed;
-}
+  font-stretch: condensed; }
 
 .sign-page .title {
-  margin-top: 10px;
-}
+  margin-top: 10px; }
+
+.sign-page .about {
+  white-space: pre; }

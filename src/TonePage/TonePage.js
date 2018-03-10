@@ -19,6 +19,7 @@ class TonePage extends React.Component {
       open: false,
       num: this.props.kin.Tone.Number
     };
+    this.tt = (key, opt) => i18n.t('tones:tone'+this.state.num+key, opt);
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
@@ -33,9 +34,9 @@ class TonePage extends React.Component {
       <div className="tone-page"
         onClick={ this.onClick }>
         <SignTone tone={ this.state.num } />
-        <h2>{i18n.t('tones:tone'+this.state.num+'.title')} {i18n.t('tones:name')}</h2>        
-        <p class="about">
-          {i18n.t('tones:tone'+this.state.num+'.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
+        <h2>{this.tt('.title')} {i18n.t('tones:name')}</h2>        
+        <p className="about">
+          {this.tt('.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}
         </p>
       </div>
     );

@@ -11,7 +11,7 @@ i18n
     fallbackLng: 'ru',
     lng: 'ru',
     // have a common namespace used around the full app
-    ns: ['translations', 'tones', 'signs'],
+    ns: ['translations', 'tones', 'signs', 'plasmas'],
     defaultNS: 'translations',
 
     preload: ['ru'],
