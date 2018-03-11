@@ -1,6 +1,8 @@
 // Vendor
 import React from 'react';
+import * as g from 'dreamspell-math';
 
+// Internal
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) =>  images[item.replace('./', '')] = r(item));
@@ -8,8 +10,6 @@ function importAll(r) {
 }
 
 const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
-
-// Internal
 
 // Setup
 
@@ -22,13 +22,15 @@ class Sign extends React.Component {
   constructor(props) {
     super(props);
 
-    var sign = this.props.sign;
-    if(sign === 20) {
-      sign = 0;
+    var sign = g.sign(this.props.sign);
+    var num = sign.Number;
+    if(num === 20) {
+      num = 0;
     }
 
     this.state = {
-      sign: sign
+      sign: sign,
+      num: num
     };
 
     // Chance to bind anything we need to.
@@ -43,9 +45,9 @@ class Sign extends React.Component {
   render() {
     return (
       <div className="sign"
-        onClick={this.onClick}>
+        onClick={this.onClick} >
         {/* <p className="huge">{this.props.kin}</p> */}
-        <img src={signs[this.state.sign + 'y.png']} onClick={this.onClick} alt={'Sign ' + this.state.sign }></img>
+        <img src={signs[this.state.num + 'y.png']} onClick={this.onClick} alt={'Sign ' + this.state.sign }></img>
       </div>
     );
   }

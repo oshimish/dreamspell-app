@@ -1,2 +1,54 @@
-.zolkin-page {
-  border: 1px solid #ccc; }
+.zolkin-grid-container {
+  display: grid;
+  grid-template-columns: repeat(20, 1.9em);
+  grid-template-rows: repeat(20, auto);
+  grid-gap: 1px;
+  grid-auto-rows: minmax(100px, auto); }
+
+.kin-cell {
+  border-radius: 1px;
+  position: relative; }
+  .kin-cell .sign {
+    display: flex;
+    opacity: 0.2; }
+    .kin-cell .sign img {
+      height: 3em;
+      margin: auto;
+      height: auto;
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      border-radius: 3px; }
+  .kin-cell .sign-tone {
+    position: absolute;
+    height: 45%;
+    margin: auto;
+    top: 3px;
+    opacity: 0.7; }
+    .kin-cell .sign-tone img {
+      width: 73%;
+      margin: auto;
+      height: auto;
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      border-radius: 1px; }
+  .kin-cell.selected {
+    z-index: 2; }
+    .kin-cell.selected.chromatic1 {
+      background-color: red;
+      box-shadow: 1px 0px 10px 7px red; }
+    .kin-cell.selected.chromatic2 {
+      background-color: white;
+      box-shadow: 1px 0px 10px 7px white; }
+    .kin-cell.selected.chromatic3 {
+      background-color: blue;
+      box-shadow: 1px 0px 10px 7px blue; }
+    .kin-cell.selected.chromatic4 {
+      background-color: yellow;
+      box-shadow: 1px 0px 10px 7px yellow; }
+    .kin-cell.selected .sign-tone {
+      top: -19px;
+      opacity: 0.9; }
+    .kin-cell.selected .sign {
+      opacity: 0.9; }

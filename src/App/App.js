@@ -16,6 +16,8 @@ import SignPage from 'Pages/SignPage/SignPage';
 import TonePage from 'Pages/TonePage/TonePage';
 import PlasmaPage from 'Pages/PlasmaPage/PlasmaPage';
 import OraclePage from 'Pages/OraclePage/OraclePage';
+import MoonPage from 'Pages/MoonPage/MoonPage';
+import ZolkinPage from 'Pages/ZolkinPage/ZolkinPage';
 
 
 class App extends Component {
@@ -65,6 +67,8 @@ class App extends Component {
                       <Route exact path="/sign" key={location.key} component={(props) => <SignPage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
                       <Route exact path="/plasma" key={location.key} component={(props) => <PlasmaPage dsdate={g.dreamdate(this.state.date)} {...props} />} />
                       <Route exact path="/oracle" key={location.key} component={(props) => <OraclePage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
+                      <Route exact path="/zolkin" key={location.key} component={(props) => <ZolkinPage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
+                      <Route exact path="/moon" key={location.key} component={(props) => <MoonPage kin={g.dreamdate(this.state.date)} {...props} />} />
                       <Route render={() => <div>Not Found</div>} />
                     </Switch>
                   </CSSTransitionGroup>

@@ -41,6 +41,12 @@ class TopHeader extends React.Component {
           <li>
             <Link to="/oracle">Оракул</Link>
           </li>
+          <li>
+            <Link to="/zolkin">Цолькин</Link>
+          </li>
+          {/* <li>
+            <Link to="/moon">Луна</Link>
+          </li> */}
         </ul>
       </div>
     );
