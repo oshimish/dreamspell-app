@@ -7,16 +7,17 @@ function importAll(r) {
   return images;
 }
 
-const tones = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+const plasmas = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+
 // Internal
 
 // Setup
 
 /**
- * @class SignTone
+ * @class Plasma
  * @description Brief description
  */
-class SignTone extends React.Component {
+class Plasma extends React.Component {
   // https://goo.gl/g1KBEL
   constructor() {
     super();
@@ -39,17 +40,17 @@ class SignTone extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     return (
-      <div className="sign-tone"
+      <div className="plasma"
         onClick={ this.onClick }>
-        <img src={tones['tone' + this.props.tone + '.png']} onClick={this.onClick}></img>
+        <img src={plasmas[this.props.plasma + 'X.png']} onClick={this.onClick} alt={'Plasma ' + this.props.plasma}></img>
       </div>
     );
   }
 };
 
 // Enforce required properies or methods
-SignTone.propTypes = {
-  //tone: React.PropTypes.bool.isRequired
+Plasma.propTypes = {
+  // active: React.PropTypes.bool.isRequired
 };
 
-export default SignTone;
+export default Plasma;

@@ -1,8 +1,7 @@
 // Vendor
 import React from 'react';
-import Kin from '../Kin/Kin';
-import Plasma from '../Plasma/Plasma';
-import {kin} from 'dreamspell-math';
+import {Kin, Plasma} from 'Visuals/visuals';
+import {dreamdate} from 'dreamspell-math';
 // Internal
 
 // Setup
@@ -17,7 +16,7 @@ class KinPage extends React.Component {
     super(props);
 
     this.state = {
-      dsdate: this.props.dsdate
+      dsdate: dreamdate(this.props.dsdate)
     };
 
     // Chance to bind anything we need to.

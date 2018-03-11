@@ -1,12 +1,11 @@
 // Vendor
 import React from 'react';
-import Sign from '../Sign/Sign';
-import SignTone from '../SignTone/SignTone';
-import {kin} from 'dreamspell-math';
+import {SignTone} from 'Visuals/visuals';
+import * as g from 'dreamspell-math';
 // Internal
 
 // Import a pre-configured instance of i18next
-import i18n from '../i18n';
+import i18n from 'i18n';
 
 import './styles.css';
 
@@ -15,9 +14,11 @@ class TonePage extends React.Component {
   constructor(props) {
     super(props);
 
+    let kin = g.kin(this.props.kin);
+
     this.state = {
       open: false,
-      num: this.props.kin.Tone.Number
+      num: kin.Tone.Number
     };
     this.tt = (key, opt) => i18n.t('tones:tone'+this.state.num+key, opt);
 

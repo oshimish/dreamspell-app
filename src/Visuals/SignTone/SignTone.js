@@ -7,34 +7,28 @@ function importAll(r) {
   return images;
 }
 
-const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
-
+const tones = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
 // Internal
 
 // Setup
 
 /**
- * @class Sign
+ * @class SignTone
  * @description Brief description
  */
-class Sign extends React.Component {
+class SignTone extends React.Component {
   // https://goo.gl/g1KBEL
-  constructor(props) {
-    super(props);
-
-    var sign = this.props.sign;
-    if(sign == 20) {
-      sign = 0;
-    }
+  constructor() {
+    super();
 
     this.state = {
-      sign: sign
+      open: false
     };
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
   }
-  
+
   /**
    * Just a sample click event
    */
@@ -45,18 +39,17 @@ class Sign extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     return (
-      <div className="sign"
-        onClick={this.onClick}>
-        {/* <p className="huge">{this.props.kin}</p> */}
-        <img src={signs[this.state.sign + 'y.png']} onClick={this.onClick}></img>
+      <div className="sign-tone"
+        onClick={ this.onClick }>
+        <img src={tones['tone' + this.props.tone + '.png']} onClick={this.onClick} alt={'Tone ' + this.props.tone}></img>
       </div>
     );
   }
 };
 
 // Enforce required properies or methods
-Sign.propTypes = {
-  // sign: React.PropTypes.bool.isRequired
+SignTone.propTypes = {
+  //tone: React.PropTypes.bool.isRequired
 };
 
-export default Sign;
+export default SignTone;

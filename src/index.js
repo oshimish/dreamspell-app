@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
 
 import './index.css';
-import App from './App/App';
+import App from 'App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 import i18n from './i18n'; // initialized i18next instance

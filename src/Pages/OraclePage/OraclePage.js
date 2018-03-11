@@ -1,7 +1,7 @@
 // Vendor
 import React from 'react';
-import Kin from '../Kin/Kin';
-import {kin} from 'dreamspell-math';
+import {Kin} from 'Visuals/visuals';
+import * as g from 'dreamspell-math';
 import './styles.css';
 // Internal
 
@@ -16,7 +16,7 @@ class OraclePage extends React.Component {
   constructor(props) {
     super(props);
 
-    const k = kin(this.props.kin);
+    const k = g.kin(this.props.kin);
     this.state = {      open: false,
       kin: k,
       oracle: k.Oracle()

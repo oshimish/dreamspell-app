@@ -1,10 +1,10 @@
 // Vendor
 import React from 'react';
-import Plasma from '../Plasma/Plasma';
+import {Plasma} from 'Visuals/visuals';
 import * as g from 'dreamspell-math';
 
 // Internal
-import i18n from '../i18n';
+import i18n from 'i18n';
 import './styles.css';
 
 // Setup
@@ -12,9 +12,11 @@ class PlasmaPage extends React.Component {
   constructor(props) {
     super(props);
 
+    let date = g.dreamdate(this.props.dsdate);
+
     this.state = {
-      dsdate: this.props.dsdate,
-      num: this.props.dsdate.Kin.Tone.Number
+      dsdate: date,
+      num: date.Kin.Tone.Number
     };
 
     this.tt = (key, opt) => i18n.t('plasmas:plasma'+this.state.num+key, opt);
