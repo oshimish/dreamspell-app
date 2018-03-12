@@ -1,8 +1,13 @@
+@mixin sel_shadow($color){
+  box-shadow: 1px 0px 10px 7px $color
+}
+
 .zolkin-page {}
+
 
 .zolkin-grid-container {
   display: grid;
-  grid-template-columns: repeat(20, 1.9em);
+  grid-template-columns: repeat(20, 2.2em);
   grid-template-rows: repeat(20, auto);
   grid-gap: 1px;
   grid-auto-rows: minmax(100px, auto); // justify-items: center;
@@ -47,22 +52,22 @@
   &.selected {
     // box-shadow: 1px 0px 10px 7px inherit;
     z-index: 2;
-    &.chromatic1 {
+    &.chromatic1, &.chromatic1 .sign-tone {
       background-color: red;
-      box-shadow: 1px 0px 10px 7px red;
+      @include sel_shadow(red);
     }
     
-    &.chromatic2 {
+    &.chromatic2, &.chromatic2 .sign-tone {
       background-color: white;
       box-shadow: 1px 0px 10px 7px white;
     }
     
-    &.chromatic3 {
+    &.chromatic3, &.chromatic3 .sign-tone {
       background-color: blue;
       box-shadow: 1px 0px 10px 7px blue;
     }
     
-    &.chromatic4 {
+    &.chromatic4, &.chromatic4 .sign-tone {
       background-color: yellow;
       box-shadow: 1px 0px 10px 7px yellow;
     }
@@ -70,6 +75,9 @@
     .sign-tone {
       top: -19px;      
       opacity: 0.9;
+      img {
+        border-radius: 3px;
+      }
     }
 
     .sign{

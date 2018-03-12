@@ -1,6 +1,6 @@
 .zolkin-grid-container {
   display: grid;
-  grid-template-columns: repeat(20, 1.9em);
+  grid-template-columns: repeat(20, 2.2em);
   grid-template-rows: repeat(20, auto);
   grid-gap: 1px;
   grid-auto-rows: minmax(100px, auto); }
@@ -35,20 +35,22 @@
       border-radius: 1px; }
   .kin-cell.selected {
     z-index: 2; }
-    .kin-cell.selected.chromatic1 {
+    .kin-cell.selected.chromatic1, .kin-cell.selected.chromatic1 .sign-tone {
       background-color: red;
       box-shadow: 1px 0px 10px 7px red; }
-    .kin-cell.selected.chromatic2 {
+    .kin-cell.selected.chromatic2, .kin-cell.selected.chromatic2 .sign-tone {
       background-color: white;
       box-shadow: 1px 0px 10px 7px white; }
-    .kin-cell.selected.chromatic3 {
+    .kin-cell.selected.chromatic3, .kin-cell.selected.chromatic3 .sign-tone {
       background-color: blue;
       box-shadow: 1px 0px 10px 7px blue; }
-    .kin-cell.selected.chromatic4 {
+    .kin-cell.selected.chromatic4, .kin-cell.selected.chromatic4 .sign-tone {
       background-color: yellow;
       box-shadow: 1px 0px 10px 7px yellow; }
     .kin-cell.selected .sign-tone {
       top: -19px;
       opacity: 0.9; }
+      .kin-cell.selected .sign-tone img {
+        border-radius: 3px; }
     .kin-cell.selected .sign {
       opacity: 0.9; }
