@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import * as g from 'dreamspell-math';
 
 // Internal
-import {Kin, Sign, SignTone} from 'Visuals/visuals';
+import {Sign, SignTone} from 'Visuals/visuals';
 import './styles.css';
 
 // Setup
@@ -29,20 +29,15 @@ class ZolkinPage extends React.Component {
       let k = g.kin(index+1);      
       kins[index] = k;     
 
-      let row = (k.Index % 20);
-      if(row == 0) row = 20;
-      let col = Math.trunc(k.Index / 20) ;
-      if(row != 20) col++;
-
-      k.row = row;
-      k.col = col;
+      k.row = k.ZolkinRow;
+      k.col = k.ZolkinColumn;
 
       if(k.Is(this.state.selectedKin)){
         k.selected = true;
       }
     }
 
-    this.kins = kins;
+    this.state.kins = kins;
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
@@ -61,8 +56,12 @@ class ZolkinPage extends React.Component {
     //   <Sign sign={props.kin.Sign} />
     // );
 
+    var selStyle = (props) => (props.kin.selected ? ' selected' : '');
+    var portalStyle = (props) => (props.kin.IsGalacticPortal ? ' portal' : '');
+    var mysticStyle = (props) => (props.kin.IsMysticColumn ? ' mystic' : '');
+
     const KinCell = (props) => (     
-      <div className={'kin-cell chromatic' + props.kin.Chromatic + (props.kin.selected ? ' selected' : '') }  {...props}         
+      <div className={'kin-cell chromatic' + props.kin.Chromatic + selStyle(props) + portalStyle(props) + mysticStyle(props)  }          
         style={{ gridRow: props.row, gridColumn: props.col }}>
         <SignTone tone={props.kin.Tone} />
         <Sign sign={props.kin.Sign} />
@@ -71,7 +70,7 @@ class ZolkinPage extends React.Component {
 
     return (
       <div className='zolkin-grid-container'>
-        { this.kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col+3} key={kin.Index} /> ) }
+        { this.state.kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col+3} key={kin.Index} /> ) }
       </div>  
     );
   }

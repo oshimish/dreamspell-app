@@ -23,8 +23,8 @@
     position: absolute;
     height: 45%;
     margin: auto;
-    top: 3px;
-    opacity: 0.7; }
+    top: 7px;
+    opacity: 0.8; }
     .kin-cell .sign-tone img {
       width: 73%;
       margin: auto;
@@ -54,3 +54,15 @@
         border-radius: 3px; }
     .kin-cell.selected .sign {
       opacity: 0.9; }
+  .kin-cell.portal {
+    background-color: green;
+    box-shadow: 0px 0px 4px 2px green; }
+    .kin-cell.portal.selected, .kin-cell.portal.selected .sign-tone {
+      background-color: green;
+      box-shadow: 0px 0px 10px 7px green; }
+  .kin-cell.mystic {
+    background-color: gray;
+    box-shadow: 0px 0px 4px 2px gray; }
+    .kin-cell.mystic.selected, .kin-cell.mystic.selected .sign-tone {
+      background-color: gray;
+      box-shadow: 0px 0px 10px 7px gray; }
