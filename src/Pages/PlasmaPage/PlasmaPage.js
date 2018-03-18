@@ -19,7 +19,7 @@ class PlasmaPage extends React.Component {
       num: date.Kin.Tone.Number
     };
 
-    this.tt = (key, opt) => i18n.t('plasmas:plasma'+this.state.num+key, opt);
+    this.tt = (key, opt) => i18n.t('plasmas:plasma'+this.state.dsdate.Plasma+key, opt);
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
