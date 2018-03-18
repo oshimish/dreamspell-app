@@ -70,7 +70,7 @@ class ZolkinPage extends React.Component {
 
     return (
       <div className='zolkin-grid-container'>
-        { this.state.kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col+3} key={kin.Index} /> ) }
+        { this.state.kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col} key={kin.Index} /> ) }
       </div>  
     );
   }

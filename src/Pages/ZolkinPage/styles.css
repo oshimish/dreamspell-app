@@ -1,6 +1,6 @@
 .zolkin-grid-container {
   display: grid;
-  grid-template-columns: repeat(20, 2.2em);
+  grid-template-columns: repeat(13, 2.2em);
   grid-template-rows: repeat(20, auto);
   grid-gap: 1px;
   grid-auto-rows: minmax(100px, auto); }
