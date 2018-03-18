@@ -92,7 +92,7 @@
 
   @mixin portal_mystic_shadow_sel($color){
     background-color: $color;
-    box-shadow: 0px 0px 10px 7px $color
+    box-shadow: 0px 0px 10px 11px $color
   }
 
   &.portal {
