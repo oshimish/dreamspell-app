@@ -39,20 +39,27 @@ class App extends Component {
         this.setState({ date: date });
       }
     });
+
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   componentDidMount() {
     this.nameInput.focus();
   }
 
+  handleDateChange(date) {
+    this.setState({ date: moment(date) });
+  }
+
   render() {
+    const gdate = g.dreamdate(this.state.date);
     return (
       <div {...ArrowKeysReact.events} tabIndex="1" className="App" ref={(input) => { this.nameInput = input; }} >
         <Router>
           <Route 
             render={({ location }) => (
               <section className="screen">
-                <TopHeader />
+                <TopHeader moment={this.state.date} onDateChange={this.handleDateChange} />
                 <div className="center_block">
                   <CSSTransitionGroup key={location.key}
                     transitionName="fade"
@@ -60,15 +67,15 @@ class App extends Component {
                     transitionLeaveTimeout={600}
                     transitionAppear={true}
                     transitionAppearTimeout={600}>
-
+                    
                     <Switch location={location}>
-                      <Route exact path="/" key={location.key} component={(props) => <KinPage dsdate={g.dreamdate(this.state.date)} {...props} />} />
-                      <Route exact path="/tone" key={location.key} component={(props) => <TonePage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
-                      <Route exact path="/sign" key={location.key} component={(props) => <SignPage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
-                      <Route exact path="/plasma" key={location.key} component={(props) => <PlasmaPage dsdate={g.dreamdate(this.state.date)} {...props} />} />
-                      <Route exact path="/oracle" key={location.key} component={(props) => <OraclePage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
-                      <Route exact path="/zolkin" key={location.key} component={(props) => <ZolkinPage kin={g.dreamdate(this.state.date).Kin} {...props} />} />
-                      <Route exact path="/moon" key={location.key} component={(props) => <MoonPage kin={g.dreamdate(this.state.date)} {...props} />} />
+                      <Route exact path="/" key={location.key} component={(props) => <KinPage dsdate={gdate} {...props} />} />
+                      <Route exact path="/tone" key={location.key} component={(props) => <TonePage kin={gdate.Kin} {...props} />} />
+                      <Route exact path="/sign" key={location.key} component={(props) => <SignPage kin={gdate.Kin} {...props} />} />
+                      <Route exact path="/plasma" key={location.key} component={(props) => <PlasmaPage dsdate={gdate} {...props} />} />
+                      <Route exact path="/oracle" key={location.key} component={(props) => <OraclePage kin={gdate.Kin} {...props} />} />
+                      <Route exact path="/zolkin" key={location.key} component={(props) => <ZolkinPage kin={gdate.Kin} />} />
+                      <Route exact path="/moon" key={location.key} component={(props) => <MoonPage kin={gdate} {...props} />} />
                       <Route render={() => <div>Not Found</div>} />
                     </Switch>
                   </CSSTransitionGroup>

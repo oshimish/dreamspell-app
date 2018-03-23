@@ -6,3 +6,9 @@
   .menu li {
     margin-left: 10px;
     display: inline-block; }
+
+.top-header .left-menu {
+  float: left; }
+
+.top-header .right-menu {
+  float: right; }
