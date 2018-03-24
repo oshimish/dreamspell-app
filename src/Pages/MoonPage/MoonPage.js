@@ -23,14 +23,14 @@ const MoonWeek = (params) => (<div>
 </div>);
 
 const Moon = (props) => (
-  <div>
+  <div> 
     <MoonWeek />
     <MoonWeek />
     <MoonWeek />
     <MoonWeek />
   </div>
 );
- 
+  
 class MoonPage extends React.Component {
   // https://goo.gl/g1KBEL
   // eslint-disable-next-line
