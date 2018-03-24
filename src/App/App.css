@@ -12,7 +12,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .bottom_block {
   text-align: center;

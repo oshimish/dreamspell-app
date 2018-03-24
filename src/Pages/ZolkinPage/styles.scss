@@ -1,15 +1,13 @@
-@mixin sel_shadow($color){
-  box-shadow: 1px 0px 10px 7px $color
-}
-
 .zolkin-page {}
 
+$cellSize : 2.2em;
 
 .zolkin-grid-container {
   display: grid;
-  grid-template-columns: repeat(13, 2.2em);
+  grid-template-columns: repeat(13, $cellSize);
   grid-template-rows: repeat(20, auto);
   grid-gap: 1px;
+  grid-auto-rows: minmax(100px, auto); // justify-items: center;
   grid-auto-rows: minmax(100px, auto); // justify-items: center;
   // align-items: center;
 }
@@ -18,11 +16,11 @@
   border-radius: 1px;
   position: relative;
   .sign {
-    display: flex;
     opacity: 0.2;
     img {
-      height: 3em;
-      margin: auto;
+      display: flex;
+      padding: 0;
+      margin: 0;
       height: auto;
       max-height: 100%;
       width: auto;
@@ -32,21 +30,23 @@
   }
   .sign-tone {
     position: absolute;
-    height: 45%;
     margin: auto;
-    top: 7px;
-    opacity: 0.8;
+    top: 23%;
+    opacity: 0.83;
     img {
-      width: 73%;
+      display: flex;
       margin: auto;
+      width: 79%;
       height: auto;
       max-height: 100%;
-      width: auto;
       max-width: 100%;
       border-radius: 1px;
     }
 
     
+  }
+  @mixin sel_shadow($color){
+    box-shadow: 1px 0px 10px 7px $color
   }
 
   &.selected {
@@ -59,21 +59,21 @@
     
     &.chromatic2, &.chromatic2 .sign-tone {
       background-color: white;
-      box-shadow: 1px 0px 10px 7px white;
+      @include sel_shadow(white);
     }
     
     &.chromatic3, &.chromatic3 .sign-tone {
       background-color: blue;
-      box-shadow: 1px 0px 10px 7px blue;
+      @include sel_shadow(blue);
     }
     
     &.chromatic4, &.chromatic4 .sign-tone {
       background-color: yellow;
-      box-shadow: 1px 0px 10px 7px yellow;
+      @include sel_shadow(yellow);
     }
 
     .sign-tone {
-      top: -19px;      
+      top: -45%;      
       opacity: 0.9;
       img {
         border-radius: 3px;

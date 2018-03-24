@@ -30,11 +30,6 @@ const KinCell = (props) => (
 );
 
 const ZGrid = (props) => (
-  // const ZInnerCell = (props) => (
-  //   <SignTone tone={props.kin.Tone} />
-  //   <Sign sign={props.kin.Sign} />
-  // );
-
   <div className='zolkin-grid-container'>
     { kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col} key={kin.Index} {...props} /> ) }
   </div>

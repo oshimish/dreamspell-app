@@ -3,17 +3,18 @@
   grid-template-columns: repeat(13, 2.2em);
   grid-template-rows: repeat(20, auto);
   grid-gap: 1px;
+  grid-auto-rows: minmax(100px, auto);
   grid-auto-rows: minmax(100px, auto); }
 
 .kin-cell {
   border-radius: 1px;
   position: relative; }
   .kin-cell .sign {
-    display: flex;
     opacity: 0.2; }
     .kin-cell .sign img {
-      height: 3em;
-      margin: auto;
+      display: flex;
+      padding: 0;
+      margin: 0;
       height: auto;
       max-height: 100%;
       width: auto;
@@ -21,16 +22,15 @@
       border-radius: 3px; }
   .kin-cell .sign-tone {
     position: absolute;
-    height: 45%;
     margin: auto;
-    top: 7px;
-    opacity: 0.8; }
+    top: 23%;
+    opacity: 0.83; }
     .kin-cell .sign-tone img {
-      width: 73%;
+      display: flex;
       margin: auto;
+      width: 79%;
       height: auto;
       max-height: 100%;
-      width: auto;
       max-width: 100%;
       border-radius: 1px; }
   .kin-cell.selected {
@@ -48,7 +48,7 @@
       background-color: yellow;
       box-shadow: 1px 0px 10px 7px yellow; }
     .kin-cell.selected .sign-tone {
-      top: -19px;
+      top: -45%;
       opacity: 0.9; }
       .kin-cell.selected .sign-tone img {
         border-radius: 3px; }
