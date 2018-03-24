@@ -17,21 +17,15 @@ class SignTone extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
-
-    let tone = g.tone(this.props.tone);
-    
-    this.state = {
-      open: false,
-      tone: tone,
-      num: tone.Number
-    };
   }
 
   // https://goo.gl/HBJp32
   render() {
+    let tone = g.tone(this.props.tone);
+    let num = tone.Number;
     return (
       <div className="sign-tone" >
-        <img src={tones['tone' + this.state.num + '.png']} onClick={this.onClick} alt={'Tone ' + this.state.num }></img>
+        <img src={tones['tone' + num + '.png']} alt={'Tone ' + num }></img>
       </div>
     );
   }

@@ -19,34 +19,20 @@ const plasmas = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/))
  */
 class Plasma extends React.Component {
   // https://goo.gl/g1KBEL
+  // eslint-disable-next-line
   constructor() {
     super();
-
-    this.state = {
-      open: false
-    };
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  /**
-   * Just a sample click event
-   */
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
   render() {
     return (
-      <div className="plasma"
-        onClick={ this.onClick }>
-        <img src={plasmas[this.props.plasma + 'X.png']} onClick={this.onClick} alt={'Plasma ' + this.props.plasma}></img>
+      <div className="plasma">
+        <img src={plasmas[this.props.plasma + 'X.png']} alt={'Plasma ' + this.props.plasma}></img>
       </div>
     );
   }
-};
+}
 
 // Enforce required properies or methods
 Plasma.propTypes = {

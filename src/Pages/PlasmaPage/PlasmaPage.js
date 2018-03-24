@@ -11,29 +11,14 @@ import './styles.css';
 class PlasmaPage extends React.Component {
   constructor(props) {
     super(props);
-
-    let date = g.dreamdate(this.props.dsdate);
-
-    this.state = {
-      dsdate: date,
-      num: date.Kin.Tone.Number
-    };
-
-    this.tt = (key, opt) => i18n.t('plasmas:plasma'+this.state.dsdate.Plasma+key, opt);
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   render() {
+    let date = g.dreamdate(this.props.dsdate);
+    this.tt = (key, opt) => i18n.t('plasmas:plasma'+date.Plasma+key, opt);
     return (
-      <div className="plasma-page"
-        onClick={ this.onClick }>
-        <div className="kin-view-plasma"><Plasma plasma={ this.state.dsdate.Plasma } /></div>
+      <div className="plasma-page">
+        <div className="kin-view-plasma"><Plasma plasma={ date.Plasma } /></div>
         <h2>{i18n.t('plasmas:name')} {this.tt('.title')}</h2>        
         <p className="about">
           {this.tt('.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}

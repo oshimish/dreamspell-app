@@ -51,9 +51,9 @@ class TopHeader extends React.Component {
             <li>
               <Link to="/zolkin">Цолькин</Link>
             </li>
-            {/* <li>
+            <li>
               <Link to="/moon">Луна</Link>
-            </li> */}
+            </li>
           </ul>
         </div>
         <div className="right-menu">

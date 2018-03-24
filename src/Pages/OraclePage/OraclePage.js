@@ -15,43 +15,28 @@ class OraclePage extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
-
-    const k = g.kin(this.props.kin);
-    this.state = {      open: false,
-      kin: k,
-      oracle: k.Oracle()
-    };
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  /**
-   * Just a sample click event
-   */
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
   render() {
+    const kin = g.kin(this.props.kin);
+    const oracle = kin.Oracle();
     return (
-      <div className="oracle-view"
-        onClick={ this.onClick }>
+      <div className="oracle-view">
         <h2>Крест Оракула</h2>
         <table className="oracle-table">
           <tbody>
             <tr>
               <td></td>
-              <td><Kin kin={this.state.oracle.Driver.Index} /></td>
+              <td><Kin kin={oracle.Driver.Index} /></td>
               <td></td>
             </tr><tr>
-              <td><Kin kin={this.state.oracle.Antipod.Index} /></td>
-              <td><Kin kin={this.state.kin.Index} /></td>
-              <td><Kin kin={this.state.oracle.Analog.Index} /></td>
+              <td><Kin kin={oracle.Antipod.Index} /></td>
+              <td><Kin kin={kin.Index} /></td>
+              <td><Kin kin={oracle.Analog.Index} /></td>
             </tr><tr>
               <td></td>
-              <td><Kin kin={this.state.oracle.Occult.Index} /></td>
+              <td><Kin kin={oracle.Occult.Index} /></td>
               <td></td>
             </tr>
           </tbody>

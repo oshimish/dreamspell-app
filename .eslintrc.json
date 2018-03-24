@@ -1,19 +1,5 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
+    "extends": "react-app",
     "rules": {
         "indent": [
             "error",
@@ -34,6 +20,7 @@
         "no-unused-vars":[
             "warn"
         ],
-        "no-console":"warn"
+        "no-console":"warn",
+        "no-useless-constructor" :"off"
     }
 }

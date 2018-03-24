@@ -1,3 +1,4 @@
 {
     "react.beautify.onSave": true,
+    "eslint.autoFixOnSave": true,
 }

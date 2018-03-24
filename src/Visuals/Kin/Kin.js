@@ -2,7 +2,7 @@
 import React from 'react';
 import Sign from '../Sign/Sign';
 import SignTone from '../SignTone/SignTone';
-import {kin} from 'dreamspell-math';
+import * as g from 'dreamspell-math';
 
 // Internal
 
@@ -16,33 +16,19 @@ class Kin extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
-
-    this.state = {
-      open: false,
-      kin: kin(this.props.kin)
-    };
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-  /**
-   * Just a sample click event
-   */
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   // https://goo.gl/HBJp32
   render() {
+    let kin = g.kin(this.props.kin);
     return (
-      <div className="kin"
-        onClick={ this.onClick }>
-        <SignTone tone={ this.state.kin.Tone.Number } />
-        <Sign sign={ this.state.kin.Sign.Number } />
+      <div className="kin">
+        <SignTone tone={ kin.Tone.Number } />
+        <Sign sign={ kin.Sign.Number } />
       </div>
     );
   }
-};
+}
 
 // Enforce required properies or methods
 Kin.propTypes = {

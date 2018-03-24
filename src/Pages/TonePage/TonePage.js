@@ -13,28 +13,16 @@ import './styles.css';
 class TonePage extends React.Component {
   constructor(props) {
     super(props);
-
-    let kin = g.kin(this.props.kin);
-
-    this.state = {
-      open: false,
-      num: kin.Tone.Number
-    };
-    this.tt = (key, opt) => i18n.t('tones:tone'+this.state.num+key, opt);
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
-    console.log('- onClick event', this.state);
-  }
 
   render() {
+    let kin = g.kin(this.props.kin);
+    let num = kin.Tone.Number;
+    this.tt = (key, opt) => i18n.t('tones:tone'+num+key, opt);
     return (
-      <div className="tone-page"
-        onClick={ this.onClick }>
-        <SignTone tone={ this.state.num } />
+      <div className="tone-page">
+        <SignTone tone={ num } />
         <p className="tone-head">{i18n.t('tones:name')} {this.tt('.num_plural')} </p>
         <h2>{this.tt('.title')} {i18n.t('tones:name')} {this.tt('.title2')}</h2>        
         <p className="about">

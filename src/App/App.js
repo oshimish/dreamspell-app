@@ -51,40 +51,42 @@ class App extends Component {
     this.setState({ date: moment(date) });
   }
 
-  render() {
-    const gdate = g.dreamdate(this.state.date);
+  render() {    
     return (
       <div {...ArrowKeysReact.events} tabIndex="1" className="App" ref={(input) => { this.nameInput = input; }} >
         <Router>
           <Route 
-            render={({ location }) => (
-              <section className="screen">
-                <TopHeader moment={this.state.date} onDateChange={this.handleDateChange} />
-                <div className="center_block">
-                  <CSSTransitionGroup key={location.key}
-                    transitionName="fade"
-                    transitionEnterTimeout={600}
-                    transitionLeaveTimeout={600}
-                    transitionAppear={true}
-                    transitionAppearTimeout={600}>
-                    
-                    <Switch location={location}>
-                      <Route exact path="/" key={location.key} component={(props) => <KinPage dsdate={gdate} {...props} />} />
-                      <Route exact path="/tone" key={location.key} component={(props) => <TonePage kin={gdate.Kin} {...props} />} />
-                      <Route exact path="/sign" key={location.key} component={(props) => <SignPage kin={gdate.Kin} {...props} />} />
-                      <Route exact path="/plasma" key={location.key} component={(props) => <PlasmaPage dsdate={gdate} {...props} />} />
-                      <Route exact path="/oracle" key={location.key} component={(props) => <OraclePage kin={gdate.Kin} {...props} />} />
-                      <Route exact path="/zolkin" key={location.key} component={(props) => <ZolkinPage kin={gdate.Kin} />} />
-                      <Route exact path="/moon" key={location.key} component={(props) => <MoonPage kin={gdate} {...props} />} />
-                      <Route render={() => <div>Not Found</div>} />
-                    </Switch>
-                  </CSSTransitionGroup>
-                </div>
-                {/* <div className="bottom_block vertical_pulsate">
-              <p>Scroll!</p>
-            </div> */}
-              </section>
-            )}
+            render={({ location }) => {
+              var gdate = g.dreamdate(this.state.date);
+              return (
+                <section className="screen">
+                  <TopHeader moment={this.state.date} onDateChange={this.handleDateChange} />
+                  <div className="center_block">
+                    <CSSTransitionGroup key={location.key}
+                      transitionName="fade"
+                      transitionEnterTimeout={600}
+                      transitionLeaveTimeout={600}
+                      transitionAppear={true}
+                      transitionAppearTimeout={600}>
+                      
+                      <Switch location={location}>
+                        <Route exact path="/" key={location.key} render={(props) => <KinPage dsdate={gdate} {...props} />} />
+                        <Route exact path="/tone" key={location.key} render={(props) => <TonePage kin={gdate.Kin} {...props} />} />
+                        <Route exact path="/sign" key={location.key} render={(props) => <SignPage kin={gdate.Kin} {...props} />} />
+                        <Route exact path="/plasma" key={location.key} render={(props) => <PlasmaPage dsdate={gdate} {...props} />} />
+                        <Route exact path="/oracle" key={location.key} render={(props) => <OraclePage kin={gdate.Kin} {...props} />} />
+                        <Route exact path="/zolkin" key={location.key} render={(props) => <ZolkinPage kin={gdate.Kin} {...props}  />} />
+                        <Route exact path="/moon" key={location.key} render={(props) => <MoonPage kin={gdate} {...props} />} />
+                        <Route render={() => <div>Not Found</div>} />
+                      </Switch>
+                    </CSSTransitionGroup>
+                  </div>
+                  {/* <div className="bottom_block vertical_pulsate">
+                <p>Scroll!</p>
+              </div> */}
+                </section>
+              );
+            }}
           />
         </Router>
       </div>

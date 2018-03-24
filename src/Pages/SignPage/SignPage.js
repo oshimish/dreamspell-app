@@ -8,37 +8,24 @@ import * as g from 'dreamspell-math';
 import i18n from 'i18n';
 import './styles.css';
 
+
 // Setup
 class SignPage extends React.Component {
   // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
-
-    let kin = g.kin(this.props.kin);
-
-    this.state = {
-      open: false,
-      num: kin.Sign.Number
-    };
-
-    this.tt = (key, opt) => i18n.t('signs:sign'+this.state.num+key, opt);
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   render() {
+    let kin = g.kin(this.props.kin);
+    let num = kin.Sign.Number;
+    this.tt = (key, opt) => i18n.t('signs:sign'+num+key, opt);
+
     return (
-      <div className="sign-page"
-        onClick={ this.onClick }>
-        <Sign sign={ this.state.num } />
+      <div className="sign-page">
+        <Sign sign={ num } />
         <h2 className="title">
-          { this.state.num }. {this.tt('.title')} ({this.tt('.maya_name')})
+          { num }. {this.tt('.title')} ({this.tt('.maya_name')})
         </h2> 
         <p className="info">{this.tt('.info')}</p> 
         <p className="about">

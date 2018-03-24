@@ -18,36 +18,16 @@ const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
  * @description Brief description
  */
 class Sign extends React.Component {
-  // https://goo.gl/g1KBEL
-  constructor(props) {
-    super(props);
-
+  // https://goo.gl/HBJp32
+  render() {
     var sign = g.sign(this.props.sign);
     var num = sign.Number;
     if(num === 20) {
       num = 0;
     }
-
-    this.state = {
-      sign: sign,
-      num: num
-    };
-
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    console.log('- onClick event', this.state);
-  }
-
-  // https://goo.gl/HBJp32
-  render() {
     return (
-      <div className="sign"
-        onClick={this.onClick} >
-        {/* <p className="huge">{this.props.kin}</p> */}
-        <img src={signs[this.state.num + 'y.png']} onClick={this.onClick} alt={'Sign ' + this.state.sign }></img>
+      <div className="sign">
+        <img src={signs[num + 'y.png']} alt={'Sign ' + sign }></img>
       </div>
     );
   }
