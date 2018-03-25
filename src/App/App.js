@@ -52,12 +52,12 @@ class App extends Component {
   }
 
   render() {    
+    var gdate = g.dreamdate(this.state.date);
     return (
       <div {...ArrowKeysReact.events} tabIndex="1" className="App" ref={(input) => { this.nameInput = input; }} >
         <Router>
           <Route 
             render={({ location }) => {
-              var gdate = g.dreamdate(this.state.date);
               return (
                 <section className="screen">
                   <TopHeader moment={this.state.date} onDateChange={this.handleDateChange} />

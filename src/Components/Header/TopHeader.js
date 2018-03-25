@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import * as moment from 'moment';
 
 // Include the locale utils designed for moment
 import MomentLocaleUtils from 'react-day-picker/moment';
@@ -24,7 +25,8 @@ class TopHeader extends React.Component {
   }
 
   handleDayClick(day, { selected }) {
-    this.props.onDateChange(selected ? undefined : day);
+    let timeZoneFixedDate = moment({ year :day.getFullYear(), month :day.getMonth(), day:day.getDate()});
+    this.props.onDateChange(timeZoneFixedDate);
   }
 
   render() {
