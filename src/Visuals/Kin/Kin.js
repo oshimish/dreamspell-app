@@ -5,6 +5,7 @@ import SignTone from '../SignTone/SignTone';
 import * as g from 'dreamspell-math';
 
 // Internal
+import './styles.css';
 
 // Setup
 

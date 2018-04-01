@@ -3,6 +3,8 @@ import React from 'react';
 import * as g from 'dreamspell-math';
 
 // Internal
+import './styles.css';
+
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) =>  images[item.replace('./', '')] = r(item));

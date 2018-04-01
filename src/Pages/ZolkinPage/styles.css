@@ -12,27 +12,14 @@
   .kin-cell .sign {
     opacity: 0.2; }
     .kin-cell .sign img {
-      display: flex;
-      padding: 0;
-      margin: 0;
-      height: auto;
-      max-height: 100%;
-      width: auto;
-      max-width: 100%;
-      border-radius: 3px; }
+      margin: 0; }
   .kin-cell .sign-tone {
     position: absolute;
     margin: auto;
     top: 23%;
     opacity: 0.83; }
     .kin-cell .sign-tone img {
-      display: flex;
-      margin: auto;
-      width: 79%;
-      height: auto;
-      max-height: 100%;
-      max-width: 100%;
-      border-radius: 1px; }
+      width: 79%; }
   .kin-cell.selected {
     z-index: 2; }
     .kin-cell.selected.chromatic1, .kin-cell.selected.chromatic1 .sign-tone {

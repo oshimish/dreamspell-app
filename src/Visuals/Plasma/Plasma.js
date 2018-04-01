@@ -1,6 +1,9 @@
 // Vendor
 import React from 'react';
 
+// Internal
+import './styles.css';
+
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) =>  images[item.replace('./', '')] = r(item));
@@ -20,8 +23,8 @@ const plasmas = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/))
 class Plasma extends React.Component {
   // https://goo.gl/g1KBEL
   // eslint-disable-next-line
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   // https://goo.gl/HBJp32

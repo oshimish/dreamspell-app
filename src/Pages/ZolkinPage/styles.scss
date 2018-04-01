@@ -18,14 +18,7 @@ $cellSize : 2.2em;
   .sign {
     opacity: 0.2;
     img {
-      display: flex;
-      padding: 0;
       margin: 0;
-      height: auto;
-      max-height: 100%;
-      width: auto;
-      max-width: 100%;
-      border-radius: 3px;
     }
   }
   .sign-tone {
@@ -34,15 +27,8 @@ $cellSize : 2.2em;
     top: 23%;
     opacity: 0.83;
     img {
-      display: flex;
-      margin: auto;
       width: 79%;
-      height: auto;
-      max-height: 100%;
-      max-width: 100%;
-      border-radius: 1px;
     }
-
     
   }
   @mixin sel_shadow($color){

@@ -1,3 +1,11 @@
 .sign-tone {
-  border: 1px solid #ccc;
+
+  img {
+    display: flex;
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 1px;
+  }
 }

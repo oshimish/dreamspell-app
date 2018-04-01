@@ -1,2 +1,9 @@
 .plasma {
-  border: 1px solid #ccc; }
+  height: 50%; }
+  .plasma img {
+    display: flex;
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 1px; }

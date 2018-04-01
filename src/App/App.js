@@ -76,7 +76,7 @@ class App extends Component {
                         <Route exact path="/plasma" key={location.key} render={(props) => <PlasmaPage dsdate={gdate} {...props} />} />
                         <Route exact path="/oracle" key={location.key} render={(props) => <OraclePage kin={gdate.Kin} {...props} />} />
                         <Route exact path="/zolkin" key={location.key} render={(props) => <ZolkinPage kin={gdate.Kin} {...props}  />} />
-                        <Route exact path="/moon" key={location.key} render={(props) => <MoonPage kin={gdate} {...props} />} />
+                        <Route exact path="/moon" key={location.key} render={(props) => <MoonPage gdate={gdate} {...props} />} />
                         <Route render={() => <div>Not Found</div>} />
                       </Switch>
                     </CSSTransitionGroup>
