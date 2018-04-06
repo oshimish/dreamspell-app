@@ -15,10 +15,10 @@ class PlasmaPage extends React.Component {
 
   render() {
     let date = g.dreamdate(this.props.dsdate);
-    this.tt = (key, opt) => i18n.t('plasmas:plasma'+date.Plasma+key, opt);
+    this.tt = (key, opt) => i18n.t('plasmas:plasma'+date.plasma+key, opt);
     return (
       <div className="plasma-page">
-        <div className="kin-view-plasma"><Plasma plasma={ date.Plasma } /></div>
+        <div className="kin-view-plasma"><Plasma plasma={ date.plasma } /></div>
         <h2>{i18n.t('plasmas:name')} {this.tt('.title')}</h2>        
         <p className="about">
           {this.tt('.about', { joinArrays: '\n', interpolation: { escapeValue: false } })}

@@ -18,7 +18,7 @@ class SignPage extends React.Component {
 
   render() {
     let kin = g.kin(this.props.kin);
-    let num = kin.Sign.Number;
+    let num = kin.sign.number;
     this.tt = (key, opt) => i18n.t('signs:sign'+num+key, opt);
 
     return (

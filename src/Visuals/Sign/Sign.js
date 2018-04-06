@@ -23,7 +23,7 @@ class Sign extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     var sign = g.sign(this.props.sign);
-    var num = sign.Number;
+    var num = sign.number;
     if(num === 20) {
       num = 0;
     }

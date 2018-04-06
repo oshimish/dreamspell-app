@@ -25,7 +25,7 @@ class SignTone extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     let tone = g.tone(this.props.tone);
-    let num = tone.Number;
+    let num = tone.number;
     return (
       <div className="sign-tone" >
         <img src={tones['tone' + num + '.png']} alt={'Tone ' + num }></img>

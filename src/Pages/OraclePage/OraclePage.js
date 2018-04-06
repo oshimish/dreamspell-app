@@ -20,7 +20,7 @@ class OraclePage extends React.Component {
   // https://goo.gl/HBJp32
   render() {
     const kin = g.kin(this.props.kin);
-    const oracle = kin.Oracle();
+    const oracle = kin.getOracle();
     return (
       <div className="oracle-view">
         <h2>Крест Оракула</h2>
@@ -28,15 +28,15 @@ class OraclePage extends React.Component {
           <tbody>
             <tr>
               <td></td>
-              <td><Kin kin={oracle.Driver.Index} /></td>
+              <td><Kin kin={oracle.driver.number} /></td>
               <td></td>
             </tr><tr>
-              <td><Kin kin={oracle.Antipod.Index} /></td>
-              <td><Kin kin={kin.Index} /></td>
-              <td><Kin kin={oracle.Analog.Index} /></td>
+              <td><Kin kin={oracle.antipod.number} /></td>
+              <td><Kin kin={kin.number} /></td>
+              <td><Kin kin={oracle.analog.number} /></td>
             </tr><tr>
               <td></td>
-              <td><Kin kin={oracle.Occult.Index} /></td>
+              <td><Kin kin={oracle.occult.number} /></td>
               <td></td>
             </tr>
           </tbody>

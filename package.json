@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "arrow-keys-react": "^1.0.6",
-    "dreamspell-math": "0.0.10",
+    "dreamspell-math": "^0.1.0",
     "i18next": "^10.6.0",
     "i18next-xhr-backend": "^1.5.1",
     "moment": "^2.21.0",

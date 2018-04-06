@@ -24,8 +24,8 @@ class Kin extends React.Component {
     let kin = g.kin(this.props.kin);
     return (
       <div className="kin">
-        <SignTone tone={ kin.Tone.Number } />
-        <Sign sign={ kin.Sign.Number } />
+        <SignTone tone={ kin.tone.number } />
+        <Sign sign={ kin.sign.number } />
       </div>
     );
   }

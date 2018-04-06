@@ -18,7 +18,7 @@ class TonePage extends React.Component {
 
   render() {
     let kin = g.kin(this.props.kin);
-    let num = kin.Tone.Number;
+    let num = kin.tone.number;
     this.tt = (key, opt) => i18n.t('tones:tone'+num+key, opt);
     return (
       <div className="tone-page">

@@ -13,25 +13,25 @@ for (let index = 0; index < 260; index++) {
   let k = g.kin(index+1);      
   kins[index] = k;     
 
-  k.row = k.ZolkinRow;
-  k.col = k.ZolkinColumn;
+  k.row = k.zolkinRow;
+  k.col = k.zolkinColumn;
 }
 
-var selStyle = (props) => (props.kin.Index === props.selected.Index ? ' selected' : '');
-var portalStyle = (props) => (props.kin.IsGalacticPortal ? ' portal' : '');
-var mysticStyle = (props) => (props.kin.IsMysticColumn ? ' mystic' : '');
+var selStyle = (props) => (props.kin.number === props.selected.number ? ' selected' : '');
+var portalStyle = (props) => (props.kin.isGalacticPortal ? ' portal' : '');
+var mysticStyle = (props) => (props.kin.isMysticColumn ? ' mystic' : '');
 
 const KinCell = (props) => (     
-  <div className={'kin-cell chromatic' + props.kin.Chromatic + selStyle(props) + portalStyle(props) + mysticStyle(props)  }          
+  <div className={'kin-cell chromatic' + props.kin.color + selStyle(props) + portalStyle(props) + mysticStyle(props)  }          
     style={{ gridRow: props.row, gridColumn: props.col }}>
-    <SignTone tone={props.kin.Tone} />
-    <Sign sign={props.kin.Sign} />
+    <SignTone tone={props.kin.tone} />
+    <Sign sign={props.kin.sign} />
   </div>
 );
 
 const ZGrid = (props) => (
   <div className='zolkin-grid-container'>
-    { kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col} key={kin.Index} {...props} /> ) }
+    { kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col} key={kin.number} {...props} /> ) }
   </div>
 );
 
