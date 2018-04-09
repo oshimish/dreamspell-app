@@ -17,6 +17,7 @@ import PlasmaPage from 'Pages/PlasmaPage/PlasmaPage';
 import OraclePage from 'Pages/OraclePage/OraclePage';
 import MoonPage from 'Pages/MoonPage/MoonPage';
 import ZolkinPage from 'Pages/ZolkinPage/ZolkinPage';
+import WaveSpellPage from 'Pages/WaveSpellPage/WaveSpellPage';
 
 class App extends Component {
 
@@ -119,6 +120,11 @@ class App extends Component {
                           path="/moon"
                           key={location.key}
                           render={(props) => <MoonPage gdate={gdate} {...props}/>}/>
+                        <Route
+                          exact
+                          path="/wavespell"
+                          key={location.key}
+                          render={(props) => <WaveSpellPage gdate={gdate} {...props}/>}/>
                         <Route render={() => <div>Not Found</div>}/>
                       </Switch>
                     </CSSTransitionGroup>

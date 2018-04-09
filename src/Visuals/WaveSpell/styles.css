@@ -1,2 +1,6 @@
 .wave-spell {
-  border: 1px solid #ccc; }
+  display: grid;
+  grid-gap: 3px; }
+
+.wave-cell {
+  margin-right: 10px; }

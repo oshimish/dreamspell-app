@@ -56,6 +56,9 @@ class TopHeader extends React.Component {
             <li>
               <Link to="/moon">Луна</Link>
             </li>
+            <li>
+              <Link to="/wavespell">Волновой модуль</Link>
+            </li>
           </ul>
         </div>
         <div className="right-menu">
@@ -64,11 +67,11 @@ class TopHeader extends React.Component {
               <Link to="/">&lt;&lt;</Link>
             </li> */}
             <li>
-              <DayPicker 
+              {/* <DayPicker 
                 selectedDays={selectedDay} 
                 onDayClick={this.handleDayClick} 
                 localeUtils={MomentLocaleUtils} 
-                locale="ru" />                
+                locale="ru" />                 */}
             </li>          
             {/* <li>
               <Link to="/sign">&gt;&gt;</Link>

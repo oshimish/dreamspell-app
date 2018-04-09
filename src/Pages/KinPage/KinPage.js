@@ -1,6 +1,6 @@
 // Vendor
 import React from 'react';
-import {Kin, Plasma, SignTone} from 'Visuals/visuals';
+import {Kin, Plasma} from 'Visuals/visuals';
 import * as g from 'dreamspell-math';
 // Internal Setup
 
