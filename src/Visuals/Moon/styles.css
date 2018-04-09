@@ -1,0 +1,42 @@
+.moon {
+  border: 1px solid #ccc; }
+
+.moon-grid {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: auto repeat(5, auto);
+  grid-gap: 3px;
+  grid-auto-rows: auto minmax(100px, auto);
+  grid-auto-columns: minmax(100px, auto); }
+  .moon-grid .day-cell {
+    margin: 1px;
+    padding: 3px; }
+    .moon-grid .day-cell .num {
+      float: left;
+      width: 28%;
+      font-size: 1em;
+      text-align: left;
+      margin-right: 1px; }
+    .moon-grid .day-cell .kin {
+      float: right;
+      width: 64%;
+      margin-right: 2px;
+      margin-bottom: 2px; }
+    .moon-grid .day-cell.selected {
+      z-index: 2; }
+      .moon-grid .day-cell.selected.chromatic1 .kin {
+        background-color: red;
+        box-shadow: 1px 0px 10px 7px red; }
+      .moon-grid .day-cell.selected.chromatic2 .kin {
+        background-color: white;
+        box-shadow: 1px 0px 10px 7px white; }
+      .moon-grid .day-cell.selected.chromatic3 .kin {
+        background-color: blue;
+        box-shadow: 1px 0px 10px 7px blue; }
+      .moon-grid .day-cell.selected.chromatic4 .kin {
+        background-color: yellow;
+        box-shadow: 1px 0px 10px 7px yellow; }
+  .moon-grid .plasma-cell .plasma {
+    width: 50%;
+    text-align: center;
+    margin: 10px auto; }

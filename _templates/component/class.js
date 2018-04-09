@@ -1,7 +1,9 @@
 // Vendor
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Internal
+import './styles.css';
 
 // Setup
 
@@ -10,7 +12,6 @@ import React from 'react';
  * @description Brief description
  */
 class <%= name %> extends React.Component {
-  // https://goo.gl/g1KBEL
   constructor(props) {
     super(props);
 
@@ -22,14 +23,10 @@ class <%= name %> extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  /**
-   * Just a sample click event
-   */
   onClick() {
     console.log('- onClick event', this.state);
   }
 
-  // https://goo.gl/HBJp32
   render() {
     return (
       <div className="<%= slug %>"

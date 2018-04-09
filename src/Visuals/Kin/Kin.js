@@ -14,18 +14,17 @@ import './styles.css';
  * @description Brief description
  */
 class Kin extends React.Component {
-  // https://goo.gl/g1KBEL
+
   constructor(props) {
     super(props);
   }
 
-  // https://goo.gl/HBJp32
   render() {
     let kin = g.kin(this.props.kin);
     return (
       <div className="kin">
-        <SignTone tone={ kin.tone.number } />
-        <Sign sign={ kin.sign.number } />
+        <SignTone tone={kin.tone.number}/>
+        <Sign sign={kin.sign.number}/>
       </div>
     );
   }

@@ -7,7 +7,9 @@ import './styles.css';
 
 function importAll(r) {
   let images = {};
-  r.keys().map((item, index) =>  images[item.replace('./', '')] = r(item));
+  r
+    .keys()
+    .map((item, index) => images[item.replace('./', '')] = r(item));
   return images;
 }
 
@@ -20,16 +22,16 @@ const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
  * @description Brief description
  */
 class Sign extends React.Component {
-  // https://goo.gl/HBJp32
+
   render() {
     var sign = g.sign(this.props.sign);
     var num = sign.number;
-    if(num === 20) {
+    if (num === 20) {
       num = 0;
     }
     return (
       <div className="sign">
-        <img src={signs[num + 'y.png']} alt={'Sign ' + sign }></img>
+        <img src={signs[num + 'y.png']} alt={'Sign ' + sign}></img>
       </div>
     );
   }

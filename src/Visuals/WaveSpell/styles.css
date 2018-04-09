@@ -1,6 +1,3 @@
 .wave-spell {
   display: grid;
   grid-gap: 3px; }
-
-.wave-cell {
-  margin-right: 10px; }

@@ -35,23 +35,36 @@ function getCell(tone)  {
 
 
 for (let index = 0; index < 13; index++) {
-  var tone = g.tone(index); 
+  var tone = g.tone(index+1); 
   tone.cell = getCell(tone);
   TONES[index] = tone;
 }
 
 function Item(props) {
-  return <div className={'wave-cell tone-cell-' & props.tone.number}
+  return <div className={'wave-cell tone-cell-' + props.tone.number}
     style={{ gridRow: props.tone.cell.row, gridColumn: props.tone.cell.col }} >
     {props.render(props)}
   </div>;
 }
 
+/**
+ * @class WaveSpell
+ * @description Wavespell visual
+ */
 class WaveSpell extends React.Component {
   render() {
+    let i = this.props.from;
+    let iterator = this.props.iterator;
     return (
       <div className="wave-spell">
-        {TONES.map((t) => <Item key={t} tone={t} {...this.props} />)}        
+        {TONES.map((t) => {
+          const item = (
+            <Item key={t} tone={t} {...this.props} i={i} />
+          );
+          i = iterator(i);
+          return item;
+        })
+        }        
       </div>
     );
   }
@@ -59,6 +72,8 @@ class WaveSpell extends React.Component {
 
 // Enforce required properies or methods
 WaveSpell.propTypes = {
+  from: PropTypes.any.isRequired,
+  iterator: PropTypes.func.isRequired,
   render: PropTypes.func.isRequired
 };
 

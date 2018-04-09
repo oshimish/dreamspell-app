@@ -1,3 +1,28 @@
 .year-page {
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
+
+  .moon-grid .day-cell .num{
+    display: none;
+  }
+
+  .plasma-cell {
+    display: none;
+  }
+
+  .moon-grid {
+    grid-gap: 3px;
+    margin: 7px;
+  }
+
+  .moon-grid .day-cell {
+    margin: 0px;
+    padding: 0px; 
+    border: none;
+    border-radius: 1px;
+  }
+
+  .moon-grid .day-cell .kin {
+    margin: 0px;
+    width: 100%;
+  }
 }

@@ -1,0 +1,69 @@
+.moon {
+  border: 1px solid #ccc;
+}
+
+$cellSize : 2.2em;
+
+.moon-grid {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: auto repeat(5, auto);
+  grid-gap: 3px;
+  grid-auto-rows: auto minmax(100px, auto); // justify-items: center;
+  grid-auto-columns: minmax(100px, auto); // justify-items: center;
+
+  .day-cell{
+    margin: 1px;
+    padding: 3px;
+    .num {
+      float: left;
+      width: 28%;
+      font-size: 1em;
+      text-align: left;
+      margin-right: 1px;
+    }
+
+    .kin{
+      float: right;
+      width: 64%;
+      margin-right: 2px;
+      margin-bottom: 2px;
+    }
+
+    @mixin sel_shadow($color){
+      box-shadow: 1px 0px 10px 7px $color
+    }
+  
+    &.selected {
+      // box-shadow: 1px 0px 10px 7px inherit;
+      z-index: 2;
+      &.chromatic1 .kin{
+        background-color: red;
+        @include sel_shadow(red);
+      }
+      
+      &.chromatic2 .kin{
+        background-color: white;
+        @include sel_shadow(white);
+      }
+      
+      &.chromatic3 .kin {
+        background-color: blue;
+        @include sel_shadow(blue);
+      }
+      
+      &.chromatic4 .kin {
+        background-color: yellow;
+        @include sel_shadow(yellow);
+      }
+    }
+  }
+
+  .plasma-cell{
+    .plasma{
+      width: 50%;
+      text-align: center;
+      margin: 10px auto;
+    }
+  }
+}

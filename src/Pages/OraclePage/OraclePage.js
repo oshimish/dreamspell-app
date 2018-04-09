@@ -3,21 +3,18 @@ import React from 'react';
 import {Kin} from 'Visuals/visuals';
 import * as g from 'dreamspell-math';
 import './styles.css';
-// Internal
-
-// Setup
+// Internal Setup
 
 /**
  * @class OraclePage
  * @description Brief description
  */
 class OraclePage extends React.Component {
-  // https://goo.gl/g1KBEL
+
   constructor(props) {
     super(props);
   }
 
-  // https://goo.gl/HBJp32
   render() {
     const kin = g.kin(this.props.kin);
     const oracle = kin.getOracle();
@@ -28,15 +25,17 @@ class OraclePage extends React.Component {
           <tbody>
             <tr>
               <td></td>
-              <td><Kin kin={oracle.driver.number} /></td>
+              <td><Kin kin={oracle.driver.number}/></td>
               <td></td>
-            </tr><tr>
-              <td><Kin kin={oracle.antipod.number} /></td>
-              <td><Kin kin={kin.number} /></td>
-              <td><Kin kin={oracle.analog.number} /></td>
-            </tr><tr>
+            </tr>
+            <tr>
+              <td><Kin kin={oracle.antipod.number}/></td>
+              <td><Kin kin={kin.number}/></td>
+              <td><Kin kin={oracle.analog.number}/></td>
+            </tr>
+            <tr>
               <td></td>
-              <td><Kin kin={oracle.occult.number} /></td>
+              <td><Kin kin={oracle.occult.number}/></td>
               <td></td>
             </tr>
           </tbody>

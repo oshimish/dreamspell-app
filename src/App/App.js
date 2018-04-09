@@ -18,6 +18,7 @@ import OraclePage from 'Pages/OraclePage/OraclePage';
 import MoonPage from 'Pages/MoonPage/MoonPage';
 import ZolkinPage from 'Pages/ZolkinPage/ZolkinPage';
 import WaveSpellPage from 'Pages/WaveSpellPage/WaveSpellPage';
+import YearPage from 'Pages/YearPage/YearPage';
 
 class App extends Component {
 
@@ -125,6 +126,11 @@ class App extends Component {
                           path="/wavespell"
                           key={location.key}
                           render={(props) => <WaveSpellPage gdate={gdate} {...props}/>}/>
+                        <Route
+                          exact
+                          path="/year"
+                          key={location.key}
+                          render={(props) => <YearPage gdate={gdate} {...props}/>}/>
                         <Route render={() => <div>Not Found</div>}/>
                       </Switch>
                     </CSSTransitionGroup>
