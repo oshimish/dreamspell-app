@@ -33,7 +33,7 @@ class WaveSpellPage extends React.Component {
     const selKin = this.props.gdate.kin;
     const selDate = this.props.gdate;
     // todo: add getWavespell to math
-    let wavespellStart = selDate.moment.clone().add(-selKin.tone.number-1, 'd');
+    let wavespellStart = selDate.moment.clone().add(-selKin.tone.number, 'd');
     return (
       <div className="wave-spell-page"
         onClick={ this.onClick }>
