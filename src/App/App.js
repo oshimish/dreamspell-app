@@ -19,6 +19,7 @@ import MoonPage from 'Pages/MoonPage/MoonPage';
 import ZolkinPage from 'Pages/ZolkinPage/ZolkinPage';
 import WaveSpellPage from 'Pages/WaveSpellPage/WaveSpellPage';
 import YearPage from 'Pages/YearPage/YearPage';
+import JourneyPage from 'Pages/JourneyPage/JourneyPage';
 
 class App extends Component {
 
@@ -126,6 +127,12 @@ class App extends Component {
                           path="/wavespell"
                           key={location.key}
                           render={(props) => <WaveSpellPage gdate={gdate} {...props}/>}/>
+                          render={(props) => <MoonPage gdate={gdate} {...props}/>}/>
+                        <Route
+                          exact
+                          path="/journey"
+                          key={location.key}
+                          render={(props) => <JourneyPage gdate={gdate} {...props}/>}/>
                         <Route
                           exact
                           path="/year"

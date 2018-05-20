@@ -70,6 +70,9 @@ class TopHeader extends React.Component {
               <Link to="/wavespell">Волновой модуль</Link>
             </li>
             <li>
+              <Link to="/journey">Путешествие</Link>
+            </li>
+            <li>
               <Link to="/year">Год</Link>
             </li>
           </ul>
