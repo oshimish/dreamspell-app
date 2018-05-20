@@ -20,6 +20,8 @@ import ZolkinPage from 'Pages/ZolkinPage/ZolkinPage';
 import WaveSpellPage from 'Pages/WaveSpellPage/WaveSpellPage';
 import YearPage from 'Pages/YearPage/YearPage';
 import JourneyPage from 'Pages/JourneyPage/JourneyPage';
+import RightSideBar from 'Components/RightSideBar/RightSideBar';
+import LeftSideBar from 'Components/LeftSideBar/LeftSideBar';
 
 class App extends Component {
 
@@ -77,8 +79,13 @@ class App extends Component {
             render={({location}) => {
               return (
                 <section className="screen">
-                  <TopHeader moment={this.state.date} onDateChange={this.handleDateChange}/>
-                  <div className="center_block">
+                  <div className="header-block" >
+                    <TopHeader/>
+                  </div>
+                  <div className="left-block" >
+                    <LeftSideBar />
+                  </div>
+                  <div className="center-block">
                     <CSSTransitionGroup
                       key={location.key}
                       transitionName="fade"
@@ -143,6 +150,9 @@ class App extends Component {
                     </CSSTransitionGroup>
                   </div>
                   {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
+                  <div className="right-block" >
+                    <RightSideBar moment={this.state.date} onDateChange={this.handleDateChange}/>
+                  </div>
                 </section>
               );
             }}/>
