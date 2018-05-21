@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
+
 import 'react-day-picker/lib/style.css';
 import * as moment from 'moment';
 
@@ -16,19 +17,20 @@ import 'moment/locale/ru';
 
 // Internal
 import './styles.css';
-import DateInput from '../DateInput/DateInput';
 
 // Setup
 
 /**
- * @class RightSideBar
+ * @class DateInput
  * @description Brief description
  */
-class RightSideBar extends React.Component {
+class DateInput extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {};
+
 
     // Chance to bind anything we need to.
     this.handleDayClick = this
@@ -53,24 +55,18 @@ class RightSideBar extends React.Component {
       .moment
       .toDate();
     return (
-      <div className="right-side-bar"
+      <div className="date-input"
         onClick={ this.onClick }>
-        <DateInput onDayChange={this.handleDayClick} {...this.props} />
+        <DayPickerInput onDayChange={this.handleDayClick} value={selectedDay} />
 
-        <DayPicker
-          selectedDays={selectedDay}
-          onDayClick={this.handleDayClick}
-          localeUtils={MomentLocaleUtils}
-          
-          locale="ru" />  
       </div>
     );
   }
 }
 
 // Enforce required properies or methods
-RightSideBar.propTypes = {
+DateInput.propTypes = {
   // active: React.PropTypes.bool.isRequired
 };
 
-export default RightSideBar;
+export default DateInput;
