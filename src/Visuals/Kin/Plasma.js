@@ -12,7 +12,7 @@ function importAll(r) {
   return images;
 }
 
-const plasmas = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+const plasmas = importAll(require.context('./plasmas', false, /\.(png|jpe?g|svg)$/));
 
 // Internal Setup
 
@@ -20,10 +20,10 @@ const plasmas = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/))
  * @class Plasma
  * @description Brief description
  */
-class Plasma extends React.Component {
+export class Plasma extends React.Component {
 
   // eslint-disable-next-line
-    constructor(props) {
+  constructor(props) {
     super(props);
   }
 

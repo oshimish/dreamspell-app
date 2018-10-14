@@ -5,8 +5,8 @@ import * as g from 'dreamspell-math';
 
 // Internal
 import './styles.css';
-import * as Visuals from 'Visuals/visuals';
- 
+import * as Visuals from 'Visuals';
+
 // Setup
 
 /**
@@ -19,7 +19,7 @@ class WaveSpellPage extends React.Component {
 
     this.state = {
       open: false
-    }; 
+    };
 
     // Chance to bind anything we need to.
     this.onClick = this.onClick.bind(this);
@@ -36,14 +36,14 @@ class WaveSpellPage extends React.Component {
     let wavespellStart = selDate.moment.clone().add(-selKin.tone.number, 'd');
     return (
       <div className="wave-spell-page"
-        onClick={ this.onClick }>
+        onClick={this.onClick}>
         <h2>Волновой Модуль</h2>
 
-        <Visuals.WaveSpell from={wavespellStart} 
-          iterator={(moment)=>  moment.add(1,'d').clone()} 
-          render={props => (            
+        <Visuals.WaveSpell from={wavespellStart}
+          iterator={(moment) => moment.add(1, 'd').clone()}
+          render={props => (
             // <SignTone {...this.props} tone={props.tone} />
-            <Visuals.Kin kin={g.dreamdate(props.i).kin}  />
+            <Visuals.Kin kin={g.dreamdate(props.i).kin} />
           )} />
       </div>
     );

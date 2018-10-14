@@ -13,7 +13,7 @@ function importAll(r) {
   return images;
 }
 
-const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/));
 
 // Setup
 
@@ -21,7 +21,7 @@ const signs = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
  * @class Sign
  * @description Brief description
  */
-class Sign extends React.Component {
+export class Sign extends React.Component {
 
   render() {
     var sign = g.sign(this.props.sign);

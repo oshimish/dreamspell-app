@@ -1,6 +1,6 @@
 // Vendor
 import React from 'react';
-import {Sign} from 'Visuals/visuals';
+import { Sign } from 'Visuals';
 import * as g from 'dreamspell-math';
 
 // Internal Import a pre-configured instance of i18next
@@ -21,10 +21,10 @@ class SignPage extends React.Component {
 
     return (
       <div className="sign-page">
-        <Sign sign={num}/>
+        <Sign sign={num} />
         <h2 className="title">
           {num}. {this.tt('.title')}
-                    ({this.tt('.maya_name')})
+          ({this.tt('.maya_name')})
         </h2>
         <p className="info">{this.tt('.info')}</p>
         <p className="about">

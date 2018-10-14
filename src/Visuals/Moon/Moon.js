@@ -5,8 +5,7 @@ import * as g from 'dreamspell-math';
 
 // Internal
 import './styles.css';
-import Kin from 'Visuals/Kin/Kin';
-import Plasma  from 'Visuals/Plasma/Plasma';
+import { Plasma, Kin } from '../Kin';
 
 // Setup
 var selStyle = (props) => (props.gday.selected
@@ -30,7 +29,7 @@ const MoonDay = (props) => (
 
     <div className='num'>{props.gday.day}</div>
 
-    <Kin kin={props.gday.kin}/> {/* <p>{props.gday.Moment.format('L')}</p> */}
+    <Kin kin={props.gday.kin} /> {/* <p>{props.gday.Moment.format('L')}</p> */}
   </div>
 );
 const PlasmaHead = (props) => (
@@ -40,7 +39,7 @@ const PlasmaHead = (props) => (
       gridRow: 1,
       gridColumn: props.gday.col
     }}>
-    <Plasma plasma={props.gday.plasma}/>
+    <Plasma plasma={props.gday.plasma} />
   </div>
 );
 
@@ -48,7 +47,7 @@ const PlasmaHead = (props) => (
  * @class Moon
  * @description Brief description
  */
-class Moon extends React.Component {
+export class Moon extends React.Component {
   constructor(props) {
     super(props);
 
@@ -82,8 +81,8 @@ class Moon extends React.Component {
 
     return (
       <div className="moon-grid">
-        {moonDays.filter((val, i) => i < 7).map(gday => <PlasmaHead gday={gday} key={gday.dayOfYear} {...props}/>)}
-        {moonDays.map(gday => <MoonDay gday={gday} row={gday.row} col={gday.col} key={gday.dayOfYear} {...props}/>)}
+        {moonDays.filter((val, i) => i < 7).map(gday => <PlasmaHead gday={gday} key={gday.dayOfYear} {...props} />)}
+        {moonDays.map(gday => <MoonDay gday={gday} row={gday.row} col={gday.col} key={gday.dayOfYear} {...props} />)}
       </div>
     );
   }

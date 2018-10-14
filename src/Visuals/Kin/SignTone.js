@@ -2,9 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as g from 'dreamspell-math';
-
-// Internal
-import './styles.css';
+import styled from 'styled-components'
 
 function importAll(r) {
   let images = {};
@@ -14,22 +12,31 @@ function importAll(r) {
   return images;
 }
 
-const tones = importAll(require.context('./img', false, /\.(png|jpe?g|svg)$/));
+const tones = importAll(require.context('./tones', false, /\.(png|jpe?g|svg)$/));
+
+const ToneBox = styled.div`
+`;
+const ToneImage = styled.img`
+  display: flex;
+  margin: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 3px;
+`;
 
 // Setup
-class SignTone extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
+export class SignTone extends React.Component {
 
   render() {
     let tone = g.tone(this.props.tone);
     let num = tone.number;
     return (
-      <div className="sign-tone">
-        <img src={tones['tone' + num + '.png']} alt={'Tone ' + num}></img>
-      </div>
+      <ToneBox>
+        <ToneImage
+          src={tones['tone' + num + '.png']}
+          alt={'Tone ' + num}></ToneImage>
+      </ToneBox>
     );
   }
 }

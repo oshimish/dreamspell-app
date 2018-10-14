@@ -5,7 +5,7 @@ import * as g from 'dreamspell-math';
 
 // Internal
 import './styles.css';
-import * as Visuals from 'Visuals/visuals';
+import * as Visuals from 'Visuals';
 
 // Setup
 
@@ -51,7 +51,7 @@ class YearPage extends React.Component {
           from={wavespellStart}
           iterator={iterator}
           selDay={selDate}
-          render={props => (<Visuals.Moon firstDay={g.dreamdate(props.i)} selDay={props.selDay}/>)}/>
+          render={props => (<Visuals.Moon firstDay={g.dreamdate(props.i)} selDay={props.selDay} />)} />
       </div>
     );
   }

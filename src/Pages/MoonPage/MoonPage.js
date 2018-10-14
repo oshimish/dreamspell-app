@@ -5,7 +5,7 @@ import * as g from 'dreamspell-math';
 
 // Internal import i18n from 'i18n';
 import './styles.css';
-import * as Visuals from 'Visuals/visuals';
+import { Moon } from 'Visuals/Moon/Moon';
 
 // Setup
 class MoonPage extends React.Component {
@@ -16,7 +16,7 @@ class MoonPage extends React.Component {
     return (
       <div className="moon-page">
         <h2>Луна</h2>
-        <Visuals.Moon firstDay={firstDay} selDay={sel_day}/>
+        <Moon firstDay={firstDay} selDay={sel_day} />
       </div>
     );
   }
