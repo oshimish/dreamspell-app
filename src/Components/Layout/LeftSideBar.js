@@ -2,16 +2,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Internal
-import './styles.css';
-
 // Setup
 
 /**
  * @class LeftSideBar
  * @description Brief description
  */
-class LeftSideBar extends React.Component {
+export class LeftSideBar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -30,7 +27,7 @@ class LeftSideBar extends React.Component {
   render() {
     return (
       <div className="left-side-bar"
-        onClick={ this.onClick }>
+        onClick={this.onClick}>
       </div>
     );
   }

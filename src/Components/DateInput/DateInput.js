@@ -17,46 +17,24 @@ import 'moment/locale/ru';
 
 // Internal
 import './styles.css';
+import { subscribe } from 'react-contextual';
 
-// Setup
+export @subscribe class DateInput extends React.Component {
 
-/**
- * @class DateInput
- * @description Brief description
- */
-class DateInput extends React.Component {
-  constructor(props) {
-    super(props);
-
-
-    this.state = {};
-
-
-    // Chance to bind anything we need to.
-    this.handleDayClick = this
-      .handleDayClick
-      .bind(this);
-  }
-
-  handleDayClick(day, {selected}) {
+  handleDayClick = (day, { selected }) => {
     let timeZoneFixedDate = moment({
       year: day.getFullYear(),
       month: day.getMonth(),
       day: day.getDate()
     });
-    this
-      .props
-      .onDateChange(timeZoneFixedDate);
+    this.props.setDate(timeZoneFixedDate);
   }
 
   render() {
-    const selectedDay = this
-      .props
-      .moment
-      .toDate();
+    const selectedDay = this.props.moment.toDate();
     return (
       <div className="date-input"
-        onClick={ this.onClick }>
+        onClick={this.onClick}>
         <DayPickerInput onDayChange={this.handleDayClick} value={selectedDay} />
 
       </div>
@@ -64,7 +42,6 @@ class DateInput extends React.Component {
   }
 }
 
-// Enforce required properies or methods
 DateInput.propTypes = {
   // active: React.PropTypes.bool.isRequired
 };

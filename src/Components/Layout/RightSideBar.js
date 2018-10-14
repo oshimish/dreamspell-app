@@ -15,7 +15,6 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ru';
 
 // Internal
-import './styles.css';
 import DateInput from '../DateInput/DateInput';
 
 // Setup
@@ -24,19 +23,14 @@ import DateInput from '../DateInput/DateInput';
  * @class RightSideBar
  * @description Brief description
  */
-class RightSideBar extends React.Component {
-  constructor(props) {
-    super(props);
+export class RightSideBar extends React.Component {
+  static propTypes = {
+    // active: React.PropTypes.bool.isRequired
+  };
 
-    this.state = {};
+  state = {}
 
-    // Chance to bind anything we need to.
-    this.handleDayClick = this
-      .handleDayClick
-      .bind(this);
-  }
-
-  handleDayClick(day, {selected}) {
+  handleDayClick = (day, { selected }) => {
     let timeZoneFixedDate = moment({
       year: day.getFullYear(),
       month: day.getMonth(),
@@ -48,29 +42,21 @@ class RightSideBar extends React.Component {
   }
 
   render() {
-    const selectedDay = this
-      .props
-      .moment
-      .toDate();
+    const selectedDay = null;//this.props.moment.toDate();
     return (
       <div className="right-side-bar"
-        onClick={ this.onClick }>
+        onClick={this.onClick}>
         <DateInput onDayChange={this.handleDayClick} {...this.props} />
 
         <DayPicker
           selectedDays={selectedDay}
           onDayClick={this.handleDayClick}
           localeUtils={MomentLocaleUtils}
-          
-          locale="ru" />  
+
+          locale="ru" />
       </div>
     );
   }
 }
-
-// Enforce required properies or methods
-RightSideBar.propTypes = {
-  // active: React.PropTypes.bool.isRequired
-};
 
 export default RightSideBar;

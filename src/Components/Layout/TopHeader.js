@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './TopHeader.css';
 
-class TopHeader extends React.Component {
+export class TopHeader extends React.Component {
 
   render() {
     return (
@@ -47,7 +47,7 @@ class TopHeader extends React.Component {
             {/* <li>
               <Link to="/">&lt;&lt;</Link>
             </li> */}
-            <li>              
+            <li>
             </li>
             {/* <li>
               <Link to="/sign">&gt;&gt;</Link>
