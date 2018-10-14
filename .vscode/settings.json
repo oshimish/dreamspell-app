@@ -1,4 +1,5 @@
 {
     "react.beautify.onSave": true,
     "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
 }

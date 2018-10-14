@@ -1,4 +1,4 @@
 .wave-spell-page {
-  width: 44em; }
+  min-width: 28em; }
   .wave-spell-page .wave-cell {
     margin-right: 23px; }

@@ -6,6 +6,8 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import * as g from 'dreamspell-math';
 import moment from 'moment';
 
+import 'bootstrap';
+
 //import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
