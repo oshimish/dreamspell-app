@@ -6,8 +6,10 @@ import * as g from 'dreamspell-math';
 // Internal import i18n from 'i18n';
 import './styles.css';
 import { Moon } from 'Visuals/Moon/Moon';
+import { subscribe } from 'react-contextual';
 
 // Setup
+@subscribe()
 class MoonPage extends React.Component {
 
   render() {

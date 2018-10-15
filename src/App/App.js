@@ -55,6 +55,8 @@ class App extends Component {
                         transitionAppearTimeout={600}>
                         <Switch location={location}>
                           {renderRoutes(routes)}
+
+                          {/* {routes.map(route => <Route {...route} />)} */}
                           <Route render={() => <div>Not Found</div>} />
                         </Switch>
                       </CSSTransitionGroup>

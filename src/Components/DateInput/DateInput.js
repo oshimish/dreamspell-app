@@ -19,7 +19,9 @@ import 'moment/locale/ru';
 import './styles.css';
 import { subscribe } from 'react-contextual';
 
-export @subscribe class DateInput extends React.Component {
+
+@subscribe()
+class DateInput extends React.Component {
 
   handleDayClick = (day, { selected }) => {
     let timeZoneFixedDate = moment({
@@ -46,4 +48,5 @@ DateInput.propTypes = {
   // active: React.PropTypes.bool.isRequired
 };
 
+export { DateInput };
 export default DateInput;

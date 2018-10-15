@@ -8,8 +8,10 @@ import * as g from 'dreamspell-math';
 import i18n from 'i18n';
 
 import './styles.css';
+import { subscribe } from 'react-contextual';
 
 // Setup
+@subscribe()
 class TonePage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class TonePage extends React.Component {
 
 
   render() {
-    let kin = g.kin(this.props.kin);
+    let kin = this.props.gdate.kin;
     let num = kin.tone.number;
     this.tt = (key, opt) => i18n.t('tones:tone' + num + key, opt);
     return (

@@ -3,20 +3,14 @@ import React from 'react';
 import { Kin } from 'Visuals';
 import * as g from 'dreamspell-math';
 import './styles.css';
+import { subscribe } from 'react-contextual';
 // Internal Setup
 
-/**
- * @class OraclePage
- * @description Brief description
- */
+@subscribe()
 class OraclePage extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const kin = g.kin(this.props.kin);
+    const kin = this.props.gdate.kin;
     const oracle = kin.getOracle();
     return (
       <div className="oracle-view">

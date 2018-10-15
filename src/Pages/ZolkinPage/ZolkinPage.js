@@ -5,6 +5,7 @@ import * as g from 'dreamspell-math';
 // Internal
 import { Sign, SignTone } from 'Visuals';
 import './styles.css';
+import { subscribe } from 'react-contextual';
 
 // Setup
 
@@ -34,7 +35,7 @@ const ZGrid = (props) => (
     {kins.map(kin => <KinCell kin={kin} row={kin.row} col={kin.col} key={kin.number} {...props} />)}
   </div>
 );
-
+@subscribe()
 class ZolkinPage extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +45,7 @@ class ZolkinPage extends React.Component {
     return (
       <div className="zolkin-page">
         <h2>Цолькин</h2>
-        <ZGrid selected={g.kin(this.props.kin)} />
+        <ZGrid selected={this.props.gdate.kin} />
       </div>
     );
   }

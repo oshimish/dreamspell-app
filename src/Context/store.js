@@ -14,7 +14,7 @@ const store = {
         const date = state.date.add(1, 'd');
         state.setDate({ date: date });
     },
-    setDate: () => (date) => {
+    setDate: (date) => (state) => {
         var gdate = g.dreamdate(date);
 
         return {

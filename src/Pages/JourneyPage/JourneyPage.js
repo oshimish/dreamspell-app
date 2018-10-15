@@ -1,6 +1,7 @@
 // Vendor
 import React from 'react';
 import PropTypes from 'prop-types';
+import { subscribe } from 'react-contextual';
 
 // Setup
 
@@ -8,6 +9,8 @@ import PropTypes from 'prop-types';
  * @class JourneyPage
  * @description Brief description
  */
+
+@subscribe()
 class JourneyPage extends React.Component {
   constructor(props) {
     super(props);

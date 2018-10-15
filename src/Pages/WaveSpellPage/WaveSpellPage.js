@@ -6,6 +6,7 @@ import * as g from 'dreamspell-math';
 // Internal
 import './styles.css';
 import * as Visuals from 'Visuals';
+import { subscribe } from 'react-contextual';
 
 // Setup
 
@@ -13,6 +14,8 @@ import * as Visuals from 'Visuals';
  * @class WaveSpellPage
  * @description Brief description
  */
+
+@subscribe()
 class WaveSpellPage extends React.Component {
   constructor(props) {
     super(props);

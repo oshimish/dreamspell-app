@@ -2,19 +2,16 @@
 import React from 'react';
 import { Kin, Plasma } from 'Visuals/Kin';
 import * as g from 'dreamspell-math';
-// Internal Setup
+import { subscribe } from 'react-contextual';
 
-/**
- * @class KinPage
- * @description Brief description
- */
+@subscribe()
 class KinPage extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    var dsdate = g.dreamdate(this.props.dsdate);
+    var dsdate = this.props.gdate;
     return (
       <div className="kin-view" onClick={this.onClick}>
         <div className="kin-view-plasma"><Plasma plasma={dsdate.plasma} /></div>

@@ -16,14 +16,12 @@ import 'moment/locale/ru';
 
 // Internal
 import DateInput from '../DateInput/DateInput';
+import { subscribe } from 'react-contextual';
 
 // Setup
 
-/**
- * @class RightSideBar
- * @description Brief description
- */
-export class RightSideBar extends React.Component {
+@subscribe()
+class RightSideBar extends React.Component {
   static propTypes = {
     // active: React.PropTypes.bool.isRequired
   };
@@ -38,7 +36,7 @@ export class RightSideBar extends React.Component {
     });
     this
       .props
-      .onDateChange(timeZoneFixedDate);
+      .setDate(timeZoneFixedDate);
   }
 
   render() {
@@ -52,7 +50,6 @@ export class RightSideBar extends React.Component {
           selectedDays={selectedDay}
           onDayClick={this.handleDayClick}
           localeUtils={MomentLocaleUtils}
-
           locale="ru" />
       </div>
     );

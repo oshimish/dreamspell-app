@@ -6,7 +6,9 @@ import * as g from 'dreamspell-math';
 // Internal
 import i18n from 'i18n';
 import './styles.css';
+import { subscribe } from 'react-contextual';
 
+@subscribe()
 // Setup
 class PlasmaPage extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class PlasmaPage extends React.Component {
   }
 
   render() {
-    let date = g.dreamdate(this.props.dsdate);
+    let date = this.props.gdate;
     this.tt = (key, opt) => i18n.t('plasmas:plasma' + date.plasma + key, opt);
     return (
       <div className="plasma-page">

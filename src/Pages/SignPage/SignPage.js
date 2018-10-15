@@ -6,8 +6,10 @@ import * as g from 'dreamspell-math';
 // Internal Import a pre-configured instance of i18next
 import i18n from 'i18n';
 import './styles.css';
+import { subscribe } from 'react-contextual';
 
 // Setup
+@subscribe()
 class SignPage extends React.Component {
 
   constructor(props) {
@@ -15,7 +17,7 @@ class SignPage extends React.Component {
   }
 
   render() {
-    let kin = g.kin(this.props.kin);
+    let kin = g.kin(this.props.gdate.kin);
     let num = kin.sign.number;
     this.tt = (key, opt) => i18n.t('signs:sign' + num + key, opt);
 

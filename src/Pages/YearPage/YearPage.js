@@ -6,6 +6,7 @@ import * as g from 'dreamspell-math';
 // Internal
 import './styles.css';
 import * as Visuals from 'Visuals';
+import { subscribe } from 'react-contextual';
 
 // Setup
 
@@ -13,6 +14,7 @@ import * as Visuals from 'Visuals';
  * @class YearPage
  * @description Brief description
  */
+@subscribe()
 class YearPage extends React.Component {
 
   constructor(props) {
