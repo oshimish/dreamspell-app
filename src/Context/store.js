@@ -25,13 +25,4 @@ const store = {
     }
 }
 
-ArrowKeysReact.config({
-    left: () => {
-        store.dec();
-    },
-    right: () => {
-        store.inc();
-    }
-});
-
 export default store;

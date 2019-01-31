@@ -1,4 +1,12 @@
 {
-    "eslint.autoFixOnSave": true,
-    "editor.formatOnSave": true,
+  "tslint.alwaysShowStatus": true,
+  "tslint.trace.server": "messages",
+  "editor.formatOnSave": true,
+  "tslint.run": "onType",
+  "tslint.autoFixOnSave": true,
+  "javascript.implicitProjectConfig.checkJs": true,
+  "autoimport.showNotifications": true,
+  "autoimport.higherOrderComponents": "connect|withRouter|subscribe",
+  "autoimport.autoComplete": false,
+  "autoimport.absolute": false
 }

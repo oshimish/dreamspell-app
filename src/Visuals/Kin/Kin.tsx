@@ -10,10 +10,10 @@ import * as g from 'dreamspell-math';
  * @class Kin
  * @description Brief description
  */
-export class Kin extends React.Component {
+export class Kin extends React.Component<{ kin: g.Kin }> {
 
   render() {
-    let kin = g.kin(this.props.kin);
+    let kin = this.props.kin;
     return (
       <div className="kin">
         <SignTone tone={kin.tone.number} />
@@ -22,10 +22,5 @@ export class Kin extends React.Component {
     );
   }
 }
-
-// Enforce required properies or methods
-Kin.propTypes = {
-  // kin: React.PropTypes.bool.isRequired
-};
 
 export default Kin;

@@ -16,35 +16,18 @@ import 'moment/locale/ru';
 
 // Internal
 import DateInput from '../DateInput/DateInput';
-import { subscribe } from 'react-contextual';
-
 // Setup
 
-@subscribe()
 class RightSideBar extends React.Component {
-  static propTypes = {
-    // active: React.PropTypes.bool.isRequired
-  };
 
   state = {}
 
-  handleDayClick = (day, { selected }) => {
-    let timeZoneFixedDate = moment({
-      year: day.getFullYear(),
-      month: day.getMonth(),
-      day: day.getDate()
-    });
-    this
-      .props
-      .setDate(timeZoneFixedDate);
-  }
 
   render() {
     const selectedDay = null;//this.props.moment.toDate();
     return (
-      <div className="right-side-bar"
-        onClick={this.onClick}>
-        <DateInput onDayChange={this.handleDayClick} {...this.props} />
+      <div className="right-side-bar">
+        <DateInput {...this.props} />
 
         <DayPicker
           selectedDays={selectedDay}

@@ -9,7 +9,7 @@ import 'bootstrap';
 import routes from 'routes'
 import { renderRoutes } from 'react-router-config'
 
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
 
@@ -17,6 +17,19 @@ import { RightSideBar, LeftSideBar, TopHeader } from 'Components';
 import store from './../Context/store';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    ArrowKeysReact.config({
+      left: () => {
+        store.dec();
+      },
+      right: () => {
+        store.inc();
+      }
+    });
+  }
 
   componentDidMount() {
     this

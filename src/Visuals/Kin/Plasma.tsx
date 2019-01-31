@@ -38,9 +38,4 @@ export class Plasma extends React.Component {
   }
 }
 
-// Enforce required properies or methods
-Plasma.propTypes = {
-  // active: React.PropTypes.bool.isRequired
-};
-
 export default Plasma;
