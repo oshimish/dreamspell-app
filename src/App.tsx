@@ -4,7 +4,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import ArrowKeysReact from 'arrow-keys-react';
 import { TransitionGroup } from 'react-transition-group';
 
-import routes from './routes';
+import KinPage from './Pages/KinPage/KinPage';
+import SignPage from './Pages/SignPage/SignPage';
+import TonePage from './Pages/TonePage/TonePage';
+import PlasmaPage from './Pages/PlasmaPage/PlasmaPage';
+import OraclePage from './Pages/OraclePage/OraclePage';
+import MoonPage from './Pages/MoonPage/MoonPage';
+import ZolkinPage from './Pages/ZolkinPage/ZolkinPage';
+import WaveSpellPage from './Pages/WaveSpellPage/WaveSpellPage';
+import YearPage from './Pages/YearPage/YearPage';
+import JourneyPage from './Pages/JourneyPage/JourneyPage';
 
 import logo from './logo.svg';
 import './App.css';
@@ -67,9 +76,16 @@ class App extends Component {
                             transitionAppearTimeout={600}>
                             <Switch location={location}>
 
-                              {routes.map((r) => <Route key={r.path} path={r.path} exact={r.exact} component={r.component} gdate={context && context.gdate} />)}
+                              <Route exact={true} path="/" render={() => <KinPage gdate={context!.gdate} />} />
+                              <Route path="/tone" render={() => <TonePage gdate={context!.gdate} />} />
+                              <Route path="/sign" render={() => <SignPage gdate={context!.gdate} />} />
+                              <Route path="/plasma" render={() => <PlasmaPage gdate={context!.gdate} />} />
+                              <Route path="/oracle" render={() => <OraclePage gdate={context!.gdate} />} />
+                              <Route path="/zolkin" render={() => <ZolkinPage gdate={context!.gdate} />} />
+                              <Route path="/moon" render={() => <MoonPage gdate={context!.gdate} />} />
+                              <Route path="/journey" render={() => <JourneyPage />} />
+                              <Route path="/year" render={() => <YearPage gdate={context!.gdate} />} />
 
-                              {/* {routes.map(route => <Route {...route} />)} */}
                               <Route render={() => <div>Not Found</div>} />
                             </Switch>
                           </TransitionGroup>
