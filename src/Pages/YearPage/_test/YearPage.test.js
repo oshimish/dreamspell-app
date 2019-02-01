@@ -1,6 +1,6 @@
 // Vendor
 import React from 'react';
-import td from 'testdouble';
+
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 

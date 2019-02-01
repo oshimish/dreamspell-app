@@ -67,7 +67,7 @@ class App extends Component {
                             transitionAppearTimeout={600}>
                             <Switch location={location}>
 
-                              {routes.map((r) => <Route path={r.path} exact={r.exact} component={r.component} gdate={context && context.gdate} />)}
+                              {routes.map((r) => <Route key={r.path} path={r.path} exact={r.exact} component={r.component} gdate={context && context.gdate} />)}
 
                               {/* {routes.map(route => <Route {...route} />)} */}
                               <Route render={() => <div>Not Found</div>} />

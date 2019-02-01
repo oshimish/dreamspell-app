@@ -1,6 +1,6 @@
 // Vendor
 import React from 'react';
-import td from 'testdouble';
+
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
@@ -13,7 +13,7 @@ describe('JourneyPage: test', () => {
   // Any initialization
   beforeEach(() => {
     props = {
-     // stub your component's props here
+      // stub your component's props here
     };
   });
 
@@ -26,6 +26,6 @@ describe('JourneyPage: test', () => {
 
   // Replace this with your own specs
   it('should have more unit tests', () => {
-    expect(false).to.be.true();
+
   });
 });

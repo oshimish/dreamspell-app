@@ -23,6 +23,7 @@
   "peerDependencies": {},
   "devDependencies": {
     "@craco/craco": "^3.4.1",
+    "@types/chai": "^4.1.7",
     "@types/enzyme": "^3.1.16",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/i18next-xhr-backend": "^1.4.1",
@@ -37,6 +38,7 @@
     "@types/react-transition-group": "^2.0.15",
     "@types/styled-components": "^4.1.7",
     "@types/webpack-env": "^1.13.7",
+    "chai": "^4.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "enzyme-to-json": "^3.3.5",
