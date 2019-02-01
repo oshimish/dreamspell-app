@@ -26,7 +26,7 @@ const ToneImage = styled.img`
 `;
 
 // Setup
-export class SignTone extends React.Component<{ tone: g.Tone }> {
+export class SignTone extends React.PureComponent<{ tone: g.Tone }> {
 
   render() {
     let tone = this.props.tone;

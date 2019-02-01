@@ -21,7 +21,7 @@ const signs = importAll(requireContext('./signs', false, /\.(png|jpe?g|svg)$/)) 
  * @class Sign
  * @description Brief description
  */
-export class Sign extends React.Component<{
+export class Sign extends React.PureComponent<{
   sign: g.Sign;
 }> {
 

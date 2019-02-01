@@ -5,6 +5,7 @@ import * as g from 'dreamspell-math';
 // Internal
 import { Sign, SignTone } from '../../Visuals';
 import './styles.css';
+import styled from 'styled-components';
 // Setup
 
 let kins = new Array(260);
@@ -16,6 +17,10 @@ for (let index = 0; index < 260; index++) {
 var selStyle = (props: { kin: g.Kin, selected?: boolean }) => (props.selected ? ' selected' : '');
 var portalStyle = (props: { kin: g.Kin }) => (props.kin.isGalacticPortal ? ' portal' : '');
 var mysticStyle = (props: { kin: g.Kin }) => (props.kin.isMysticColumn ? ' mystic' : '');
+
+const KinCellDiv = styled.div<{ kin: g.Kin }>`
+  
+`
 
 const KinCell = (props: { kin: g.Kin, selected?: boolean }) => (
   <div className={'kin-cell chromatic' + props.kin.color + selStyle(props) + portalStyle(props) + mysticStyle(props)}

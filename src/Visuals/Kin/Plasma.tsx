@@ -21,7 +21,7 @@ const plasmas = importAll(requireContext('./plasmas', false, /\.(png|jpe?g|svg)$
  * @class Plasma
  * @description Brief description
  */
-export class Plasma extends React.Component<{
+export class Plasma extends React.PureComponent<{
   plasma: number
 }> {
 

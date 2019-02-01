@@ -10,7 +10,7 @@ import * as g from 'dreamspell-math';
  * @class Kin
  * @description Brief description
  */
-export class Kin extends React.Component<{ kin: g.Kin }> {
+export class Kin extends React.PureComponent<{ kin: g.Kin }> {
 
   render() {
     let kin = this.props.kin;

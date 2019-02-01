@@ -83,6 +83,7 @@ class App extends Component {
                               <Route path="/oracle" render={() => <OraclePage gdate={context!.gdate} />} />
                               <Route path="/zolkin" render={() => <ZolkinPage gdate={context!.gdate} />} />
                               <Route path="/moon" render={() => <MoonPage gdate={context!.gdate} />} />
+                              <Route path="/wavespell" render={() => <WaveSpellPage gdate={context!.gdate} />} />
                               <Route path="/journey" render={() => <JourneyPage />} />
                               <Route path="/year" render={() => <YearPage gdate={context!.gdate} />} />
 
