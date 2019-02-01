@@ -15,28 +15,24 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 import 'moment/locale/ru';
 
 // Internal
-import DateInput from '../DateInput/DateInput';
+import { DateInput } from '../DateInput/DateInput';
+import { withAppContext, IWithAppContextProps } from '../../Context/AppContextProvider';
 // Setup
 
-class RightSideBar extends React.Component {
+export const RightSideBar = withAppContext((props: IWithAppContextProps) => {
 
-  state = {}
+  return <div className="right-side-bar">
+    <DateInput
+      date={props.context.moment}
+      setDate={props.context.setDate} />
 
+    <DayPicker
+      selectedDays={props.context.moment}
+      onDayClick={props.context.setDate}
+      localeUtils={MomentLocaleUtils}
+      locale="ru" />
+  </div>
+})
 
-  render() {
-    const selectedDay = null;//this.props.moment.toDate();
-    return (
-      <div className="right-side-bar">
-        <DateInput {...this.props} />
-
-        <DayPicker
-          selectedDays={selectedDay}
-          onDayClick={this.handleDayClick}
-          localeUtils={MomentLocaleUtils}
-          locale="ru" />
-      </div>
-    );
-  }
-}
 
 export default RightSideBar;

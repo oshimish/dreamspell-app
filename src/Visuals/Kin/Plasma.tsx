@@ -1,18 +1,18 @@
 // Vendor
 import React from 'react';
+import * as g from 'dreamspell-math';
 
 // Internal
 import './styles.css';
 
-function importAll(r) {
+function importAll(r: __WebpackModuleApi.RequireContext) {
   let images = {};
-  r
-    .keys()
-    .map((item, index) => images[item.replace('./', '')] = r(item));
+  r.keys()
+    .map((item, index) => (images as any)[item.replace('./', '')] = r(item));
   return images;
 }
 
-const plasmas = importAll(require.context('./plasmas', false, /\.(png|jpe?g|svg)$/));
+const plasmas = importAll(require.context('./plasmas', false, /\.(png|jpe?g|svg)$/)) as any;
 
 // Internal Setup
 
@@ -20,12 +20,9 @@ const plasmas = importAll(require.context('./plasmas', false, /\.(png|jpe?g|svg)
  * @class Plasma
  * @description Brief description
  */
-export class Plasma extends React.Component {
-
-  // eslint-disable-next-line
-  constructor(props) {
-    super(props);
-  }
+export class Plasma extends React.Component<{
+  plasma: number
+}> {
 
   render() {
     return (

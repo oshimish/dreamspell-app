@@ -5,15 +5,14 @@ import * as g from 'dreamspell-math';
 // Internal
 import './styles.css';
 
-function importAll(r) {
+function importAll(r: __WebpackModuleApi.RequireContext) {
   let images = {};
-  r
-    .keys()
-    .map((item, index) => images[item.replace('./', '')] = r(item));
+  r.keys()
+    .map((item, index) => (images as any)[item.replace('./', '')] = r(item));
   return images;
 }
 
-const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/));
+const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/)) as any;
 
 // Setup
 
@@ -21,10 +20,12 @@ const signs = importAll(require.context('./signs', false, /\.(png|jpe?g|svg)$/))
  * @class Sign
  * @description Brief description
  */
-export class Sign extends React.Component {
+export class Sign extends React.Component<{
+  sign: g.Sign;
+}> {
 
   render() {
-    var sign = g.sign(this.props.sign);
+    var sign = this.props.sign;
     var num = sign.number;
     if (num === 20) {
       num = 0;
@@ -37,9 +38,5 @@ export class Sign extends React.Component {
   }
 };
 
-// Enforce required properies or methods
-Sign.propTypes = {
-  // sign: React.PropTypes.bool.isRequired
-};
 
 export default Sign;

@@ -1,18 +1,16 @@
 // Vendor
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as g from 'dreamspell-math';
 import styled from 'styled-components'
 
-function importAll(r) {
+function importAll(r: __WebpackModuleApi.RequireContext) {
   let images = {};
-  r
-    .keys()
-    .map((item, index) => images[item.replace('./', '')] = r(item));
+  r.keys()
+    .map((item, index) => (images as any)[item.replace('./', '')] = r(item));
   return images;
 }
 
-const tones = importAll(require.context('./tones', false, /\.(png|jpe?g|svg)$/));
+const tones = importAll(require.context('./tones', false, /\.(png|jpe?g|svg)$/)) as any;
 
 const ToneBox = styled.div`
 `;
@@ -26,10 +24,10 @@ const ToneImage = styled.img`
 `;
 
 // Setup
-export class SignTone extends React.Component {
+export class SignTone extends React.Component<{ tone: g.Tone }> {
 
   render() {
-    let tone = g.tone(this.props.tone);
+    let tone = this.props.tone;
     let num = tone.number;
     return (
       <ToneBox>
@@ -40,14 +38,5 @@ export class SignTone extends React.Component {
     );
   }
 }
-
-// Enforce required properies or methods
-SignTone.propTypes = {
-  tone: PropTypes
-    .oneOfType([
-      PropTypes.number, PropTypes.instanceOf(g.Tone)
-    ])
-    .isRequired
-};
 
 export default SignTone;

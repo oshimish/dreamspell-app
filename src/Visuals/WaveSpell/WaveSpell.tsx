@@ -1,15 +1,13 @@
 // Vendor
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode } from 'react';
 import * as g from 'dreamspell-math';
+import styled from 'styled-components';
 
-// Internal
-import './styles.css';
 
 // Setup
 
 const TONES = new Array(13);
-function getCell(tone) {
+function getCell(tone: g.Tone) {
   let row;
   let col;
 
@@ -47,16 +45,26 @@ function Item(props) {
   </div>;
 }
 
+const WaveSpellContainer = styled.div`
+  display: grid;
+  grid-gap: 3px; 
+`;
+
 /**
  * @class WaveSpell
  * @description Wavespell visual
  */
-export class WaveSpell extends React.Component {
+export class WaveSpell extends React.Component<{
+  from: any,
+  iterator: (i: any) => any,
+  render: (item: any) => ReactNode
+}> {
+
   render() {
     let i = this.props.from;
     let iterator = this.props.iterator;
     return (
-      <div className="wave-spell">
+      <WaveSpellContainer>
         {TONES.map((t) => {
           const item = (
             <Item key={t} tone={t} {...this.props} i={i} />
@@ -65,16 +73,9 @@ export class WaveSpell extends React.Component {
           return item;
         })
         }
-      </div>
+      </WaveSpellContainer>
     );
   }
 }
-
-// Enforce required properies or methods
-WaveSpell.propTypes = {
-  from: PropTypes.any.isRequired,
-  iterator: PropTypes.func.isRequired,
-  render: PropTypes.func.isRequired
-};
 
 export default WaveSpell;

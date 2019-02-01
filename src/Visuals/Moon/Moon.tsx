@@ -47,20 +47,17 @@ const PlasmaHead = (props) => (
  * @class Moon
  * @description Brief description
  */
-export class Moon extends React.Component {
-  constructor(props) {
+export class Moon extends React.Component<{
+  firstDay: g.DreamDate,
+  selDate?: g.DreamDate
+}> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
       open: false
     };
 
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
-    console.log('- onClick event', this.state);
   }
 
   render() {
@@ -87,11 +84,5 @@ export class Moon extends React.Component {
     );
   }
 }
-
-// Enforce required properies or methods
-Moon.propTypes = {
-  firstDay: PropTypes.instanceOf(g.DreamDate).isRequired,
-  selDay: PropTypes.instanceOf(g.DreamDate)
-};
 
 export default Moon;
