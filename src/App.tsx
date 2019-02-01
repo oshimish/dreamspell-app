@@ -11,7 +11,7 @@ import './App.css';
 import './transitions.css';
 
 import { RightSideBar, LeftSideBar, TopHeader } from './Components';
-import { AppContextProvider } from './Context/AppContextProvider';
+import { AppContextProvider, AppContext } from './Context/AppContextProvider';
 
 class App extends Component {
 
@@ -44,42 +44,45 @@ class App extends Component {
           this.nameInput = input;
         }}>
         <AppContextProvider>
-          <Router>
-            <Route
-              render={({ location }) => {
-                return (
-                  <section className="screen">
-                    <div className="header-block" >
-                      <TopHeader />
-                    </div>
-                    <div className="left-block" >
-                      <LeftSideBar />
-                    </div>
-                    <div className="center-block">
-                      <TransitionGroup
-                        key={location.key}
-                        transitionName="fade"
-                        transitionEnterTimeout={600}
-                        transitionLeaveTimeout={600}
-                        transitionAppear={true}
-                        transitionAppearTimeout={600}>
-                        <Switch location={location}>
+          <AppContext.Consumer>
+            {(context) =>
+              <Router>
+                <Route
+                  render={({ location }) => {
+                    return (
+                      <section className="screen">
+                        <div className="header-block" >
+                          <TopHeader />
+                        </div>
+                        <div className="left-block" >
+                          <LeftSideBar />
+                        </div>
+                        <div className="center-block">
+                          <TransitionGroup
+                            key={location.key}
+                            transitionName="fade"
+                            transitionEnterTimeout={600}
+                            transitionLeaveTimeout={600}
+                            transitionAppear={true}
+                            transitionAppearTimeout={600}>
+                            <Switch location={location}>
 
-                          {routes.map((r) => <Route path={r.path} exact={r.exact} component={r.component} />)}
+                              {routes.map((r) => <Route path={r.path} exact={r.exact} component={r.component} gdate={context && context.gdate} />)}
 
-                          {/* {routes.map(route => <Route {...route} />)} */}
-                          <Route render={() => <div>Not Found</div>} />
-                        </Switch>
-                      </TransitionGroup>
-                    </div>
-                    {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
-                    <div className="right-block" >
-                      <RightSideBar />
-                    </div>
-                  </section>
-                );
-              }} />
-          </Router>
+                              {/* {routes.map(route => <Route {...route} />)} */}
+                              <Route render={() => <div>Not Found</div>} />
+                            </Switch>
+                          </TransitionGroup>
+                        </div>
+                        {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
+                        <div className="right-block" >
+                          <RightSideBar />
+                        </div>
+                      </section>
+                    );
+                  }} />
+              </Router>}
+          </AppContext.Consumer>
         </AppContextProvider>
       </div>
     );

@@ -1,7 +1,9 @@
 // Vendor
 import React from 'react';
 import * as g from 'dreamspell-math';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import requireContext from 'require-context.macro';
+
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
   let images = {};
@@ -10,7 +12,7 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
   return images;
 }
 
-const tones = importAll(require.context('./tones', false, /\.(png|jpe?g|svg)$/)) as any;
+const tones = importAll(requireContext('./tones', false, /\.(png|jpe?g|svg)$/)) as any;
 
 const ToneBox = styled.div`
 `;

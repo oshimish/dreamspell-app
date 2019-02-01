@@ -1,6 +1,7 @@
 // Vendor
 import React from 'react';
 import * as g from 'dreamspell-math';
+import requireContext from 'require-context.macro';
 
 // Internal
 import './styles.css';
@@ -12,7 +13,7 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
   return images;
 }
 
-const plasmas = importAll(require.context('./plasmas', false, /\.(png|jpe?g|svg)$/)) as any;
+const plasmas = importAll(requireContext('./plasmas', false, /\.(png|jpe?g|svg)$/)) as any;
 
 // Internal Setup
 
