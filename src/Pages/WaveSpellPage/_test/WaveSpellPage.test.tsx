@@ -1,27 +1,20 @@
 // Vendor
 import React from 'react';
+import * as g from 'dreamspell-math';
+import moment from 'moment';
 
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 // Internal
 import WaveSpellPage from '../WaveSpellPage';
 
 describe('WaveSpellPage: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<WaveSpellPage {...props} />);
+    const wrapper = shallow(<WaveSpellPage gdate={g.dreamdate(moment('2019-01-31'))} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

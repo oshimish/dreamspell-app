@@ -1,27 +1,25 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+
 import { shallow } from 'enzyme';
 
 // Internal
-import TonePage from '../TonePage';
+import { DateInput } from '../DateInput';
+import moment from 'moment';
 
-describe('TonePage: test', () => {
-  let props;
+describe('DateInput: test', () => {
 
   // Any initialization
   beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
+
   });
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<TonePage {...props} />);
+    const wrapper = shallow(<DateInput date={moment()} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

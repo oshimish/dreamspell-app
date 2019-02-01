@@ -1,7 +1,7 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+
 import { shallow } from 'enzyme';
 
 // Internal
@@ -21,7 +21,7 @@ describe('RightSideBar: test', () => {
   it('renders', () => {
     const wrapper = shallow(<RightSideBar {...props} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

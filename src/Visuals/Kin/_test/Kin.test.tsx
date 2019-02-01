@@ -1,27 +1,24 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+
 import { shallow } from 'enzyme';
+import * as g from 'dreamspell-math';
 
 // Internal
-import Moon from '../Moon';
+import Kin from '../Kin';
 
-describe('Moon: test', () => {
-  let props;
-
+describe('Kin: test', () => {
   // Any initialization
   beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
+
   });
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<Moon {...props} />);
+    const wrapper = shallow(<Kin kin={g.kin(1)} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

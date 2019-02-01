@@ -1,27 +1,19 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+import * as g from 'dreamspell-math';
+import moment from 'moment';
 import { shallow } from 'enzyme';
 
 // Internal
 import ZolkinPage from '../ZolkinPage';
 
 describe('ZolkinPage: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
-
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<ZolkinPage {...props} />);
+    const wrapper = shallow(<ZolkinPage gdate={g.dreamdate(moment('2019-01-31'))} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

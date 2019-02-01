@@ -1,27 +1,20 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+
+import * as g from 'dreamspell-math';
+import moment from 'moment';
 import { shallow } from 'enzyme';
 
 // Internal
 import KinPage from '../KinPage';
 
 describe('KinPage: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
-
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<KinPage {...props} />);
+    const wrapper = shallow(<KinPage gdate={g.dreamdate(moment())} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

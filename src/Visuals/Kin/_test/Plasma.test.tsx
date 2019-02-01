@@ -1,27 +1,17 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 // Internal
 import Plasma from '../Plasma';
 
 describe('Plasma: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
-
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<Plasma {...props} />);
+    const wrapper = shallow(<Plasma plasma={1} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

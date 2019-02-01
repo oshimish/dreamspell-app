@@ -1,27 +1,19 @@
 // Vendor
 import React from 'react';
+import * as g from 'dreamspell-math';
+import moment from 'moment';
 
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 // Internal
 import MoonPage from '../MoonPage';
 
 describe('MoonPage: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
-
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<MoonPage {...props} />);
+    const wrapper = shallow(<MoonPage gdate={g.dreamdate(moment())} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs

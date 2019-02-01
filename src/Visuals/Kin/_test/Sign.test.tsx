@@ -1,27 +1,19 @@
 // Vendor
 import React from 'react';
 
-import { expect } from 'chai';
+import * as g from 'dreamspell-math';
+
 import { shallow } from 'enzyme';
 
 // Internal
 import Sign from '../Sign';
 
 describe('Sign: test', () => {
-  let props;
-
-  // Any initialization
-  beforeEach(() => {
-    props = {
-      // stub your component's props here
-    };
-  });
-
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<Sign {...props} />);
+    const wrapper = shallow(<Sign sign={g.sign(1)} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs
