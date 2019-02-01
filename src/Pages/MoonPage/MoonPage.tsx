@@ -1,16 +1,17 @@
 // Vendor
 import React from 'react';
-//import PropTypes from 'prop-types';
+//
 import * as g from 'dreamspell-math';
 
 // Internal import i18n from 'i18n';
 import './styles.css';
-import { Moon } from 'Visuals/Moon/Moon';
-import { subscribe } from 'react-contextual';
+import { Moon } from '../../Visuals/Moon/Moon';
 
 // Setup
-@subscribe()
-class MoonPage extends React.Component {
+
+class MoonPage extends React.Component<{
+  gdate: g.DreamDate
+}> {
 
   render() {
     let sel_day = new g.DreamDate(this.props.gdate.moment);
@@ -18,13 +19,11 @@ class MoonPage extends React.Component {
     return (
       <div className="moon-page">
         <h2>Луна</h2>
-        <Moon firstDay={firstDay} selDay={sel_day} />
+        <Moon firstDay={firstDay} selDate={sel_day} />
       </div>
     );
   }
 }
 
-// Enforce required properies or methods MoonPage.propTypes = {   active:
-// PropTypes.bool.isRequired };
 
 export default MoonPage;

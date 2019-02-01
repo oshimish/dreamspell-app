@@ -1,13 +1,14 @@
 // Vendor
 import React from 'react';
-import { Kin } from 'Visuals';
+import { Kin } from '../../Visuals';
 import * as g from 'dreamspell-math';
 import './styles.css';
-import { subscribe } from 'react-contextual';
 // Internal Setup
 
-@subscribe()
-class OraclePage extends React.Component {
+
+class OraclePage extends React.Component<{
+  gdate: g.DreamDate
+}> {
 
   render() {
     const kin = this.props.gdate.kin;
@@ -19,17 +20,17 @@ class OraclePage extends React.Component {
           <tbody>
             <tr>
               <td></td>
-              <td><Kin kin={oracle.driver.number} /></td>
+              <td><Kin kin={oracle.driver} /></td>
               <td></td>
             </tr>
             <tr>
-              <td><Kin kin={oracle.antipod.number} /></td>
-              <td><Kin kin={kin.number} /></td>
-              <td><Kin kin={oracle.analog.number} /></td>
+              <td><Kin kin={oracle.antipod} /></td>
+              <td><Kin kin={kin} /></td>
+              <td><Kin kin={oracle.analog} /></td>
             </tr>
             <tr>
               <td></td>
-              <td><Kin kin={oracle.occult.number} /></td>
+              <td><Kin kin={oracle.occult} /></td>
               <td></td>
             </tr>
           </tbody>
@@ -37,11 +38,6 @@ class OraclePage extends React.Component {
       </div>
     );
   }
-};
-
-// Enforce required properies or methods
-OraclePage.propTypes = {
-  // active: React.PropTypes.bool.isRequired
 };
 
 export default OraclePage;

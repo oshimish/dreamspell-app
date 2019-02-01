@@ -1,12 +1,12 @@
 // Vendor
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import * as g from 'dreamspell-math';
 
 // Internal
 import './styles.css';
-import * as Visuals from 'Visuals';
-import { subscribe } from 'react-contextual';
+import * as Visuals from '../../Visuals';
+import { Moment } from 'moment';
 
 // Setup
 
@@ -15,20 +15,12 @@ import { subscribe } from 'react-contextual';
  * @description Brief description
  */
 
-@subscribe()
-class WaveSpellPage extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      open: false
-    };
+class WaveSpellPage extends React.Component<{
+  gdate: g.DreamDate
+}> {
 
-    // Chance to bind anything we need to.
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
+  onClick = () => {
     console.log('- onClick event', this.state);
   }
 
@@ -43,19 +35,14 @@ class WaveSpellPage extends React.Component {
         <h2>Волновой Модуль</h2>
 
         <Visuals.WaveSpell from={wavespellStart}
-          iterator={(moment) => moment.add(1, 'd').clone()}
-          render={props => (
+          iterator={(moment: Moment) => moment.add(1, 'd').clone()}
+          render={i => (
             // <SignTone {...this.props} tone={props.tone} />
-            <Visuals.Kin kin={g.dreamdate(props.i).kin} />
+            <Visuals.Kin kin={g.dreamdate(i).kin} />
           )} />
       </div>
     );
   }
 }
-
-// Enforce required properies or methods
-WaveSpellPage.propTypes = {
-  gdate: PropTypes.instanceOf(g.DreamDate).isRequired
-};
 
 export default WaveSpellPage;

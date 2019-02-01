@@ -1,52 +1,49 @@
 import React, { Component } from 'react';
-import { translate } from 'react-i18next';
+import { translate, withNamespaces } from 'react-i18next';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ArrowKeysReact from 'arrow-keys-react';
-import { CSSTransitionGroup } from 'react-transition-group';
-import { Provider, Subscribe } from 'react-contextual';
+//import ArrowKeysReact from 'arrow-keys-react';
+import { TransitionGroup } from 'react-transition-group';
 
-import 'bootstrap';
-import routes from 'routes'
-import { renderRoutes } from 'react-router-config'
+import routes from './routes';
 
 import logo from './logo.svg';
 import './App.css';
 import './transitions.css';
 
-import { RightSideBar, LeftSideBar, TopHeader } from 'Components';
-import store from './../Context/store';
+import { RightSideBar, LeftSideBar, TopHeader } from './Components';
+import { AppContextProvider } from './Context/AppContextProvider';
 
 class App extends Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super(props)
 
-    ArrowKeysReact.config({
-      left: () => {
-        store.dec();
-      },
-      right: () => {
-        store.inc();
-      }
-    });
+    // ArrowKeysReact.config({
+    //   left: () => {
+    //     store.dec();
+    //   },
+    //   right: () => {
+    //     store.inc();
+    //   }
+    // });
   }
 
+  nameInput: HTMLElement | null = null
+
   componentDidMount() {
-    this
-      .nameInput
-      .focus();
+    this.nameInput && this.nameInput.focus();
   }
 
   render() {
     return (
       <div
-        {...ArrowKeysReact.events}
-        tabIndex="1"
+        //{...ArrowKeysReact.events}
+        tabIndex={1}
         className="App"
         ref={(input) => {
           this.nameInput = input;
         }}>
-        <Provider {...store}>
+        <AppContextProvider>
           <Router>
             <Route
               render={({ location }) => {
@@ -59,7 +56,7 @@ class App extends Component {
                       <LeftSideBar />
                     </div>
                     <div className="center-block">
-                      <CSSTransitionGroup
+                      <TransitionGroup
                         key={location.key}
                         transitionName="fade"
                         transitionEnterTimeout={600}
@@ -67,12 +64,13 @@ class App extends Component {
                         transitionAppear={true}
                         transitionAppearTimeout={600}>
                         <Switch location={location}>
-                          {renderRoutes(routes)}
+
+                          {routes.map((r) => <Route path={r.path} exact={r.exact} component={r.component} />)}
 
                           {/* {routes.map(route => <Route {...route} />)} */}
                           <Route render={() => <div>Not Found</div>} />
                         </Switch>
-                      </CSSTransitionGroup>
+                      </TransitionGroup>
                     </div>
                     {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
                     <div className="right-block" >
@@ -82,10 +80,11 @@ class App extends Component {
                 );
               }} />
           </Router>
-        </Provider>
+        </AppContextProvider>
       </div>
     );
   }
 }
 
-export default translate()(App); 
+//export default translate(withNamespaces()(App)); 
+export default App; 

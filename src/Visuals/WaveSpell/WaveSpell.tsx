@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import * as g from 'dreamspell-math';
 import styled from 'styled-components';
+import { Moment } from 'moment';
 
 
 // Setup
@@ -34,14 +35,18 @@ function getCell(tone: g.Tone) {
 
 for (let index = 0; index < 13; index++) {
   var tone = g.tone(index + 1);
-  tone.cell = getCell(tone);
   TONES[index] = tone;
 }
 
-function Item(props) {
+function Item(props: {
+  tone: g.Tone,
+  i: Moment,
+  render: (item: Moment) => ReactNode
+}) {
+  const cell = getCell(tone);
   return <div className={'wave-cell tone-cell-' + props.tone.number}
-    style={{ gridRow: props.tone.cell.row, gridColumn: props.tone.cell.col }} >
-    {props.render(props)}
+    style={{ gridRow: cell.row, gridColumn: cell.col }} >
+    {props.render(props.i)}
   </div>;
 }
 
@@ -55,9 +60,9 @@ const WaveSpellContainer = styled.div`
  * @description Wavespell visual
  */
 export class WaveSpell extends React.Component<{
-  from: any,
-  iterator: (i: any) => any,
-  render: (item: any) => ReactNode
+  from: Moment,
+  iterator: (i: Moment) => Moment,
+  render: (item: Moment) => ReactNode
 }> {
 
   render() {
@@ -67,7 +72,7 @@ export class WaveSpell extends React.Component<{
       <WaveSpellContainer>
         {TONES.map((t) => {
           const item = (
-            <Item key={t} tone={t} {...this.props} i={i} />
+            <Item key={t} tone={t} i={i} render={this.props.render} />
           );
           i = iterator(i);
           return item;

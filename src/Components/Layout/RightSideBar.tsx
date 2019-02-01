@@ -1,15 +1,15 @@
 // Vendor
 import React from 'react';
-import PropTypes from 'prop-types';
+
 
 import DayPicker from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 import 'react-day-picker/lib/style.css';
-import * as moment from 'moment';
+import moment from 'moment';
 
 // Include the locale utils designed for moment
-import MomentLocaleUtils from 'react-day-picker/moment';
+//import MomentLocaleUtils from 'react-day-picker/moment';
 
 // Make sure moment.js has the required locale data
 import 'moment/locale/ru';
@@ -27,9 +27,9 @@ export const RightSideBar = withAppContext((props: IWithAppContextProps) => {
       setDate={props.context.setDate} />
 
     <DayPicker
-      selectedDays={props.context.moment}
-      onDayClick={props.context.setDate}
-      localeUtils={MomentLocaleUtils}
+      selectedDays={props.context.moment.toDate()}
+      onDayClick={(date) => props.context.setDate(moment(date))}
+      //localeUtils={MomentLocaleUtils}
       locale="ru" />
   </div>
 })

@@ -17,7 +17,7 @@ export interface IWithAppContextProps {
   context: IAppContext;
 }
 
-export function withAppContext<P extends {}>(WrappedComponent: React.ComponentType<P & IWithAppContextProps>) {
+export function withAppContext<P extends {}>(WrappedComponent: any | React.ComponentType<P & IWithAppContextProps>) {
   // ...and returns another component...
   return class extends React.Component<Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>, {}> {
     static displayName = `withAppContext(${WrappedComponent.displayName || WrappedComponent.name})`;
