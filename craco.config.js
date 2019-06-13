@@ -1,16 +1,22 @@
 // schema: https://github.com/sharegate/craco/blob/master/packages/craco/README.md#installation
 
-const { paths, when, whenDev, whenProd, whenTest, ESLINT_MODES, POSTCSS_MODES } = require("@craco/craco");
+const {
+  paths,
+  when,
+  whenDev,
+  whenProd,
+  whenTest,
+  ESLINT_MODES,
+  POSTCSS_MODES
+} = require("@craco/craco");
 
-module.exports = function ({ env, paths }) {
+module.exports = function({ env, paths }) {
   return {
-
     // babel: {
     //   plugins: ["styled-components-named"],
     // },
     jest: {
       configure: (jestConfig, { env, paths, resolve, rootDir }) => {
-
         // node_modules except this list will be not transformed
         // const transformModulesList = [
         //   "react-native",
@@ -24,7 +30,7 @@ module.exports = function ({ env, paths }) {
 
         //jestConfig.setupFiles.push("<rootDir>/src/setupTests.js");
 
-        jestConfig.setupTestFrameworkScriptFile = "<rootDir>/src/setupTests.js";
+        jestConfig.setupFilesAfterEnv.push("<rootDir>/src/setupTests.js");
 
         //console.log(JSON.stringify(jestConfig, null, 4));
 
@@ -34,4 +40,4 @@ module.exports = function ({ env, paths }) {
       }
     }
   };
-}
+};
