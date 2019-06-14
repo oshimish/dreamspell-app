@@ -1,15 +1,13 @@
 // Vendor
-import React from 'react';
-import { Kin } from '../../Visuals';
-import * as g from 'dreamspell-math';
-import './styles.css';
+import React from "react";
+import { Kin } from "../../Visuals";
+import * as g from "dreamspell-math";
+import "./styles.css";
 // Internal Setup
 
-
 class OraclePage extends React.Component<{
-  gdate: g.DreamDate
+  gdate: g.DreamDate;
 }> {
-
   render() {
     const kin = this.props.gdate.kin;
     const oracle = kin.getOracle();
@@ -19,25 +17,39 @@ class OraclePage extends React.Component<{
         <table className="oracle-table">
           <tbody>
             <tr>
-              <td></td>
-              <td><Kin kin={oracle.driver} /></td>
-              <td></td>
+              <td />
+              <td>
+                <Kin kin={oracle.driver} />
+                Управитель
+              </td>
+              <td />
             </tr>
             <tr>
-              <td><Kin kin={oracle.antipod} /></td>
-              <td><Kin kin={kin} /></td>
-              <td><Kin kin={oracle.analog} /></td>
+              <td>
+                <Kin kin={oracle.antipod} />
+                Вызов
+              </td>
+              <td>
+                <Kin kin={kin} />
+              </td>
+              <td>
+                <Kin kin={oracle.analog} />
+                Аналог
+              </td>
             </tr>
             <tr>
-              <td></td>
-              <td><Kin kin={oracle.occult} /></td>
-              <td></td>
+              <td />
+              <td>
+                <Kin kin={oracle.occult} />
+                Скрытая сила
+              </td>
+              <td />
             </tr>
           </tbody>
         </table>
       </div>
     );
   }
-};
+}
 
 export default OraclePage;

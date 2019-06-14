@@ -1,15 +1,18 @@
 .sign-page {
-  p {
-    margin: 1em;
-    font-stretch: condensed;
-  }
-  .title {
-    margin: 1em;
-  }
-  .about {
-    white-space: pre;
-  }
-  .sign{
-    margin: 2em;
-  }
+    p {
+        margin: 1em;
+        font-stretch: condensed;
+    }
+
+    .title {
+        margin: 1em;
+    }
+
+    .about {
+        white-space: pre-line;
+    }
+
+    .sign {
+        margin: 2em;
+    }
 }
