@@ -18,7 +18,7 @@ body {
         "l-sidebar content r-sidebar"
         "footer footer footer";
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: min-content max-content min-content;
+    grid-template-rows: min-content auto min-content;
     grid-gap: 1em;
     align-content: stretch;
 }

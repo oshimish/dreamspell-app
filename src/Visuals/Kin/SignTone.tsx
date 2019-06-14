@@ -27,16 +27,14 @@ const ToneImage = styled.img`
 `;
 
 // Setup
-export class SignTone extends React.PureComponent<{ tone: g.Tone }> {
-  render() {
-    let tone = this.props.tone;
-    let num = tone.number;
-    return (
-      <ToneBox className={"sign-tone"}>
-        <ToneImage src={tones["tone" + num + ".png"]} alt={"Tone " + num} />
-      </ToneBox>
-    );
-  }
-}
+export const SignTone = (props: { tone: g.Tone }) => {
+  let tone = props.tone;
+  let num = tone.number;
+  return (
+    <ToneBox className={"sign-tone"}>
+      <ToneImage src={tones["tone" + num + ".png"]} alt={"Tone " + num} />
+    </ToneBox>
+  );
+};
 
 export default SignTone;

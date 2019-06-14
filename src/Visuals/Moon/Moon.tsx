@@ -16,15 +16,13 @@ var portalStyle = (props: { gday: g.DreamDate }) =>
 var mysticStyle = (props: { gday: g.DreamDate }) =>
   props.gday.kin.isMysticColumn ? " mystic" : "";
 
-const MoonDayContainer = styled.div``;
-
 const MoonDay = (props: {
   gday: g.DreamDate;
   row: number;
   col: number;
   selected?: boolean;
 }) => (
-  <MoonDayContainer
+  <div
     className={
       "day-cell chromatic" +
       props.gday.kin.color +
@@ -39,7 +37,7 @@ const MoonDay = (props: {
   >
     <div className="num">{props.gday.day}</div>
     <Kin kin={props.gday.kin} /> {/* <p>{props.gday.Moment.format('L')}</p> */}
-  </MoonDayContainer>
+  </div>
 );
 
 const PlasmaHeadContainer = styled.div``;
