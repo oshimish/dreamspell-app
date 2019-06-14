@@ -14,47 +14,43 @@ body {
     height: 100vh;
     position: relative;
     display: grid;
+    grid-template-areas: "header header r-header"
+        "l-sidebar content r-sidebar"
+        "footer footer footer";
     grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: min-content auto;
+    grid-template-rows: min-content max-content min-content;
     grid-gap: 1em;
     align-content: stretch;
 }
 
-.screen.half {
-    height: 50vh;
-}
-
-.screen.color1 {
-    background-color: #2980B9;
-}
-
-.screen.color2 {
-    background-color: #359fdc;
-}
-
 .center-block {
     text-align: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 20px;
-    grid-column: 2;
-    grid-row: 2;
+    grid-area: content;
     justify-self: center;
     align-self: center;
 }
 
+.center-block>span {
+    display: block;
+}
+
 .header-block {
-    grid-column: 1/4;
-    grid-row: 1;
+    grid-area: header;
+}
+
+.header-right {
+    grid-area: r-header;
+    align-self: center;
 }
 
 .right-block {
-    grid-column: 3;
-    grid-row: 2;
+    grid-area: r-sidebar;
 }
 
 .left-block {
-    grid-column: 1;
-    grid-row: 2;
+    grid-area: l-sidebar;
 }
 
 .bottom-block {
@@ -142,6 +138,10 @@ li {
     font-size: large;
 }
 
+.about {
+    line-height: 1.3;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
@@ -149,5 +149,14 @@ li {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 50rem) {
+
+    .right-block,
+    .left-block,
+    .header-right {
+        display: none;
     }
 }

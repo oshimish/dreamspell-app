@@ -18,7 +18,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import "./transitions.css";
 
-import { RightSideBar, LeftSideBar, TopHeader } from "./Components";
+import { RightSideBar, LeftSideBar, TopHeader, DateInput } from "./Components";
 import { AppContextProvider, AppContext } from "./Context/AppContextProvider";
 
 class App extends Component {
@@ -61,6 +61,9 @@ class App extends Component {
                       <section className="screen">
                         <div className="header-block">
                           <TopHeader />
+                        </div>
+                        <div className="header-right">
+                          <DateInput />
                         </div>
                         <div className="left-block">
                           <LeftSideBar />

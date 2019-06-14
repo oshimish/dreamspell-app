@@ -17,7 +17,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
-    "react-transition-group": "^4.1.1",
+    "react-transition-group": "^1.2.1",
     "regenerator-runtime": "^0.13.2",
     "require-context.macro": "^1.0.4",
     "styled-components": "^4.3.1"

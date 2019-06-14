@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './TopHeader.css';
+import "./TopHeader.css";
 
 export const TopHeader = () => {
   return (
@@ -40,20 +40,20 @@ export const TopHeader = () => {
           </li>
         </ul>
       </div>
-      <div className="right-menu">
+      {/* <div className="right-menu">
         <ul className="menu">
-          {/* <li>
+          <li>
               <Link to="/">&lt;&lt;</Link>
-            </li> */}
+            </li>
           <li>
           </li>
-          {/* <li>
+          <li>
               <Link to="/sign">&gt;&gt;</Link>
-            </li> */}
+            </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
-}
+};
 
 export default TopHeader;
