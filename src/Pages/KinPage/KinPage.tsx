@@ -2,6 +2,7 @@
 import React from "react";
 import { Kin, Plasma } from "../../Visuals/Kin";
 import * as g from "dreamspell-math";
+import { NavLink } from "react-router-dom";
 
 class KinPage extends React.Component<{
   gdate: g.DreamDate;
@@ -12,7 +13,9 @@ class KinPage extends React.Component<{
       <div className="kin-view">
         <h2>{dsdate.moment.format("LL")}</h2>
         <div className="kin-view-plasma">
-          <Plasma plasma={dsdate.plasma} />
+          <NavLink to={"plasma"}>
+            <Plasma plasma={dsdate.plasma} />
+          </NavLink>
         </div>
         <div
           className="kin-view-date"
@@ -21,13 +24,19 @@ class KinPage extends React.Component<{
             padding: "23px"
           }}
         >
-          {dsdate.day} день <br />
-          {dsdate.moon} луна {/* <SignTone tone={dsdate.kin.tone}/> */}
+          <NavLink to={"year"}>
+            {dsdate.day} день {dsdate.moon} луны{" "}
+          </NavLink>
+          {/* <SignTone tone={dsdate.kin.tone}/> */}
         </div>
         <div className="kin-view-kin">
-          <Kin kin={dsdate.kin} />
+          <NavLink to={"sign"}>
+            <Kin kin={dsdate.kin} />
+          </NavLink>
         </div>
-        <div className="kin-view-number">кин {dsdate.kin.number}</div>
+        <div className="kin-view-number">
+          <NavLink to={"zolkin"}>кин {dsdate.kin.number}</NavLink>
+        </div>
       </div>
     );
   }
