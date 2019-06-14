@@ -10,6 +10,7 @@ class KinPage extends React.Component<{
     var dsdate = this.props.gdate;
     return (
       <div className="kin-view">
+        <h2>{dsdate.moment.format("LL")}</h2>
         <div className="kin-view-plasma">
           <Plasma plasma={dsdate.plasma} />
         </div>
