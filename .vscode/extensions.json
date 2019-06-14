@@ -4,11 +4,17 @@
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
 		"nucllear.vscode-extension-auto-import",
-		"dbaeumer.vscode-eslint",
-		"jpoissonnier.vscode-styled-components",
+		"eg2.tslint",
 		"dsznajder.es7-react-js-snippets",
-		"joshpeng.sublime-babel-vscode"
+		"yatki.vscode-surround",
+		"wix.glean",
+		"onjayamanne.githistory",
+		"eamodio.gitlens",
+		"jpoissonnier.vscode-styled-components",
+		"orta.vscode-jest"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": []
+	"unwantedRecommendations": [
+		"hookyqr.beautify"
+	]
 }

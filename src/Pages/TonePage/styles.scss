@@ -1,14 +1,15 @@
 .tone-page {
 
-  .tone-head, h2 {
-    font-variant-caps: all-petite-caps;
-  }
+    .tone-head,
+    h2 {
+        font-variant-caps: all-petite-caps;
+    }
 
-  .about {
-    white-space: pre;
-  }
+    .about {
+        white-space: pre-line;
+    }
 
-  .sign-tone {
-    margin: 17px;
-  }
+    .sign-tone {
+        margin: 17px;
+    }
 }

@@ -1,65 +1,61 @@
 {
   "name": "dreamspell-app",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "arrow-keys-react": "^1.0.6",
-    "bootstrap": "^4.1.3",
     "classnames": "^2.2.6",
+    "core-js": "^3.1.3",
     "dreamspell-math": "^0.1.0",
-    "i18next": "^10.6.0",
-    "i18next-xhr-backend": "^1.5.1",
-    "jquery": "^3.3.1",
-    "moment": "^2.22.2",
-    "popper.js": "^1.14.4",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-app-rewired": "^1.6.2",
-    "react-contextual": "^5.0.2",
-    "react-day-picker": "^7.2.4",
-    "react-dom": "^16.5.2",
-    "react-i18next": "^7.13.0",
-    "react-router-config": "~4.4.0-beta.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.4",
+    "i18next": "^17.0.3",
+    "i18next-xhr-backend": "^3.0.0",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-day-picker": "^7.3.0",
+    "react-dom": "^16.8.6",
+    "react-i18next": "^10.11.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "react-transition-group": "^1.2.1",
-    "styled-components": "^3.4.10"
-  },
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "regenerator-runtime": "^0.13.2",
+    "require-context.macro": "^1.0.4",
+    "styled-components": "^4.3.1"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "babel-core": "",
-    "@babel/plugin-proposal-decorators": "^7.1.2",
-    "babel-plugin-styled-components-named": "^0.1.1",
-    "eslint": "5.6.0",
-    "eslint-plugin-react": "^7.11.1"
+    "@craco/craco": "^5.2.1",
+    "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.9.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.14",
+    "@types/node": "^12.0.8",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router": "^5.0.1",
+    "@types/react-router-dom": "^4.3.3",
+    "@types/react-transition-group": "^2.9.2",
+    "@types/styled-components": "^4.1.16",
+    "@types/webpack-env": "^1.13.9",
+    "chai": "^4.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "typescript": "<3.5.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "ecmaVersion": 7,
-      "impliedStrict": true,
-      "ecmaFeatures": {
-        "jsx": true,
-        "impliedStrict": true,
-        "globalReturn": false,
-        "experimentalObjectRestSpread": true,
-        "experimentalDecorators": true,
-        "legacyDecorators": true
-      }
-    },
-    "rules": {
-      "no-useless-constructor": false,
-      "no-console": "off"
-    }
+    "extends": "react-app"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "browserslist": [
     ">0.2%",

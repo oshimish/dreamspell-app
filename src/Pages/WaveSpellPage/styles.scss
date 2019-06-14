@@ -1,8 +1,15 @@
 .wave-spell-page {
-  // border: 1px solid #ccc;
-  min-width: 28em;
-  
-  .wave-cell {
-    margin-right: 23px;
-  }
+    // border: 1px solid #ccc;
+    min-width: 28em;
+
+    .wave-cell {
+        margin-right: 23px;
+    }
+
+
+    .kin.selected {
+
+        box-shadow: 0px 0px 10px 12px #8314d1;
+        background-color: #8314d1;
+    }
 }

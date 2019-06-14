@@ -1,55 +1,96 @@
 .zolkin-grid-container {
-  display: grid;
-  grid-template-columns: repeat(13, 2.2em);
-  grid-template-rows: repeat(20, auto);
-  grid-gap: 1px;
-  grid-auto-rows: minmax(100px, auto);
-  grid-auto-rows: minmax(100px, auto); }
+    display: grid;
+    grid-template-columns: repeat(13, auto);
+    grid-template-rows: repeat(20, auto);
+    grid-gap: 1px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(100px, auto);
+    max-width: 520px;
+}
 
 .kin-cell {
-  border-radius: 1px;
-  position: relative; }
-  .kin-cell .sign {
-    opacity: 0.2; }
-    .kin-cell .sign img {
-      margin: 0; }
-  .kin-cell .sign-tone {
+    border-radius: 1px;
+    position: relative;
+}
+
+.kin-cell .sign {
+    opacity: 0.2;
+}
+
+.kin-cell .sign img {
+    margin: 0;
+}
+
+.kin-cell .sign-tone {
     position: absolute;
     margin: auto;
     top: 23%;
-    opacity: 0.83; }
-    .kin-cell .sign-tone img {
-      width: 79%; }
-  .kin-cell.selected {
-    z-index: 2; }
-    .kin-cell.selected.chromatic1, .kin-cell.selected.chromatic1 .sign-tone {
-      background-color: red;
-      box-shadow: 1px 0px 10px 7px red; }
-    .kin-cell.selected.chromatic2, .kin-cell.selected.chromatic2 .sign-tone {
-      background-color: white;
-      box-shadow: 1px 0px 10px 7px white; }
-    .kin-cell.selected.chromatic3, .kin-cell.selected.chromatic3 .sign-tone {
-      background-color: blue;
-      box-shadow: 1px 0px 10px 7px blue; }
-    .kin-cell.selected.chromatic4, .kin-cell.selected.chromatic4 .sign-tone {
-      background-color: yellow;
-      box-shadow: 1px 0px 10px 7px yellow; }
-    .kin-cell.selected .sign-tone {
-      top: -45%;
-      opacity: 0.9; }
-      .kin-cell.selected .sign-tone img {
-        border-radius: 3px; }
-    .kin-cell.selected .sign {
-      opacity: 0.9; }
-  .kin-cell.portal {
+    opacity: 0.83;
+}
+
+.kin-cell .sign-tone img {
+    width: 79%;
+}
+
+.kin-cell.selected {
+    z-index: 2;
+}
+
+.kin-cell.selected.chromatic1,
+.kin-cell.selected.chromatic1 .sign-tone {
+    background-color: red;
+    box-shadow: 1px 0px 10px 7px red;
+}
+
+.kin-cell.selected.chromatic2,
+.kin-cell.selected.chromatic2 .sign-tone {
+    background-color: white;
+    box-shadow: 1px 0px 10px 7px white;
+}
+
+.kin-cell.selected.chromatic3,
+.kin-cell.selected.chromatic3 .sign-tone {
+    background-color: blue;
+    box-shadow: 1px 0px 10px 7px blue;
+}
+
+.kin-cell.selected.chromatic4,
+.kin-cell.selected.chromatic4 .sign-tone {
+    background-color: yellow;
+    box-shadow: 1px 0px 10px 7px yellow;
+}
+
+.kin-cell.selected .sign-tone {
+    top: -45%;
+    opacity: 0.9;
+}
+
+.kin-cell.selected .sign-tone img {
+    border-radius: 3px;
+}
+
+.kin-cell.selected .sign {
+    opacity: 0.9;
+}
+
+.kin-cell.portal {
     background-color: green;
-    box-shadow: 0px 0px 4px 2px green; }
-    .kin-cell.portal.selected, .kin-cell.portal.selected .sign-tone {
-      background-color: green;
-      box-shadow: 0px 0px 10px 11px green; }
-  .kin-cell.mystic {
+    box-shadow: 0px 0px 4px 2px green;
+}
+
+.kin-cell.portal.selected,
+.kin-cell.portal.selected .sign-tone {
+    background-color: green;
+    box-shadow: 0px 0px 10px 11px green;
+}
+
+.kin-cell.mystic {
     background-color: gray;
-    box-shadow: 0px 0px 4px 2px gray; }
-    .kin-cell.mystic.selected, .kin-cell.mystic.selected .sign-tone {
-      background-color: gray;
-      box-shadow: 0px 0px 10px 11px gray; }
+    box-shadow: 0px 0px 4px 2px gray;
+}
+
+.kin-cell.mystic.selected,
+.kin-cell.mystic.selected .sign-tone {
+    background-color: gray;
+    box-shadow: 0px 0px 10px 11px gray;
+}

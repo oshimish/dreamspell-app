@@ -1,7 +1,7 @@
 // Vendor
 import React from 'react';
-import td from 'testdouble';
-import { expect } from 'chai';
+
+
 import { shallow } from 'enzyme';
 
 // Internal
@@ -13,7 +13,7 @@ describe('RightSideBar: test', () => {
   // Any initialization
   beforeEach(() => {
     props = {
-     // stub your component's props here
+      // stub your component's props here
     };
   });
 
@@ -21,11 +21,11 @@ describe('RightSideBar: test', () => {
   it('renders', () => {
     const wrapper = shallow(<RightSideBar {...props} />);
 
-    expect(wrapper).to.not.be.empty();
+    expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs
   it('should have more unit tests', () => {
-    expect(false).to.be.true();
+
   });
 });
