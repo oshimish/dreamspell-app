@@ -2,7 +2,7 @@
 import React, { ReactNode } from "react";
 import * as g from "dreamspell-math";
 import styled from "styled-components";
-import moment, { Moment } from "moment";
+import { dreamdate } from "dreamspell-math";
 
 // Setup
 
@@ -45,8 +45,8 @@ function getCell(tone: g.Tone) {
 
 const Item = (props: {
   tone: g.Tone;
-  i: Moment;
-  render: (item: Moment) => ReactNode;
+  i: g.DreamDate;
+  render: (item: g.DreamDate) => ReactNode;
 }) => {
   const cell = getCell(props.tone);
   return (
@@ -69,11 +69,11 @@ const WaveSpellContainer = styled.div`
  * @description Wavespell visual
  */
 export const WaveSpell = (props: {
-  from: Moment;
-  iterator: (i: Moment) => Moment;
-  render: (item: Moment) => ReactNode;
+  from: g.DreamDate;
+  iterator: (i: g.DreamDate) => g.DreamDate;
+  render: (item: g.DreamDate) => ReactNode;
 }) => {
-  let i = moment(props.from);
+  let i = dreamdate(props.from);
   let iterator = props.iterator;
   return (
     <WaveSpellContainer className={"wave-spell"}>
@@ -82,11 +82,11 @@ export const WaveSpell = (props: {
           <Item
             key={t.number}
             tone={g.tone(t.number)}
-            i={moment(i)}
+            i={dreamdate(i)}
             render={props.render}
           />
         );
-        i = iterator(i);
+        i = iterator(dreamdate(i));
         return item;
       })}
     </WaveSpellContainer>

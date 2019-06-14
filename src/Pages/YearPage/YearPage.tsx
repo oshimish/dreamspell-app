@@ -1,12 +1,10 @@
 // Vendor
 import React from "react";
 
-import * as g from "dreamspell-math";
-
 // Internal
 import "./styles.css";
 import { WaveSpell, Moon } from "../../Visuals";
-import { Moment } from "moment";
+import { dreamdate, DreamDate } from "dreamspell-math";
 // Setup
 
 /**
@@ -14,27 +12,26 @@ import { Moment } from "moment";
  * @description Brief description
  */
 
-class YearPage extends React.Component<{
-  gdate: g.DreamDate;
-}> {
-  render() {
-    const selKin = this.props.gdate.kin;
-    const selDate = this.props.gdate;
-    // todo: add getWavespell to math
-    let wavespellStart = selDate.moment.clone().add(-selDate.dayOfYear, "d");
-    let iterator = (moment: Moment) => moment.add(28, "d").clone();
-    return (
-      <div className="year-page">
-        <h2>Год</h2>
+const YearPage = (props: { gdate: DreamDate }) => {
+  const selKin = props.gdate.kin;
+  const selDate = props.gdate;
+  // todo: add getWavespell to math
+  let wavespellStart = dreamdate(
+    selDate.moment.clone().add(-selDate.dayOfYear, "d")
+  );
+  let iterator = (gdate: DreamDate) =>
+    dreamdate(gdate.moment.clone().add(28, "d"));
+  return (
+    <div className="year-page">
+      <h2>Год</h2>
 
-        <WaveSpell
-          from={wavespellStart}
-          iterator={iterator}
-          render={i => <Moon firstDay={g.dreamdate(i)} selDate={selDate} />}
-        />
-      </div>
-    );
-  }
-}
+      <WaveSpell
+        from={wavespellStart}
+        iterator={iterator}
+        render={i => <Moon firstDay={i} selDate={selDate} />}
+      />
+    </div>
+  );
+};
 
 export default YearPage;
