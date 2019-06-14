@@ -32,9 +32,9 @@ export const TopHeader = () => {
           <li>
             <Link to="/wavespell">Волновой модуль</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/journey">Путешествие</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/year">Год</Link>
           </li>

@@ -5,37 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "edge",
-      "request": "launch",
-      "name": "Launch Edge",
-      "url": "https://localhost:4444",
-      "webRoot": "${workspaceFolder}/src",
-      "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/*"
-      },
-    },
-    {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "https://localhost:4444",
+      "name": "Launch Chrome",
+      "url": "http://localhost:3000",
       "webRoot": "${workspaceRoot}/src",
       "sourceMapPathOverrides": {
         "webpack:///src/*": "${webRoot}/*"
       },
       "runtimeArgs": [
-        "--load-extension=${env:userprofile}/AppData/Local/Google/Chrome/User Data/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/3.4.3_0"
+        "--load-extension=${env:userprofile}/AppData/Local/Google/Chrome/User Data/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/3.6.0_0"
       ]
-    },
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch Outlook365 in Chrome",
-      "url": "https://outlook.office.com/owa/",
-      "webRoot": "${workspaceRoot}/src",
-      "sourceMapPathOverrides": {
-        "webpack:///src/*": "${webRoot}/*"
-      }
     }
   ]
 }
