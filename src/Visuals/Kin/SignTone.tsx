@@ -1,21 +1,22 @@
 // Vendor
-import React from 'react';
-import * as g from 'dreamspell-math';
-import styled from 'styled-components';
-import requireContext from 'require-context.macro';
-
+import React from "react";
+import * as g from "dreamspell-math";
+import styled from "styled-components";
+import requireContext from "require-context.macro";
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
   let images = {};
-  r.keys()
-    .map((item, index) => (images as any)[item.replace('./', '')] = r(item));
+  r.keys().map(
+    (item, index) => ((images as any)[item.replace("./", "")] = r(item))
+  );
   return images;
 }
 
-const tones = importAll(requireContext('./tones', false, /\.(png|jpe?g|svg)$/)) as any;
+const tones = importAll(
+  requireContext("./tones", false, /\.(png|jpe?g|svg)$/)
+) as any;
 
-const ToneBox = styled.div`
-`;
+const ToneBox = styled.div``;
 const ToneImage = styled.img`
   display: flex;
   margin: auto;
@@ -27,15 +28,12 @@ const ToneImage = styled.img`
 
 // Setup
 export class SignTone extends React.PureComponent<{ tone: g.Tone }> {
-
   render() {
     let tone = this.props.tone;
     let num = tone.number;
     return (
-      <ToneBox>
-        <ToneImage
-          src={tones['tone' + num + '.png']}
-          alt={'Tone ' + num}></ToneImage>
+      <ToneBox className={"sign-tone"}>
+        <ToneImage src={tones["tone" + num + ".png"]} alt={"Tone " + num} />
       </ToneBox>
     );
   }
