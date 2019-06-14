@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//import ArrowKeysReact from 'arrow-keys-react';
 import { TransitionGroup } from "react-transition-group";
 
 import KinPage from "./Pages/KinPage/KinPage";
@@ -19,20 +18,15 @@ import "./App.css";
 import "./transitions.css";
 
 import { RightSideBar, LeftSideBar, TopHeader, DateInput } from "./Components";
-import { AppContextProvider, AppContext } from "./Context/AppContextProvider";
+import {
+  AppContextProvider,
+  AppContext,
+  IAppContext
+} from "./Context/AppContextProvider";
 
 class App extends Component {
   constructor(props: any) {
     super(props);
-
-    // ArrowKeysReact.config({
-    //   left: () => {
-    //     store.dec();
-    //   },
-    //   right: () => {
-    //     store.inc();
-    //   }
-    // });
   }
 
   nameInput: HTMLElement | null = null;
@@ -41,19 +35,27 @@ class App extends Component {
     this.nameInput && this.nameInput.focus();
   }
 
+  onKeyDown = (e: React.KeyboardEvent, context?: IAppContext) => {
+    if (e.keyCode === 37 /* left arrow*/) {
+      context && context.dec();
+    } else if (e.keyCode === 39 /* right arrow*/) {
+      context && context.inc();
+    }
+  };
+
   render() {
     return (
-      <div
-        //{...ArrowKeysReact.events}
-        tabIndex={1}
-        className="App"
-        ref={input => {
-          this.nameInput = input;
-        }}
-      >
-        <AppContextProvider>
-          <AppContext.Consumer>
-            {context => (
+      <AppContextProvider>
+        <AppContext.Consumer>
+          {context => (
+            <div
+              onKeyDown={e => this.onKeyDown(e, context || undefined)}
+              tabIndex={1}
+              className="App"
+              ref={input => {
+                this.nameInput = input;
+              }}
+            >
               <Router>
                 <Route
                   render={({ location }) => {
@@ -151,10 +153,10 @@ class App extends Component {
                   }}
                 />
               </Router>
-            )}
-          </AppContext.Consumer>
-        </AppContextProvider>
-      </div>
+            </div>
+          )}
+        </AppContext.Consumer>
+      </AppContextProvider>
     );
   }
 }

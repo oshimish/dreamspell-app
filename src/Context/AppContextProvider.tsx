@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Moment } from "moment";
 import moment from "moment";
-import * as g from 'dreamspell-math';
+import * as g from "dreamspell-math";
 
 export interface IAppContext {
-  moment: Moment,
-  gdate: g.DreamDate,
-  inc: () => void,
-  dec: () => void,
-  setDate: (date: Moment) => void
+  moment: Moment;
+  gdate: g.DreamDate;
+  inc: () => void;
+  dec: () => void;
+  setDate: (date: Moment) => void;
 }
 
 export const AppContext = React.createContext<IAppContext | null>(null);
@@ -17,22 +17,28 @@ export interface IWithAppContextProps {
   context: IAppContext;
 }
 
-export function withAppContext<P extends {}>(WrappedComponent: any | React.ComponentType<P & IWithAppContextProps>) {
+export function withAppContext<P extends {}>(
+  WrappedComponent: any | React.ComponentType<P & IWithAppContextProps>
+) {
   // ...and returns another component...
-  return class extends React.Component<Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>, {}> {
-    static displayName = `withAppContext(${WrappedComponent.displayName || WrappedComponent.name})`;
+  return class extends React.Component<
+    Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>,
+    {}
+  > {
+    static displayName = `withAppContext(${WrappedComponent.displayName ||
+      WrappedComponent.name})`;
 
     render() {
-      return <AppContext.Consumer>
-        {context => <WrappedComponent {...this.props} context={context!} />}
-      </AppContext.Consumer>
-    };
+      return (
+        <AppContext.Consumer>
+          {context => <WrappedComponent {...this.props} context={context!} />}
+        </AppContext.Consumer>
+      );
+    }
   };
 }
 
 export class AppContextProvider extends React.Component<{}, IAppContext> {
-
-
   constructor(props: any) {
     super(props);
 
@@ -46,16 +52,15 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
     } as IAppContext;
   }
 
-
   inc = () => {
-    const date = this.state.moment.add(-1, 'd');
+    const date = this.state.moment.add(1, "d");
     this.setDate(date);
-  }
+  };
 
   dec = () => {
-    const date = this.state.moment.add(1, 'd');
+    const date = this.state.moment.add(-1, "d");
     this.setDate(date);
-  }
+  };
 
   setDate = (date: Moment) => {
     var gdate = new g.DreamDate(date);
@@ -64,14 +69,13 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
       moment: moment(date),
       gdate
     });
-  }
-
+  };
 
   public render() {
     return (
       <AppContext.Provider value={this.state}>
         {this.props.children}
       </AppContext.Provider>
-    )
+    );
   }
 }
