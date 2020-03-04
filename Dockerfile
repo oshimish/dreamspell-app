@@ -1,7 +1,7 @@
 # to builds app inside docker container
 
 # Stage 0 - yarn install
-FROM node:12-slim as build-deps
+FROM node:slim as build-deps
 WORKDIR /usr/src/app
 
 # Add entrypoint script to handle yarn cache
