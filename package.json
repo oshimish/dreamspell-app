@@ -38,6 +38,7 @@
     "@types/styled-components": "^5.0.1",
     "@types/webpack-env": "^1.13.9",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
@@ -45,7 +46,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "cross-env GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
