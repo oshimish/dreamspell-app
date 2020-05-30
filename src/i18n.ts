@@ -24,6 +24,13 @@ i18n
 
     react: {
       wait: true
+    },
+    backend: {
+      // path where resources get loaded from, or a function
+      // returning a path:
+      // function(lngs, namespaces) { return customPath; }
+      // the returned path will interpolate lng, ns if provided like giving a static path
+      loadPath: process.env.PUBLIC_URL + '/locales/{{lng}}/{{ns}}.json',
     }
   });
 

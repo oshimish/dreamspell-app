@@ -56,7 +56,7 @@ class App extends Component {
                 this.nameInput = input;
               }}
             >
-              <Router>
+              <Router basename={process.env.PUBLIC_URL}>
                 <Route
                   render={({ location }) => {
                     return (
@@ -140,7 +140,10 @@ class App extends Component {
                                 )}
                               />
 
-                              <Route render={() => <div>Not Found</div>} />
+                              {/* not found route */}
+                              <Route render={() => (
+                                <KinPage gdate={context!.gdate} />
+                              )} />
                             </Switch>
                           </TransitionGroup>
                         </div>
