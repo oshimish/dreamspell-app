@@ -8,7 +8,7 @@ import "react-day-picker/lib/style.css";
 import moment, { Moment } from "moment";
 
 // Include the locale utils designed for moment
-//import MomentLocaleUtils from 'react-day-picker/moment';
+import MomentLocaleUtils from 'react-day-picker/moment';
 
 // Make sure moment.js has the required locale data
 import "moment/locale/ru";
@@ -37,6 +37,10 @@ export const DateInput = () => {
         onDayChange={handleDayClick}
         value={selectedDay.moment.toDate()}
         format={moment.defaultFormat}
+        dayPickerProps={{
+          locale: "ru",
+          localeUtils: { MomentLocaleUtils }
+        }}
       />
     </div>
   );
