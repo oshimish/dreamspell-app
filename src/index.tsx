@@ -11,6 +11,9 @@ import * as serviceWorker from "./serviceWorker";
 
 import i18n from "./i18n"; // initialized i18next instance
 
+import { initCustoms } from "./customs";
+initCustoms();
+
 ReactDOM.render(
   <I18nextProvider i18n={i18n}>
     <App />
