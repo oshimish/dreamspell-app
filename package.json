@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.5.0",
     "classnames": "^2.2.6",
     "core-js": "^3.6.4",
     "dreamspell-math": "^0.1.1",
@@ -11,6 +12,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.1",
     "react-day-picker": "^7.4.0",
     "react-dom": "^16.13.0",
     "react-i18next": "^11.3.3",
@@ -49,6 +51,8 @@
     "build": "cross-env GENERATE_SOURCEMAP=false craco build",
     "build:ktoty": "cross-env GENERATE_SOURCEMAP=false REACT_APP_KTOTY=true PUBLIC_URL=https://ktoty.info/dream-spell craco build",
     "test": "craco test",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn run type-check --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -2,7 +2,7 @@
 import React from "react";
 import { Kin } from "../../Visuals";
 import * as g from "dreamspell-math";
-import "./styles.css";
+import "./styles.scss";
 // Internal Setup
 
 class OraclePage extends React.Component<{
@@ -12,9 +12,9 @@ class OraclePage extends React.Component<{
     const kin = this.props.gdate.kin;
     const oracle = kin.getOracle();
     return (
-      <div className="oracle-view">
+      <div className="oracle-view ">
         <h2>Крест Оракула</h2>
-        <table className="oracle-table">
+        <table className="oracle-table mx-auto">
           <tbody>
             <tr>
               <td />

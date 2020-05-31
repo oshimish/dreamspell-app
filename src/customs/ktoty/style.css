@@ -1,8 +1,7 @@
 body {
   background: #fff;
   color: #3f3f3f;
-  font-family: "Roboto", Sans-serif;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", "Roboto", sans-serif;
   font-weight: 400;
 }
 
@@ -19,18 +18,11 @@ a {
   line-height: 17px;
 }
 
-h2 {
-  /* margin: 0.7px; */
-}
-
 .menu {
   padding: 0px;
 }
 
 .screen {
-  grid-template-columns: 0fr 4fr 1fr;
-  grid-template-rows: min-content auto min-content;
-  grid-gap: 0em;
 }
 
 .sign-tone {

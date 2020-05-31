@@ -40,7 +40,7 @@ const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
 );
 
 const ZGrid = (props: { selKin: g.Kin }) => (
-  <div className="zolkin-grid-container">
+  <div className="zolkin-grid-container  mx-auto">
     {kins.map(kin => (
       <KinCell
         kin={kin}

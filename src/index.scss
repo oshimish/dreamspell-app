@@ -1,0 +1,27 @@
+// Override default variables before the import
+$body-bg: #070023;
+$body-color: #fff;
+$font-family-base: "Montserrat";
+
+// trying RFS from https://getbootstrap.com/docs/4.4/content/typography/#responsive-font-sizes
+$enable-responsive-font-sizes: true;
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+
+html,
+body,
+.root {
+  height: 100%; // full heigh
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #070023;
+  // font-stretch: condensed;
+}
+
+a {
+  color: #fff;
+}

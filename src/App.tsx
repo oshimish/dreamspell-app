@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { Component, useEffect, useRef, useContext } from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
 
 import KinPage from "./Pages/KinPage/KinPage";
@@ -13,29 +13,31 @@ import WaveSpellPage from "./Pages/WaveSpellPage/WaveSpellPage";
 import YearPage from "./Pages/YearPage/YearPage";
 import JourneyPage from "./Pages/JourneyPage/JourneyPage";
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import "./transitions.css";
 
-import { RightSideBar, LeftSideBar, TopHeader, DateInput } from "./Components";
-import {
-  AppContextProvider,
-  AppContext,
-  IAppContext
-} from "./Context/AppContextProvider";
+import { TopHeader } from "./Components";
+import { AppContext } from "./Context";
 
-class App extends Component {
-  constructor(props: any) {
-    super(props);
-  }
 
-  nameInput: HTMLElement | null = null;
+import { DatePicker } from './Components/DateInput/DatePicker';
+import { DateInput } from './Components/DateInput/DateInput';
 
-  componentDidMount() {
-    this.nameInput && this.nameInput.focus();
-  }
+const App = () => {
 
-  onKeyDown = (e: React.KeyboardEvent, context?: IAppContext) => {
+  const keyDivRef = useRef<HTMLDivElement>(null);
+  const context = useContext(AppContext)!;
+
+  useEffect(() => {
+    keyDivRef.current?.focus();
+  }, [keyDivRef])
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.keyCode === 37 /* left arrow*/) {
       context && context.dec();
     } else if (e.keyCode === 39 /* right arrow*/) {
@@ -43,125 +45,113 @@ class App extends Component {
     }
   };
 
-  render() {
-    return (
-      <AppContextProvider>
-        <AppContext.Consumer>
-          {context => (
-            <div
-              onKeyDown={e => this.onKeyDown(e, context || undefined)}
+  return (
+    <Router basename={process.env.PUBLIC_URL}>
+      <Route
+        render={({ location }) => {
+          return (
+            <div className="screen"
+              onKeyDown={onKeyDown}
               tabIndex={1}
-              className="App"
-              ref={input => {
-                this.nameInput = input;
-              }}
-            >
-              <Router basename={process.env.PUBLIC_URL}>
-                <Route
-                  render={({ location }) => {
-                    return (
-                      <section className="screen">
-                        <div className="header-block">
-                          <TopHeader />
-                        </div>
-                        <div className="header-right">
-                          <DateInput />
-                        </div>
-                        <div className="left-block">
-                          <LeftSideBar />
-                        </div>
-                        <div className="center-block">
-                          <TransitionGroup
-                            key={location.key}
-                            transitionName="fade"
-                            transitionEnterTimeout={600}
-                            transitionLeaveTimeout={600}
-                            transitionAppear={true}
-                            transitionAppearTimeout={600}
-                          >
-                            <Switch location={location}>
-                              <Route
-                                exact={true}
-                                path="/"
-                                render={() => (
-                                  <KinPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/tone"
-                                render={() => (
-                                  <TonePage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/sign"
-                                render={() => (
-                                  <SignPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/plasma"
-                                render={() => (
-                                  <PlasmaPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/oracle"
-                                render={() => (
-                                  <OraclePage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/zolkin"
-                                render={() => (
-                                  <ZolkinPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/moon"
-                                render={() => (
-                                  <MoonPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/wavespell"
-                                render={() => (
-                                  <WaveSpellPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/journey"
-                                render={() => <JourneyPage />}
-                              />
-                              <Route
-                                path="/year"
-                                render={() => (
-                                  <YearPage gdate={context!.gdate} />
-                                )}
-                              />
+              ref={keyDivRef} >
+              <div className="header">
+                <TopHeader />
+              </div>
+              <div className="content">
+                <Container fluid>
+                  <Row className="justify-content-around">
+                    <Col md="8" className="align-self-center mx-auto" >
+                      <TransitionGroup
+                        key={location.key}
+                        transitionname="fade"
+                        transitionentertimeout={600}
+                        transitionleavetimeout={600}
+                        transitionappear="true"
+                        transitionappeartimeout={600}
+                      >
+                        <Switch location={location ?? "/"}>
+                          <Route
+                            exact={true}
+                            path="/"
+                            render={() => (
+                              <KinPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/tone"
+                            render={() => (
+                              <TonePage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/sign"
+                            render={() => (
+                              <SignPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/plasma"
+                            render={() => (
+                              <PlasmaPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/oracle"
+                            render={() => (
+                              <OraclePage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/zolkin"
+                            render={() => (
+                              <ZolkinPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/moon"
+                            render={() => (
+                              <MoonPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/wavespell"
+                            render={() => (
+                              <WaveSpellPage gdate={context!.gdate} />
+                            )}
+                          />
+                          <Route
+                            path="/journey"
+                            render={() => <JourneyPage />}
+                          />
+                          <Route
+                            path="/year"
+                            render={() => (
+                              <YearPage gdate={context!.gdate} />
+                            )}
+                          />
 
-                              {/* not found route */}
-                              <Route render={() => (
-                                <KinPage gdate={context!.gdate} />
-                              )} />
-                            </Switch>
-                          </TransitionGroup>
-                        </div>
-                        {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
-                        <div className="right-block">
-                          <RightSideBar />
-                        </div>
-                      </section>
-                    );
-                  }}
-                />
-              </Router>
+                          {/* not found route */}
+                          <Route render={() => (
+                            <KinPage gdate={context!.gdate} />
+                          )} />
+                        </Switch>
+                      </TransitionGroup>
+                    </Col>
+                    <Col md="4" className="align-self-start ml-md-auto">
+                      <DateInput />
+                      <DatePicker />
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
+              {/* <div className="bottom vertical_pulsate"> <p>Scroll!</p> </div> */}
+
             </div>
-          )}
-        </AppContext.Consumer>
-      </AppContextProvider>
-    );
-  }
+          );
+        }}
+      />
+    </Router>
+  );
 }
 
 //export default translate(withNamespaces()(App));

@@ -39,7 +39,7 @@ export const DateInput = () => {
         format={moment.defaultFormat}
         dayPickerProps={{
           locale: "ru",
-          localeUtils: { MomentLocaleUtils }
+          // localeUtils: { MomentLocaleUtils }
         }}
       />
     </div>
