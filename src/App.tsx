@@ -60,7 +60,7 @@ const App = () => {
               <div className="content">
                 <Container fluid>
                   <Row className="justify-content-around">
-                    <Col md="8" className="align-self-center mx-auto" >
+                    <Col md="8" className="align-self-center mx-auto my-md-4" >
                       <TransitionGroup
                         key={location.key}
                         transitionname="fade"
@@ -137,7 +137,7 @@ const App = () => {
                         </Switch>
                       </TransitionGroup>
                     </Col>
-                    <Col md="4" className="align-self-start ml-md-auto">
+                    <Col md="4" className="align-self-start d-none d-md-block mx-auto my-4">
                       <DateInput />
                       <DatePicker />
                     </Col>

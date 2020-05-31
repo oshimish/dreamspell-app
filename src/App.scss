@@ -7,7 +7,7 @@
     "content"
     "footer";
   grid-template-rows: min-content auto min-content;
-  grid-gap: 1em;
+  // grid-gap: 1em;
   align-content: stretch;
 }
 
@@ -16,6 +16,10 @@
   text-align: center;
   justify-self: stretch;
   align-self: center;
+
+  h2 {
+    margin: 1em auto;
+  }
 }
 
 .header {

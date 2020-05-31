@@ -4,7 +4,7 @@ import React from "react";
 import * as g from "dreamspell-math";
 
 // Internal
-import "./styles.css";
+import "./styles.scss";
 import * as Visuals from "../../Visuals";
 import { Moment } from "moment";
 import { DreamDate } from "dreamspell-math";
@@ -31,11 +31,12 @@ class WaveSpellPage extends React.Component<{
       selDate.moment.clone().add(-(selKin.tone.number - 1), "d")
     );
     return (
-      <div className="wave-spell-page" onClick={this.onClick}>
+      <div className="wave-spell-page p-4" onClick={this.onClick}>
         <h2>Волновой Модуль</h2>
 
         <Visuals.WaveSpell
           from={wavespellStart}
+          itemClassName="m-2"
           iterator={(gdate: DreamDate) =>
             g.dreamdate(gdate.moment.clone().add(1, "d"))
           }

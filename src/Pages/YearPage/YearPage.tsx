@@ -2,7 +2,7 @@
 import React from "react";
 
 // Internal
-import "./styles.css";
+import "./styles.scss";
 import { WaveSpell, Moon } from "../../Visuals";
 import { dreamdate, DreamDate } from "dreamspell-math";
 // Setup
