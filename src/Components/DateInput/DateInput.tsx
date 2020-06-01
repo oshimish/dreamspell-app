@@ -17,7 +17,9 @@ import "moment/locale/ru";
 import "./styles.css";
 import { AppContext } from "Context/AppContextProvider";
 
-export const DateInput = () => {
+export const DateInput = (props: {
+  className?: string
+}) => {
   const context = useContext(AppContext)!;
 
   const handleDayClick = (day: Date) => {
@@ -36,10 +38,17 @@ export const DateInput = () => {
       <DayPickerInput
         onDayChange={handleDayClick}
         value={selectedDay.moment.toDate()}
-        format={moment.defaultFormat}
+        format={"LL"}
+        formatDate={MomentLocaleUtils.formatDate}
+        parseDate={MomentLocaleUtils.parseDate}
+
+        // showOverlay={true}
         dayPickerProps={{
           locale: "ru",
-          // localeUtils: { MomentLocaleUtils }
+          localeUtils: MomentLocaleUtils
+        }}
+        inputProps={{
+          className: props.className
         }}
       />
     </div>

@@ -138,7 +138,7 @@ const App = () => {
                       </TransitionGroup>
                     </Col>
                     <Col md="4" className="align-self-start d-none d-md-block mx-auto my-4">
-                      <DateInput />
+                      {/* <DateInput /> */}
                       <DatePicker />
                     </Col>
                   </Row>

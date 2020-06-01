@@ -15,7 +15,6 @@ import { AppContext } from "../../Context/AppContextProvider";
 
 // Setup
 
-
 export function DatePicker() {
     const context = useContext(AppContext)!;
 
