@@ -9,6 +9,15 @@
   border-radius: 9px;
 }
 
+.sign-tone img {
+  display: flex;
+  margin: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
 .plasma {
   height: 50%;
 }

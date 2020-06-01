@@ -1,8 +1,9 @@
 // Vendor
 import React, { ReactNode } from "react";
 import * as g from "dreamspell-math";
-import styled from "styled-components";
 import { dreamdate } from "dreamspell-math";
+import './styles.css';
+import { Moment } from "moment";
 
 // Setup
 
@@ -60,18 +61,13 @@ const Item = (props: {
   );
 };
 
-const WaveSpellContainer = styled.div`
-  display: grid;
-  grid-gap: 3px;
-  display: inline-grid;
-`;
 
 /**
  * @class WaveSpell
  * @description Wavespell visual
  */
 export const WaveSpell = (props: {
-  from: g.DreamDate;
+  from: g.DreamDate | Moment;
 
   itemClassName?: string;
   iterator: (i: g.DreamDate) => g.DreamDate;
@@ -80,7 +76,7 @@ export const WaveSpell = (props: {
   let i = dreamdate(props.from);
   let iterator = props.iterator;
   return (
-    <WaveSpellContainer className={"wave-spell"}>
+    <div className={"wave-spell"}>
       {TONES.map(t => {
         const item = (
           <Item
@@ -94,7 +90,7 @@ export const WaveSpell = (props: {
         i = iterator(dreamdate(i));
         return item;
       })}
-    </WaveSpellContainer>
+    </div>
   );
 };
 

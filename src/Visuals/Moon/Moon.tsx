@@ -6,7 +6,6 @@ import * as g from "dreamspell-math";
 // Internal
 import "./styles.css";
 import { Plasma, Kin } from "../Kin";
-import styled from "styled-components";
 
 // Setup
 var selStyle = (props: { selected?: boolean }) =>
@@ -22,28 +21,26 @@ const MoonDay = (props: {
   col: number;
   selected?: boolean;
 }) => (
-  <div
-    className={
-      "day-cell chromatic" +
-      props.gday.kin.color +
-      selStyle(props) +
-      portalStyle(props) +
-      mysticStyle(props)
-    }
-    style={{
-      gridRow: props.row,
-      gridColumn: props.col
-    }}
-  >
-    <div className="num">{props.gday.day}</div>
-    <Kin kin={props.gday.kin} /> {/* <p>{props.gday.Moment.format('L')}</p> */}
-  </div>
-);
-
-const PlasmaHeadContainer = styled.div``;
+    <div
+      className={
+        "day-cell chromatic" +
+        props.gday.kin.color +
+        selStyle(props) +
+        portalStyle(props) +
+        mysticStyle(props)
+      }
+      style={{
+        gridRow: props.row,
+        gridColumn: props.col
+      }}
+    >
+      <div className="num">{props.gday.day}</div>
+      <Kin kin={props.gday.kin} /> {/* <p>{props.gday.Moment.format('L')}</p> */}
+    </div>
+  );
 
 const PlasmaHead = (props: { gday: g.DreamDate; col: number }) => (
-  <PlasmaHeadContainer
+  <div
     className="plasma-cell"
     style={{
       gridRow: 1,
@@ -51,7 +48,7 @@ const PlasmaHead = (props: { gday: g.DreamDate; col: number }) => (
     }}
   >
     <Plasma plasma={props.gday.plasma} />
-  </PlasmaHeadContainer>
+  </div>
 );
 
 /**
