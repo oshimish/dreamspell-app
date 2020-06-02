@@ -6,12 +6,31 @@ import Form from 'react-bootstrap/Form';
 import styles from "./Layout.module.css";
 import { DateInput } from 'Components/DateInput/DateInput';
 
+import logo from "logo.png";
+import env from "env";
+
 export const TopHeader = () => {
   return (
-    <Navbar sticky="top" expand="lg" className={styles.topHeader} collapseOnSelect >
+    <Navbar sticky="top" bg="dark" variant="dark" expand="lg" className={styles.topHeader} collapseOnSelect >
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      {/* <Navbar.Brand href="/">ДримСпелл</Navbar.Brand> */}
+      {env.lawoftime &&
+        <>
+          <Navbar.Brand href="https://www.law-of-time.ru">
+            <img
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top mx-2"
+              alt="Law Of Time"
+            />
+          </Navbar.Brand>
+          <Navbar.Brand href="/">
+            ДримСпелл
+            </Navbar.Brand>
+        </>
+      }
+
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="my-2">
           <Nav.Link href="#/">Кин</Nav.Link>

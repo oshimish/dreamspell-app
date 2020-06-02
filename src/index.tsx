@@ -13,7 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import "./i18n";
 
-import { initCustoms } from "./customs";
+import { initCustoms } from "env";
 import { AppContextProvider } from "Context/AppContextProvider";
 
 import moment from "moment";

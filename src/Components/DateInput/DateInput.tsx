@@ -13,7 +13,7 @@ import MomentLocaleUtils from 'react-day-picker/moment';
 import "moment/locale/ru";
 
 // Internal
-import "./styles.css";
+import "./styles.scss";
 import { AppContext } from "Context/AppContextProvider";
 
 export const DateInput = (props: {
