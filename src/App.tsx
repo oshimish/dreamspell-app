@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, Suspense } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
 
@@ -16,8 +16,9 @@ import JourneyPage from "./Pages/JourneyPage/JourneyPage";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
-import logo from "./logo.svg";
+// import logo from "./logo.png";
 import "./App.scss";
 import "./transitions.css";
 
@@ -26,9 +27,16 @@ import { AppContext } from "./Context";
 
 
 import { DatePicker } from './Components/DateInput/DatePicker';
-import { DateInput } from './Components/DateInput/DateInput';
+import { useTranslation } from "react-i18next";
 
-const App = () => {
+const Screen = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { i18n } = useTranslation();
+
+  // useEffect(() => {
+  // i18n.changeLanguage(i18n.language);
+  // }, [i18n])
+
 
   const keyDivRef = useRef<HTMLDivElement>(null);
   const context = useContext(AppContext)!;
@@ -154,5 +162,22 @@ const App = () => {
   );
 }
 
-//export default translate(withNamespaces()(App));
-export default App;
+// loading component for suspense fallback
+const Loader = () => (
+  <Container className="h-100">
+    {/* <img src={logo} className="App-logo" alt="Law of time" /> */}
+    <Row className="h-100 align-self-center mx-auto">
+      <Spinner animation="grow" />
+    </Row>
+  </Container>
+);
+
+// i18n translations might still be loaded by the http backend
+// use react's Suspense
+export default function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Screen />
+    </Suspense>
+  );
+}

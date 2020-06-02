@@ -1,6 +1,5 @@
 // Vendor
 import React from 'react';
-import * as g from 'dreamspell-math';
 import requireContext from 'require-context.macro';
 
 // Internal

@@ -1,11 +1,10 @@
 // Vendor
 import React, { useContext } from "react";
 
-import DayPicker from "react-day-picker";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 
 import "react-day-picker/lib/style.css";
-import moment, { Moment } from "moment";
+import moment from "moment";
 
 // Include the locale utils designed for moment
 import MomentLocaleUtils from 'react-day-picker/moment';

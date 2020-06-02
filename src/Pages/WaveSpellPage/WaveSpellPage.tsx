@@ -6,7 +6,6 @@ import * as g from "dreamspell-math";
 // Internal
 import "./styles.scss";
 import * as Visuals from "../../Visuals";
-import { Moment } from "moment";
 import { DreamDate } from "dreamspell-math";
 
 // Setup
@@ -36,7 +35,7 @@ class WaveSpellPage extends React.Component<{
 
         <Visuals.WaveSpell
           from={wavespellStart}
-          itemClassName="m-2"
+          itemClassName="my-2 mx-4"
           iterator={(gdate: DreamDate) =>
             g.dreamdate(gdate.moment.clone().add(1, "d"))
           }

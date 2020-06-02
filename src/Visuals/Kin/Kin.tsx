@@ -13,7 +13,7 @@ import { AppContext } from "Context/AppContextProvider";
  */
 export const Kin = (props: { kin: g.Kin }) => {
   const context = useContext(AppContext);
-  const isSel = context && context.gdate.kin.number == props.kin.number;
+  const isSel = context && context.gdate.kin.number === props.kin.number;
   let kin = props.kin;
   return (
     <div className={"kin" + (isSel && " selected")}>

@@ -13,7 +13,7 @@ import { dreamdate, DreamDate } from "dreamspell-math";
  */
 
 const YearPage = (props: { gdate: DreamDate }) => {
-  const selKin = props.gdate.kin;
+  // const selKin = props.gdate.kin;
   const selDate = props.gdate;
   // todo: add getWavespell to math
   let wavespellStart = dreamdate(
