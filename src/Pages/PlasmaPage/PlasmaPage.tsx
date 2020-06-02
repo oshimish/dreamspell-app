@@ -17,7 +17,7 @@ class PlasmaPage extends React.Component<{
       i18n.t("plasmas:plasma" + date.plasma + key, opt);
     return (
       <div className="plasma-page">
-        <div className="kin-view-plasma">
+        <div className="kin-view-plasma m-4">
           <Plasma plasma={date.plasma} />
         </div>
         <h2>

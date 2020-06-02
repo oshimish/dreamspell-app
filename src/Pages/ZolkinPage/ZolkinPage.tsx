@@ -4,7 +4,7 @@ import * as g from "dreamspell-math";
 
 // Internal
 import { Sign, SignTone } from "../../Visuals";
-import "./styles.css";
+import "./styles.scss";
 // Setup
 
 let kins = new Array<g.Kin>(260);
@@ -37,7 +37,7 @@ const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
 );
 
 const ZGrid = (props: { selKin: g.Kin }) => (
-  <div className="zolkin-grid-container  mx-auto">
+  <div className="zolkin-grid-container mx-auto my-4">
     {kins.map(kin => (
       <KinCell
         kin={kin}

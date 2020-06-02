@@ -58,9 +58,9 @@ const App = () => {
                 <TopHeader />
               </div>
               <div className="content">
-                <Container fluid>
-                  <Row className="justify-content-around">
-                    <Col md="8" className="align-self-center mx-auto my-md-4" >
+                <Container fluid className="h-100">
+                  <Row className="justify-content-around h-100">
+                    <Col md="8" className="align-self-center mx-auto" >
                       <TransitionGroup
                         key={location.key}
                         transitionname="fade"

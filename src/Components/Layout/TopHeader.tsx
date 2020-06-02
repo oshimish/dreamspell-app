@@ -13,7 +13,7 @@ export const TopHeader = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {/* <Navbar.Brand href="/">ДримСпелл</Navbar.Brand> */}
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto justify-content-start">
+        <Nav className="my-2">
           <Nav.Link href="#/">Кин</Nav.Link>
           <Nav.Link href="#/tone">Тон</Nav.Link>
           <Nav.Link href="#/sign">Печать</Nav.Link>

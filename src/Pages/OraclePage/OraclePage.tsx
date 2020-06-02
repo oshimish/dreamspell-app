@@ -14,7 +14,7 @@ class OraclePage extends React.Component<{
     return (
       <div className="oracle-view ">
         <h2>Крест Оракула</h2>
-        <table className="oracle-table mx-auto">
+        <table className="oracle-table mx-auto my-4">
           <tbody>
             <tr>
               <td />

@@ -31,7 +31,7 @@ class WaveSpellPage extends React.Component<{
       selDate.moment.clone().add(-(selKin.tone.number - 1), "d")
     );
     return (
-      <div className="wave-spell-page p-4" onClick={this.onClick}>
+      <div className="wave-spell-page px-4 py-2" onClick={this.onClick}>
         <h2>Волновой Модуль</h2>
 
         <Visuals.WaveSpell
