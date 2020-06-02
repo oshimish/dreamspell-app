@@ -55,43 +55,49 @@ const PlasmaHead = (props: { gday: g.DreamDate; col: number }) => (
  * @class Moon
  * @description Brief description
  */
-export class Moon extends React.Component<{
+export const Moon = (props: {
   firstDay: g.DreamDate;
   selDate?: g.DreamDate;
-}> {
-  render() {
-    let props = this.props;
-    let day = props.firstDay;
-    let moonDays = new Array<g.DreamDate>(28);
-    for (let index = 0; index < moonDays.length; index++) {
-      let dayDate = new g.DreamDate(day);
-      moonDays[index] = dayDate;
-      day = new g.DreamDate(day.moment.add(1, "d"));
+}) => {
+
+  let day = props.firstDay;
+  let moonDays = new Array<g.DreamDate>(28);
+  for (let index = 0; index < moonDays.length; index++) {
+    let dayDate = new g.DreamDate(day);
+    moonDays[index] = dayDate;
+    day = new g.DreamDate(day.moment.add(1, "day"));
+
+    // todo: leaps and iterate move to math
+    // skip leap days
+    if (day.moment.month() === 1
+      && day.moment.date() === 29) {
+      day = new g.DreamDate(day.moment.add(1, "day"));
+      continue;
     }
-
-    return (
-      <div className="moon-grid">
-        {moonDays
-          .filter((val, i) => i < 7)
-          .map(gday => (
-            <PlasmaHead gday={gday} key={gday.dayOfYear} col={gday.dayOfWeek} />
-          ))}
-
-        {moonDays.map(gday => (
-          <MoonDay
-            gday={gday}
-            row={1 + gday.week}
-            col={gday.dayOfWeek}
-            key={gday.dayOfYear}
-            selected={
-              this.props.selDate &&
-              gday.dayOfYear === this.props.selDate.dayOfYear
-            }
-          />
-        ))}
-      </div>
-    );
   }
+
+  return (
+    <div className="moon-grid">
+      {moonDays
+        .filter((val, i) => i < 7)
+        .map(gday => (
+          <PlasmaHead gday={gday} key={gday.dayOfYear} col={gday.dayOfWeek} />
+        ))}
+
+      {moonDays.map(gday => (
+        <MoonDay
+          gday={gday}
+          row={1 + gday.week}
+          col={gday.dayOfWeek}
+          key={gday.dayOfYear}
+          selected={
+            props.selDate &&
+            gday.dayOfYear === props.selDate.dayOfYear
+          }
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Moon;

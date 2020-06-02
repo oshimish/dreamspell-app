@@ -15,12 +15,14 @@ import { dreamdate, DreamDate } from "dreamspell-math";
 const YearPage = (props: { gdate: DreamDate }) => {
   // const selKin = props.gdate.kin;
   const selDate = props.gdate;
-  // todo: add getWavespell to math
+
   let wavespellStart = dreamdate(
-    selDate.moment.clone().add(-selDate.dayOfYear, "d")
+    selDate.moment.clone().add(-selDate.dayOfYear - 1, "d")
   );
+
   let iterator = (gdate: DreamDate) =>
     dreamdate(gdate.moment.clone().add(28, "d"));
+
   return (
     <div className="year-page">
       <h2>Год</h2>

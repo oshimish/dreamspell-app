@@ -16,7 +16,7 @@ i18n
 
     preload: ["ru"],
 
-    debug: true,
+    debug: false,
 
     interpolation: {
       escapeValue: false // not needed for react!!
