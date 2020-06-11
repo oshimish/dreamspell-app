@@ -10,8 +10,14 @@ import logo from "logo.png";
 import env from "env";
 
 export const TopHeader = () => {
+
+  const darkTheme = env.lawoftime;
+
   return (
-    <Navbar sticky="top" bg="dark" variant="dark" expand="lg" className={styles.topHeader} collapseOnSelect >
+    <Navbar sticky="top"
+      bg={darkTheme ? "dark" : ""}
+      variant={darkTheme ? "dark" : undefined} expand="lg"
+      className={styles.topHeader} collapseOnSelect >
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {env.lawoftime &&

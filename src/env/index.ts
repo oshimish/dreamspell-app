@@ -1,3 +1,8 @@
+
+// handled now manually
+//import './ktoty/style.css';
+
+
 export const initCustoms = () => {
     // var cssfile;
     // if (process.env.REACT_APP_KTOTY) {
@@ -12,10 +17,7 @@ export const initCustoms = () => {
 
 export const env = {
     lawoftime: true,
-    ktoty: process.env.REACT_APP_KTOTY
+    ktoty: false
 }
-
-// handled now manually
-// import './ktoty/style.css';
 
 export default env;
