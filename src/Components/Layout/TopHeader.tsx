@@ -39,12 +39,12 @@ export const TopHeader = () => {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="my-2">
-          <Nav.Link href="#/">Кин</Nav.Link>
+          <Nav.Link href="#/kin">Кин</Nav.Link>
           <Nav.Link href="#/tone">Тон</Nav.Link>
           <Nav.Link href="#/sign">Печать</Nav.Link>
           <Nav.Link href="#/plasma">Плазма</Nav.Link>
           <Nav.Link href="#/oracle">Оракул</Nav.Link>
-          <Nav.Link href="#/zolkin">Цолькин</Nav.Link>
+          <Nav.Link href="#/tzolkin">Цолькин</Nav.Link>
           <Nav.Link href="#/moon">Луна</Nav.Link>
           <Nav.Link href="#/wavespell">Волновой&nbsp;модуль</Nav.Link>
           <Nav.Link href="#/year">Год</Nav.Link>

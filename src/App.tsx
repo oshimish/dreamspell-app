@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, Suspense } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { TransitionGroup } from "react-transition-group";
 
 import KinPage from "./Pages/KinPage/KinPage";
@@ -77,10 +77,10 @@ const Screen = () => {
                         transitionappear="true"
                         transitionappeartimeout={600}
                       >
-                        <Switch location={location ?? "/"}>
+                        <Switch location={location}>
                           <Route
                             exact={true}
-                            path="/"
+                            path="/kin"
                             render={() => (
                               <KinPage gdate={context!.gdate} />
                             )}
@@ -110,7 +110,7 @@ const Screen = () => {
                             )}
                           />
                           <Route
-                            path="/zolkin"
+                            path="/tzolkin"
                             render={() => (
                               <ZolkinPage gdate={context!.gdate} />
                             )}
@@ -140,7 +140,7 @@ const Screen = () => {
 
                           {/* not found route */}
                           <Route render={() => (
-                            <KinPage gdate={context!.gdate} />
+                            <Redirect to="/kin" />
                           )} />
                         </Switch>
                       </TransitionGroup>

@@ -35,7 +35,7 @@ class KinPage extends React.Component<{
           </NavLink>
         </div>
         <div className="kin-view-number">
-          <NavLink to={"zolkin"}>кин {dsdate.kin.number}</NavLink>
+          <NavLink to={"tzolkin"}>кин {dsdate.kin.number}</NavLink>
         </div>
       </div>
     );

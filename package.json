@@ -47,7 +47,7 @@
   "scripts": {
     "start": "craco start",
     "build": "cross-env craco build",
-    "build:ktoty": "cross-env REACT_APP_KTOTY=true PUBLIC_URL=https://ktoty.info/dream-spell craco build",
+    "build:ktoty": "cross-env REACT_APP_KTOTY=true PUBLIC_URL=https://ktoty.info/dreamspell-app craco build",
     "test": "craco test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check --watch",
