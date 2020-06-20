@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
 
 import styles from "./Layout.module.css";
 import { DateInput } from 'Components/DateInput/DateInput';
@@ -51,9 +50,7 @@ export const TopHeader = () => {
           <Nav.Link href="#/year">Год</Nav.Link>
         </Nav>
       </Navbar.Collapse>
-      <Form inline>
-        <DateInput className="form-control mr-sm-2" />
-      </Form>
+      <DateInput />
     </Navbar>
   );
 };
