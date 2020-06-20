@@ -18,6 +18,18 @@ import "moment/locale/ru";
 import "./styles.scss";
 import { AppContext } from "Context/AppContextProvider";
 import Form from "react-bootstrap/Form";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from "react-bootstrap/Button";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
+
+const DropDownHeader = () => (
+  <NavDropdown.Header>
+    <ButtonGroup className="mx-auto">
+      <Button variant="light">&lt;</Button>
+      <Button variant="light">&gt;</Button>
+    </ButtonGroup>
+  </NavDropdown.Header>
+)
 
 export const DateInput = (props: {
 }) => {
@@ -70,14 +82,26 @@ export const DateInput = (props: {
         </div>
       </Form> */}
 
-      <NavDropdown title="19" id="basic-nav-dropdown">
-        {days.map((x, i) => (<NavDropdown.Item onClick={() => { }}>{x}</NavDropdown.Item>))}
+      <NavDropdown title="19" id="day-nav-dropdown" className="date-nav-dropdown">
+        <DropDownHeader />
+        <NavDropdown.Divider />
+        <DropdownMenu className="scroll-menu">
+          {days.map((x, i) => (<NavDropdown.Item onClick={() => { }} eventKey={i.toString()}>{x}</NavDropdown.Item>))}
+        </DropdownMenu>
       </NavDropdown>
-      <NavDropdown title="Июня" id="basic-nav-dropdown">
-        {months.map((x, i) => (<NavDropdown.Item onClick={() => { }}>{x}</NavDropdown.Item>))}
+      <NavDropdown title="Июня" id="month-nav-dropdown" className="date-nav-dropdown">
+        <DropDownHeader />
+        <NavDropdown.Divider />
+        <DropdownMenu className="scroll-menu">
+          {months.map((x, i) => (<NavDropdown.Item onClick={() => { }} eventKey={i.toString()}>{x}</NavDropdown.Item>))}
+        </DropdownMenu>
       </NavDropdown>
-      <NavDropdown title="2020" id="basic-nav-dropdown">
-        {years.map((x, i) => (<NavDropdown.Item onClick={() => { }}>{x}</NavDropdown.Item>))}
+      <NavDropdown title="2020" id="year-nav-dropdown" className="date-nav-dropdown">
+        <DropDownHeader />
+        <NavDropdown.Divider />
+        <DropdownMenu className="scroll-menu">
+          {years.map((x, i) => (<NavDropdown.Item onClick={() => { }} eventKey={i.toString()}>{x}</NavDropdown.Item>))}
+        </DropdownMenu>
       </NavDropdown>
     </>
   );
