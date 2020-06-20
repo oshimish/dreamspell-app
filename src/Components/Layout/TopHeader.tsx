@@ -22,7 +22,8 @@ export const TopHeader = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {env.lawoftime &&
         <>
-          <Navbar.Brand href="https://www.law-of-time.ru">
+          <Navbar.Brand href="https://www.law-of-time.ru"
+            className="mx-1">
             <img
               src={logo}
               width="30"
@@ -31,9 +32,9 @@ export const TopHeader = () => {
               alt="Law Of Time"
             />
           </Navbar.Brand>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" className="mr-auto">
             ДримСпелл
-            </Navbar.Brand>
+          </Navbar.Brand>
         </>
       }
 
