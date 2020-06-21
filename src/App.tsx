@@ -146,7 +146,7 @@ const Screen = () => {
                         </Switch>
                       </TransitionGroup>
                     </Col>
-                    <Col md="auto" className="align-self-start d-none d-md-block ml-auto my-4">
+                    <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
                       {/* <DateInput /> */}
                       <DatePicker />
                     </Col>
