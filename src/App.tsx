@@ -76,6 +76,7 @@ const Screen = () => {
                         transitionleavetimeout={600}
                         transitionappear="true"
                         transitionappeartimeout={600}
+                        className="m-4"
                       >
                         <Switch location={location ?? "/"}>
                           <Route
@@ -145,7 +146,7 @@ const Screen = () => {
                         </Switch>
                       </TransitionGroup>
                     </Col>
-                    <Col md="4" className="align-self-start d-none d-md-block mx-auto my-4">
+                    <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
                       {/* <DateInput /> */}
                       <DatePicker />
                     </Col>
