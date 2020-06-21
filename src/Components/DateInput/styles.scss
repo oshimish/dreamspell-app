@@ -16,6 +16,10 @@
   color: #070023;
 }
 
+.date-nav {
+  flex-direction: row;
+}
+
 .date-nav-dropdown {
   .dropdown-menu {
     min-width: auto;
