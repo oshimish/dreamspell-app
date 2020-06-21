@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
 
 import styles from "./Layout.module.css";
 import { DateInput } from 'Components/DateInput/DateInput';
@@ -22,7 +21,8 @@ export const TopHeader = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {env.lawoftime &&
         <>
-          <Navbar.Brand href="https://www.law-of-time.ru">
+          <Navbar.Brand href="https://www.law-of-time.ru"
+            className="mx-1">
             <img
               src={logo}
               width="30"
@@ -31,14 +31,14 @@ export const TopHeader = () => {
               alt="Law Of Time"
             />
           </Navbar.Brand>
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" className="mr-auto">
             ДримСпелл
             </Navbar.Brand>
         </>
       }
 
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="my-2">
+        <Nav fill className="my-2">
           <Nav.Link href="#/kin">Кин</Nav.Link>
           <Nav.Link href="#/tone">Тон</Nav.Link>
           <Nav.Link href="#/sign">Печать</Nav.Link>
@@ -50,9 +50,7 @@ export const TopHeader = () => {
           <Nav.Link href="#/year">Год</Nav.Link>
         </Nav>
       </Navbar.Collapse>
-      <Form inline>
-        <DateInput className="form-control mr-sm-2" />
-      </Form>
+      <DateInput />
     </Navbar>
   );
 };
