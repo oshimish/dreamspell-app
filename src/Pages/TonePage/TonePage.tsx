@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { SignTone } from "../../Visuals";
+import { SignTone } from "graphics";
 import * as g from "dreamspell-math";
 // Internal
 

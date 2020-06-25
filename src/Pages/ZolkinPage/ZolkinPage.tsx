@@ -3,7 +3,7 @@ import React from "react";
 import * as g from "dreamspell-math";
 
 // Internal
-import { Sign, SignTone } from "../../Visuals";
+import { Sign, SignTone } from "graphics";
 import "./styles.scss";
 // Setup
 

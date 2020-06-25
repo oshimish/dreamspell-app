@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Sign } from "../../Visuals";
+import { Sign } from "graphics";
 import * as g from "dreamspell-math";
 
 // Internal Import a pre-configured instance of i18next

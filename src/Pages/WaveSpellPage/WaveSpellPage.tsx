@@ -5,8 +5,9 @@ import * as g from "dreamspell-math";
 
 // Internal
 import "./styles.scss";
-import * as Visuals from "../../Visuals";
 import { DreamDate } from "dreamspell-math";
+import WaveSpell from "Visuals/WaveSpell/WaveSpell";
+import { Kin } from "graphics";
 
 // Setup
 
@@ -29,7 +30,7 @@ const WaveSpellPage = (props: {
     <div className="wave-spell-page px-4 py-2">
       <h2>Волновой Модуль</h2>
 
-      <Visuals.WaveSpell
+      <WaveSpell
         from={wavespellStart}
         itemClassName="my-2 mx-4"
         iterator={(gdate: DreamDate) =>
@@ -37,7 +38,7 @@ const WaveSpellPage = (props: {
         }
         render={i => (
           // <SignTone {...this.props} tone={props.tone} />
-          <Visuals.Kin kin={i.kin} />
+          <Kin kin={i.kin} />
         )}
       />
     </div>

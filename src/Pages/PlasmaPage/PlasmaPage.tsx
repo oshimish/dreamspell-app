@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Plasma } from "../../Visuals";
+import { Plasma } from "graphics";
 import * as g from "dreamspell-math";
 
 // Internal

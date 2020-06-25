@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Kin, Plasma } from "../../Visuals/Kin";
+import { Kin, Plasma } from "../../graphics";
 import * as g from "dreamspell-math";
 import { NavLink } from "react-router-dom";
 
