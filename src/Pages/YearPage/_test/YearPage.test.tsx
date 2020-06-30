@@ -24,6 +24,8 @@ describe('YearPage: test', () => {
   it('should start year from correct date', () => {
     const wrapper = shallow(<YearPage gdate={g.dreamdate(moment('2019-01-31'))} />);
 
-    expect(wrapper.find(WaveSpell).prop('from')).toBe(g.dreamdate(moment('2018-07-26')));
+    const from = wrapper.find(WaveSpell).prop('from');
+    const newYear = g.dreamdate(moment('2018-07-26'));
+    expect(from).toBe(newYear);
   });
 });
