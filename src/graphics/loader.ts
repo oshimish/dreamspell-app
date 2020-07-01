@@ -1,6 +1,7 @@
 //  babel macro used
 import requireContext from 'require-context.macro';
 import * as g from 'dreamspell-math';
+import env from 'env';
 
 function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     [key: string]: any
@@ -43,7 +44,7 @@ export const GraphicThemes: GraphicThemesData = {
     },
 }
 
-const DefaultTheme = GraphicTheme.Tzolkine;
+const DefaultTheme = env.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
 
 export const loadGraphics = (graphics?: GraphicTheme): {
     plasmas: {
