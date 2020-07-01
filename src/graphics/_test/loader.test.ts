@@ -3,7 +3,7 @@ import { Tone, Sign, tone, sign } from 'dreamspell-math';
 
 
 testTheme(GraphicTheme.Classic);
-//testTheme(GraphicTheme.Tzolkine);
+testTheme(GraphicTheme.Tzolkine);
 
 function testTheme(theme: GraphicTheme) {
 

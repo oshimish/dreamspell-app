@@ -10,7 +10,7 @@ export const SignTone = (props: { tone: g.Tone }) => {
   const graphics = useGraphics();
   return (
     <div className={"sign-tone"}>
-      <img src={graphics.tones![num]} alt={"Tone " + num} />
+      <img src={graphics.tones![num - 1]} alt={"Tone " + num} />
     </div>
   );
 };

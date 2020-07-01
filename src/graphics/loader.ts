@@ -17,16 +17,11 @@ function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     return images;
 }
 
-const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
-const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
-const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
-const kins = importAll(requireContext('./tzolkine-normal/kins', false, /\.(png|jpe?g|svg)$/));
-const kinsInactive = importAll(requireContext('./tzolkine-normal/kins/inactive', false, /\.(png|jpe?g|svg)$/));
-
 
 export enum GraphicTheme {
     Classic = 'Classic',
-    Tzolkine = 'Tzolkine'
+    Tzolkine = 'Tzolkine',
+    TzolkineGreen = 'TzolkineGreen'
 }
 
 type GraphicThemesData = {
@@ -43,18 +38,21 @@ export const GraphicThemes: GraphicThemesData = {
     'Tzolkine': {
         name: "Tzolkine",
     },
+    'TzolkineGreen': {
+        name: "Tzolkine Green",
+    },
 }
 
-const DefaultTheme = GraphicTheme.Classic;
+const DefaultTheme = GraphicTheme.Tzolkine;
 
 export const loadGraphics = (graphics?: GraphicTheme): {
     plasmas: {
         [key in number]: any
     },
-    tones?: {
+    tones: {
         [key in number]: any
     },
-    signs?: {
+    signs: {
         [key in number]: any
     },
     kins?: {
@@ -65,24 +63,56 @@ export const loadGraphics = (graphics?: GraphicTheme): {
 
     switch (graphics) {
         case GraphicTheme.Classic:
-            const plasmas = importAll(requireContext('./classic/plasmas', false, /\.(png|jpe?g|svg)$/));
-            const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
-            const tones = importAll(requireContext('./classic/tones', false, /\.(png|jpe?g|svg)$/));
+            {
+                const plasmas = importAll(requireContext('./classic/plasmas', false, /\.(png|jpe?g|svg)$/));
+                const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
+                const tones = importAll(requireContext('./classic/tones', false, /\.(png|jpe?g|svg)$/));
 
-            const ret = {
-                plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas[(plasma + 1) + 'X.png']),
-                tones: Array.from(Array<number>(13).keys()).map((tone) => tones['tone' + (tone + 1) + '.png']),
-                signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
+                const ret = {
+                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas[(plasma + 1) + 'X.png']),
+                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['tone' + (tone + 1) + '.png']),
+                    signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
+                }
+                return ret;
             }
-            return ret;
 
         case GraphicTheme.Tzolkine:
-            const plasmas2 = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
+            {
+                const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
+                const kins = importAll(requireContext('./tzolkine-normal/kins', false, /\.(png|jpe?g|svg)$/));
+                const kinsKeys = Object.keys(kins);
+                const getSign = (sign: number) => {
+                    // hack: red moon is missing
+                    if (sign === 9) {
+                        return kins['Symbols-tzolkine-normal_09-red-moon-tzolkine-tone01.png'];
+                    }
+                    return kins[kinsKeys.find(k => new RegExp(`_${(sign || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!];
+                }
+                const kinsInactive = importAll(requireContext('./tzolkine-normal/kins/inactive', false, /\.(png|jpe?g|svg)$/));
+                const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
 
-            return {
-                plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas2[plasma + '.png']),
+                const ret = {
+                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas['plasma' + ((plasma + 1) ?? 7) + '.png']),
+                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['Tone' + ((tone + 1) || 13).toString().padStart(2, '0') + '.png']),
+                    signs: Array.from(Array<number>(20).keys()).map((sign) => getSign(sign)),
+                    // kins: Array.from(Array<number>(260).keys()).map((sign) => signs[(sign) + 'y.png']),
+                }
+                return ret;
             }
 
+        case GraphicTheme.TzolkineGreen:
+            {
+                const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
+                const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
+                const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
+
+                const ret = {
+                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas['plasma' + (plasma) + '.png']),
+                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['Tone' + (tone + 1).toString().padStart(2, '0') + '.png']),
+                    signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
+                }
+                return ret;
+            }
     }
 }
 

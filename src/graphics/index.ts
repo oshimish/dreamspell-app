@@ -2,7 +2,7 @@
 import { loadGraphics } from './loader';
 
 // Internal
-import './styles.css';
+import './styles.scss';
 
 export const graphics = loadGraphics();
 

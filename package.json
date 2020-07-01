@@ -1,6 +1,6 @@
 {
   "name": "dreamspell-app",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.5.0",
@@ -21,7 +21,8 @@
     "react-scripts": "^3.4.1",
     "react-transition-group": "^4.4.1",
     "regenerator-runtime": "^0.13.2",
-    "require-context.macro": "^1.2.2"
+    "require-context.macro": "^1.2.2",
+    "source-map-explorer": "^2.4.2"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -51,6 +52,7 @@
     "test": "craco test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check --watch",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
