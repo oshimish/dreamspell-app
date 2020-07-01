@@ -3,7 +3,6 @@ import React, { ReactNode } from "react";
 import * as g from "dreamspell-math";
 import { dreamdate } from "dreamspell-math";
 import './styles.css';
-import { Moment } from "moment";
 
 // Setup
 
@@ -67,7 +66,7 @@ const Item = (props: {
  * @description Wavespell visual
  */
 export const WaveSpell = (props: {
-  from: g.DreamDate | Moment;
+  from: g.DreamDate;
 
   itemClassName?: string;
   iterator: (i: g.DreamDate) => g.DreamDate;

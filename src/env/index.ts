@@ -1,6 +1,6 @@
 
 // handled now manually
-//import './ktoty/style.css';
+import './ktoty/style.css';
 
 
 export const initCustoms = () => {
@@ -16,8 +16,8 @@ export const initCustoms = () => {
 }
 
 export const env = {
-    lawoftime: true,
-    ktoty: false
+    lawoftime: false,
+    ktoty: true
 }
 
 export default env;

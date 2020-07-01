@@ -1,0 +1,47 @@
+.sign {
+  max-width: 130px;
+  margin-right: auto;
+  margin-left: auto;
+
+  img {
+    display: flex;
+    padding: 0;
+    margin: 0 auto;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    border-radius: 9px;
+  }
+}
+
+.sign-tone {
+  max-width: 130px;
+  margin-right: auto;
+  margin-left: auto;
+
+  img {
+    display: flex;
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 3px;
+  }
+}
+
+.plasma {
+  height: 50%;
+  max-width: 130px;
+  margin-right: auto;
+  margin-left: auto;
+
+  img {
+    display: flex;
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+  }
+}

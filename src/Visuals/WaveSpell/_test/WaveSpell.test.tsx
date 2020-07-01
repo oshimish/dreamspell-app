@@ -8,13 +8,14 @@ import { shallow } from 'enzyme';
 
 // Internal
 import WaveSpell from '../WaveSpell';
+import { dreamdate } from 'dreamspell-math';
 
 describe('WaveSpell: test', () => {
 
   // test cases
   it('renders', () => {
     const wrapper = shallow(<WaveSpell
-      from={moment('2019-01-31')}
+      from={dreamdate(moment('2019-01-31'))}
       iterator={(i) => i}
       render={(i) => <div />}
     />);
