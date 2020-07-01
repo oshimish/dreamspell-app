@@ -49,7 +49,7 @@ export const DateInput = (props: {
     context.setDate!(timeZoneFixedDate);
   };
 
-  const selMoment = context.gdate.moment.clone();
+  const selMoment = context?.gdate.moment.clone() ?? moment();
 
   const daysInMonth = selMoment.daysInMonth() || 28;
   const days = Array.from(Array(daysInMonth), (e, i) => i + 1);
