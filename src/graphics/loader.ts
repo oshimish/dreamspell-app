@@ -1,7 +1,7 @@
 //  babel macro used
 import requireContext from 'require-context.macro';
 import * as g from 'dreamspell-math';
-import env from 'env';
+import { GraphicTheme } from 'consts/GraphicTheme';
 
 function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     [key: string]: any
@@ -18,35 +18,7 @@ function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     return images;
 }
 
-
-export enum GraphicTheme {
-    Classic = 'Classic',
-    Tzolkine = 'Tzolkine',
-    TzolkineGreen = 'TzolkineGreen'
-}
-
-type GraphicThemesData = {
-    [key in GraphicTheme]: {
-        name: string
-    }
-};
-
-export const GraphicThemes: GraphicThemesData = {
-
-    'Classic': {
-        name: "Classic",
-    },
-    'Tzolkine': {
-        name: "Tzolkine",
-    },
-    'TzolkineGreen': {
-        name: "Tzolkine Green",
-    },
-}
-
-const DefaultTheme = env.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
-
-export const loadGraphics = (graphics?: GraphicTheme): {
+export const loadGraphics = (graphics: GraphicTheme): {
     plasmas: {
         [key in number]: any
     },
@@ -60,8 +32,6 @@ export const loadGraphics = (graphics?: GraphicTheme): {
         [key in number]: any
     },
 } => {
-    graphics = graphics ?? DefaultTheme;
-
     switch (graphics) {
         case GraphicTheme.Classic:
             {
@@ -117,27 +87,15 @@ export const loadGraphics = (graphics?: GraphicTheme): {
     }
 }
 
-export const getGraphics = (date: g.DreamDate, theme?: GraphicTheme): {
+export const getGraphics = (date: g.DreamDate, theme: GraphicTheme): {
     plasma: any,
     sign?: any,
     tone?: any,
     kin?: any
 } => {
-    theme = theme ?? DefaultTheme;
-
     const graphics = loadGraphics(theme);
     return {
         plasma: graphics.plasmas[date.plasma]
     };
 }
-
-
-// export const loadGraphics = () => {
-//     return {
-//         signs,
-//         tones,
-//         kins,
-//         kinsInactive
-//     }
-// }
 

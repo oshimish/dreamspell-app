@@ -22,13 +22,14 @@ import Spinner from 'react-bootstrap/Spinner';
 import "./App.scss";
 import "./transitions.css";
 
-import { TopHeader } from "./Components";
+import { TopHeader } from "./Components/Layout";
 import { AppContext } from "./Context";
 
 
 import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
+import { Footer } from './Components/Layout/Footer';
 
 
 
@@ -156,7 +157,9 @@ const Screen = () => {
                 </Container>
               </div>
               {/* <div className="bottom vertical_pulsate"> <p>Scroll!</p> </div> */}
-
+              <div className="bottom">
+                <Footer />
+              </div>
             </div>
           );
         }}

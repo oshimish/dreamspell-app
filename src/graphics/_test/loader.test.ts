@@ -1,4 +1,5 @@
-import { loadGraphics, GraphicTheme } from '../loader';
+import { loadGraphics } from '../loader';
+import { GraphicTheme } from "../../consts/GraphicTheme";
 import { Tone, Sign, tone, sign } from 'dreamspell-math';
 
 

@@ -16,8 +16,10 @@ export const TopHeader = () => {
   return (
     <Navbar sticky="top"
       bg={darkTheme ? "dark" : ""}
-      variant={darkTheme ? "dark" : undefined} expand="lg"
-      className={styles.topHeader} collapseOnSelect >
+      variant={darkTheme ? "dark" : undefined}
+      expand="lg"
+      className={styles.topHeader}
+      collapseOnSelect >
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       {env.lawoftime &&

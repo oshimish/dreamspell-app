@@ -10,11 +10,13 @@ export function useSelDate() {
 }
 
 export function useKinGraphics(gdate: g.DreamDate) {
-    const graphics = getGraphics(gdate);
+    const context = useContext(AppContext);
+    const graphics = getGraphics(gdate, context?.theme!);
     return graphics;
 }
 
 export function useGraphics() {
-    const graphics = loadGraphics();
+    const context = useContext(AppContext);
+    const graphics = loadGraphics(context?.theme!);
     return graphics;
 }
