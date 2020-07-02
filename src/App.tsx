@@ -166,12 +166,10 @@ const Screen = () => {
 
 // loading component for suspense fallback
 const Loader = () => (
-  <Container className="h-100">
+  <div className="spinner">
     {/* <img src={logo} className="App-logo" alt="Law of time" /> */}
-    <Row className="h-100 align-self-center mx-auto">
-      <Spinner animation="grow" />
-    </Row>
-  </Container>
+    <Spinner animation="grow" />
+  </div>
 );
 
 // i18n translations might still be loaded by the http backend
