@@ -7,6 +7,7 @@ import { DateInput } from 'Components/DateInput/DateInput';
 
 import logo from "logo.png";
 import env from "env";
+import routes from "consts/routes";
 
 export const TopHeader = () => {
 
@@ -32,7 +33,7 @@ export const TopHeader = () => {
             />
           </Navbar.Brand>
           <Navbar.Brand href="/" className="mr-auto">
-            ДримСпелл
+            Dream Spell
             </Navbar.Brand>
         </>
       }
@@ -44,7 +45,7 @@ export const TopHeader = () => {
           <Nav.Link href="#/sign">Печать</Nav.Link>
           <Nav.Link href="#/plasma">Плазма</Nav.Link>
           <Nav.Link href="#/oracle">Оракул</Nav.Link>
-          <Nav.Link href="#/tzolkin">Цолькин</Nav.Link>
+          <Nav.Link href={routes.zolkin.href}>Цолькин</Nav.Link>
           <Nav.Link href="#/moon">Луна</Nav.Link>
           <Nav.Link href="#/wavespell">Волновой&nbsp;модуль</Nav.Link>
           <Nav.Link href="#/year">Год</Nav.Link>

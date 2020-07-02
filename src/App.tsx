@@ -28,6 +28,7 @@ import { AppContext } from "./Context";
 
 import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
+import routes from "consts/routes";
 
 
 
@@ -112,7 +113,7 @@ const Screen = () => {
                               )}
                             />
                             <Route
-                              path="/tzolkin"
+                              path={routes.zolkin.path}
                               render={() => (
                                 <ZolkinPage gdate={context!.gdate} />
                               )}
