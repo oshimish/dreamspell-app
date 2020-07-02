@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext, Suspense } from "react";
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { TransitionGroup } from "react-transition-group";
+import { HashRouter as Router, Route as OriginalRoute, Switch, Redirect, RouteProps, Route, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group";
 
 import KinPage from "./Pages/KinPage/KinPage";
 import SignPage from "./Pages/SignPage/SignPage";
@@ -29,14 +29,16 @@ import { AppContext } from "./Context";
 import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 
+
+
 const Screen = () => {
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { i18n } = useTranslation();
 
   // useEffect(() => {
   // i18n.changeLanguage(i18n.language);
   // }, [i18n])
-
 
   const keyDivRef = useRef<HTMLDivElement>(null);
   const context = useContext(AppContext)!;
@@ -68,86 +70,85 @@ const Screen = () => {
               <div className="content">
                 <Container fluid className="h-100">
                   <Row className="justify-content-around h-100">
-                    <Col md="8" className="align-self-center mx-auto" >
-                      <TransitionGroup
-                        key={location.key}
-                        transitionname="fade"
-                        transitionentertimeout={600}
-                        transitionleavetimeout={600}
-                        transitionappear="true"
-                        transitionappeartimeout={600}
-                        className="m-4"
-                      >
-                        <Switch location={location}>
-                          <Route
-                            exact={true}
-                            path="/kin"
-                            render={() => (
-                              <KinPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/tone"
-                            render={() => (
-                              <TonePage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/sign"
-                            render={() => (
-                              <SignPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/plasma"
-                            render={() => (
-                              <PlasmaPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/oracle"
-                            render={() => (
-                              <OraclePage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/tzolkin"
-                            render={() => (
-                              <ZolkinPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/moon"
-                            render={() => (
-                              <MoonPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/wavespell"
-                            render={() => (
-                              <WaveSpellPage gdate={context!.gdate} />
-                            )}
-                          />
-                          <Route
-                            path="/journey"
-                            render={() => <JourneyPage />}
-                          />
-                          <Route
-                            path="/year"
-                            render={() => (
-                              <YearPage gdate={context!.gdate} />
-                            )}
-                          />
+                    <Col md="8" className="align-self-center mx-auto my-4" >
 
-                          {/* not found route */}
-                          <Route render={() => (
-                            <Redirect to="/kin" />
-                          )} />
-                        </Switch>
-                      </TransitionGroup>
+                      <SwitchTransition mode={"out-in"}>
+                        <CSSTransition key={location.pathname}
+                          classNames="fade"
+                          timeout={0}
+                          mountOnEnter={true}
+                          unmountOnExit={true}
+                        >
+                          <Switch location={location} >
+                            <Route
+                              exact={true}
+                              path="/kin"
+                              render={() => (
+                                <KinPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/tone"
+                              render={() => (
+                                <TonePage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/sign"
+                              render={() => (
+                                <SignPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/plasma"
+                              render={() => (
+                                <PlasmaPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/oracle"
+                              render={() => (
+                                <OraclePage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/tzolkin"
+                              render={() => (
+                                <ZolkinPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/moon"
+                              render={() => (
+                                <MoonPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/wavespell"
+                              render={() => (
+                                <WaveSpellPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/journey"
+                              render={() => <JourneyPage />}
+                            />
+                            <Route
+                              path="/year"
+                              render={() => (
+                                <YearPage gdate={context!.gdate} />
+                              )}
+                            />
+
+                            {/* not found route */}
+                            <Route render={() => (
+                              <Redirect to="/kin" />
+                            )} />
+                          </Switch>
+                        </CSSTransition>
+                      </SwitchTransition>
                     </Col>
                     <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
-                      {/* <DateInput /> */}
                       <DatePicker />
                     </Col>
                   </Row>
