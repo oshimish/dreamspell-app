@@ -1,12 +1,10 @@
 // Vendor
-import { loadGraphics } from './loader';
+import { initGraphics } from './loader';
 
 // Internal
 import './styles.scss';
 
 export * from './Kin';
-export * from './Plasma';
-export * from './Sign';
-export * from './SignTone';
+export * from './hooks';
 
-export default loadGraphics;
+export default initGraphics;

@@ -5,7 +5,7 @@ import * as g from "dreamspell-math";
 
 // Internal
 import "./styles.css";
-import { Plasma, Kin } from "../../graphics";
+import { Plasma, Kin } from "graphics";
 
 // Setup
 var selStyle = (props: { selected?: boolean }) =>

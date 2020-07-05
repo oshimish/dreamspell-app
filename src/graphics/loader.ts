@@ -1,8 +1,7 @@
 //  babel macro used
 import requireContext from 'require-context.macro';
-import * as g from 'dreamspell-math';
-import { GraphicTheme } from 'consts/GraphicTheme';
-import { Kin } from 'dreamspell-math';
+import { GraphicTheme, GraphicRef } from 'consts/GraphicTheme';
+import { Kin, Tone, Sign } from 'dreamspell-math';
 
 function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     [key: string]: any
@@ -19,38 +18,36 @@ function importAll(contextLoader: __WebpackModuleApi.RequireContext): {
     return images;
 }
 
-type graphicSrc = string | {
-    inactive: string,
-    active: string
-}
 
-export const loadGraphics = (graphics: GraphicTheme): {
-    plasmas: {
-        [key in number]: any
-    },
-    tones: {
-        [key in number]: any
-    },
-    signs: {
-        [key in number]: graphicSrc
-    },
-    kins?: {
-        [key in number]: graphicSrc
-    },
+export const initGraphics = (theme: GraphicTheme): {
+    getPlasma: (plasma: number) => GraphicRef,
+    getTone: (tone: Tone) => GraphicRef,
+    getSign: (sign: Sign) => GraphicRef,
+    getKin?: (kin: Kin) => GraphicRef,
 } => {
-    switch (graphics) {
+    switch (theme) {
         case GraphicTheme.Classic:
             {
                 const plasmas = importAll(requireContext('./classic/plasmas', false, /\.(png|jpe?g|svg)$/));
                 const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
                 const tones = importAll(requireContext('./classic/tones', false, /\.(png|jpe?g|svg)$/));
-
-                const ret = {
-                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas[(plasma + 1) + 'X.png']),
-                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['tone' + (tone + 1) + '.png']),
-                    signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
-                }
-                return ret;
+                return {
+                    getPlasma: (plasma: number) => {
+                        return {
+                            active: plasmas[(plasma + 1) + 'X.png']
+                        }
+                    },
+                    getTone: (tone: Tone) => {
+                        return {
+                            active: tones['tone' + (tone.number ?? 13) + '.png']
+                        }
+                    },
+                    getSign: (sign: Sign) => {
+                        return {
+                            active: signs[((sign.number === 20) ? 0 : sign.number) + 'y.png']
+                        };
+                    }
+                };
             }
 
         case GraphicTheme.Tzolkine:
@@ -61,19 +58,32 @@ export const loadGraphics = (graphics: GraphicTheme): {
 
                 const kinsKeys = Object.keys(kins);
                 const kinsInactiveKeys = Object.keys(kinsInactive);
-                const getSign = (sign: number) => {
+                const getSign = (sign: Sign) => {
+                    let signNum = sign.number;
                     // hack: blue storm and white mirror is replaced
-                    if (sign === 19) {
-                        sign = 18;
-                    } else if (sign === 18) {
-                        sign = 19;
+                    if (signNum === 19) {
+                        signNum = 18;
+                    } else if (signNum === 18) {
+                        signNum = 19;
                     }
-                    const found = kinsKeys.find(k => new RegExp(`_${(sign || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!;
+                    const sign00 = (sign.number || 20).toString().padStart(2, '0');
+                    const found = kinsKeys.find(k => new RegExp(`_${(signNum || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!;
+                    const foundInactive = kinsInactiveKeys.find(k => new RegExp(`-inactive_${sign00}-.+-s.png$`).test(k))!;
                     //console.log('sign', sign, 'found:', found, ':', kins[found]);
-                    return kins[found];
+                    return {
+                        active: kins[found],
+                        inactive: kinsInactive[foundInactive]
+                    };
                 }
                 const getKin = (kin: Kin) => {
-                    const sign00 = (kin.sign.number || 20).toString().padStart(2, '0');
+                    let signNum = kin.sign.number;
+                    // hack: blue storm and white mirror is replaced
+                    if (signNum === 19) {
+                        signNum = 18;
+                    } else if (signNum === 18) {
+                        signNum = 19;
+                    }
+                    const sign00 = (signNum || 20).toString().padStart(2, '0');
                     const tone00 = (kin.tone.number || 13).toString().padStart(2, '0');
                     const found = kinsKeys.find(k => new RegExp(`_${sign00}-.+-tone${tone00}.png$`).test(k))!;
                     const foundInactive = kinsInactiveKeys.find(k => new RegExp(`-inactive_${sign00}-.+-tone${tone00}.png$`).test(k))!;
@@ -85,43 +95,35 @@ export const loadGraphics = (graphics: GraphicTheme): {
                 }
                 const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
 
-                const ret = {
-                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas['plasma' + ((plasma + 1) ?? 7) + '.png']),
-                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['Tone' + ((tone + 1) || 13).toString().padStart(2, '0') + '.png']),
-                    signs: Array.from(Array<number>(20).keys()).map((sign) => getSign(sign)),
-                    kins: Array.from(Array<number>(260).keys()).map((kin) => getKin(g.kin(kin))),
-                }
-                return ret;
+                return {
+                    getPlasma: (plasma: number) => {
+                        return {
+                            active: plasmas['plasma' + ((plasma + 1) ?? 7) + '.png']
+                        }
+                    },
+                    getTone: (tone: Tone) => {
+                        return {
+                            active: tones['Tone' + ((tone.number) || 13).toString().padStart(2, '0') + '.png']
+                        }
+                    },
+                    getSign,
+                    getKin
+                };
             }
 
-        case GraphicTheme.TzolkineGreen:
-            {
-                const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
-                const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
-                const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
+        // case GraphicTheme.TzolkineGreen:
+        //     {
+        //         const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
+        //         const signs = importAll(requireContext('./classic/signs', false, /\.(png|jpe?g|svg)$/));
+        //         const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
 
-                const ret = {
-                    plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas['plasma' + (plasma) + '.png']),
-                    tones: Array.from(Array<number>(13).keys()).map((tone) => tones['Tone' + (tone + 1).toString().padStart(2, '0') + '.png']),
-                    signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
-                }
-                return ret;
-            }
+        //         const ret = {
+        //             plasmas: Array.from(Array<number>(7).keys()).map((plasma) => plasmas['plasma' + (plasma) + '.png']),
+        //             tones: Array.from(Array<number>(13).keys()).map((tone) => tones['Tone' + (tone + 1).toString().padStart(2, '0') + '.png']),
+        //             signs: Array.from(Array<number>(20).keys()).map((sign) => signs[(sign) + 'y.png']),
+        //         }
+        //         return ret;
+        //     }
     }
+    throw new Error(`theme ${theme} not configured`)
 }
-
-export const getGraphics = (date: g.DreamDate, theme: GraphicTheme): {
-    plasma: any,
-    sign: any,
-    tone: any,
-    kin?: any
-} => {
-    const graphics = loadGraphics(theme);
-    return {
-        plasma: graphics.plasmas[date.plasma],
-
-        sign: graphics.signs[date.kin.sign.number],
-        tone: graphics.tones[date.kin.tone.number]
-    };
-}
-

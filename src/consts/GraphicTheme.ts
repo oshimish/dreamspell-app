@@ -4,6 +4,25 @@ export enum GraphicTheme {
     TzolkineGreen = 'TzolkineGreen'
 }
 
+// export enum GraphicTypes {
+//     Plasma,
+//     Tone,
+//     Sign,
+//     Kin
+// }
+
+/** Graphic display optons */
+export type GraphicOptions = {
+    active?: boolean,
+    inactive?: boolean
+}
+
+
+export type GraphicRef = {
+    active: any,
+    inactive?: any
+}
+
 type GraphicThemesData = {
     [key in GraphicTheme]: {
         name: string,
@@ -23,3 +42,5 @@ export const ThemesConfig: GraphicThemesData = {
         name: "Tzolkine Green",
     },
 }
+
+
