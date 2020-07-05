@@ -3,6 +3,8 @@ import * as g from 'dreamspell-math';
 import { AppContext } from "../Context/AppContextProvider";
 import { getGraphics, loadGraphics } from "graphics/loader";
 import { DreamDate } from "dreamspell-math";
+import env from "env";
+
 
 export function useSelDate() {
     const context = useContext(AppContext)!;
@@ -17,6 +19,6 @@ export function useKinGraphics(gdate: g.DreamDate) {
 
 export function useGraphics() {
     const context = useContext(AppContext);
-    const graphics = loadGraphics(context?.theme!);
+    const graphics = loadGraphics(context?.theme! ?? env.defaultTheme);
     return graphics;
 }

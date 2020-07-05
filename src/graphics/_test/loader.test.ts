@@ -1,6 +1,7 @@
 import { loadGraphics } from '../loader';
 import { GraphicTheme } from "../../consts/GraphicTheme";
 import { Tone, Sign, tone, sign } from 'dreamspell-math';
+import * as g from 'dreamspell-math';
 
 
 testTheme(GraphicTheme.Classic);
@@ -11,7 +12,7 @@ function testTheme(theme: GraphicTheme) {
     describe(`${theme} graphic`, () => {
         let actual = loadGraphics(theme);
 
-        console.log(actual);
+        //console.log(actual);
 
         it('loads', () => {
             expect(actual).toBeDefined();
@@ -69,6 +70,28 @@ function testTheme(theme: GraphicTheme) {
                 })
             });
         })
+
+        if (theme !== GraphicTheme.Classic) {
+            describe('kins', () => {
+                const keys = Object.keys(actual.kins!).map(k => g.kin(parseInt(k) + 1));
+                it('defined', () => {
+                    expect(actual.kins).toBeDefined();
+                    expect(keys.length).toBe(260);
+                    expect(keys).toContainEqual(g.kin(1));
+                    expect(keys).toContainEqual(g.kin(260));
+                });
+
+                keys.forEach(k => {
+                    const asset = actual.kins![k.number - 1];
+                    it(`-- ${k}`, () => {
+                        expect(asset).toBeDefined();
+                        expect(asset.active).toBeDefined();
+                        expect(asset.inactive).toBeDefined();
+                    })
+                });
+            })
+        }
+
     });
 
 }
