@@ -83,11 +83,15 @@ export const loadGraphics = (graphics?: GraphicTheme): {
                 const kins = importAll(requireContext('./tzolkine-normal/kins', false, /\.(png|jpe?g|svg)$/));
                 const kinsKeys = Object.keys(kins);
                 const getSign = (sign: number) => {
-                    // hack: red moon is missing
-                    if (sign === 9) {
-                        return kins['Symbols-tzolkine-normal_09-red-moon-tzolkine-tone01.png'];
+                    // hack: blue storm and white mirror is replaced
+                    if (sign === 19) {
+                        sign = 18;
+                    } else if (sign === 18) {
+                        sign = 19;
                     }
-                    return kins[kinsKeys.find(k => new RegExp(`_${(sign || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!];
+                    const found = kinsKeys.find(k => new RegExp(`_${(sign || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!;
+                    console.log('sign', sign, 'found:', found, ':', kins[found]);
+                    return kins[found];
                 }
                 const kinsInactive = importAll(requireContext('./tzolkine-normal/kins/inactive', false, /\.(png|jpe?g|svg)$/));
                 const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
