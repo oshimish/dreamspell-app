@@ -1,23 +1,22 @@
 
 // handled now manually
 import './ktoty/style.css';
+import { GraphicTheme } from 'consts/GraphicTheme';
 
 
 export const initCustoms = () => {
-    // var cssfile;
-    // if (process.env.REACT_APP_KTOTY) {
-    //     cssfile = "./ktoty/style.css";
-    //     // import('./ktoty/style.css');
-    // } else {
-    //     cssfile = "./default.css";
-    //     // import('./default.css');
-    // }
-    // import(cssfile);
 }
 
+const lawoftime = false;
+const ktoty = !lawoftime;
+const darkTheme = lawoftime;
+const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
+
 export const env = {
-    lawoftime: false,
-    ktoty: true
+    lawoftime,
+    ktoty,
+    darkTheme,
+    defaultTheme,
 }
 
 export default env;

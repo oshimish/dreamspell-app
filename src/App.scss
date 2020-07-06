@@ -5,7 +5,7 @@
   grid-template-areas:
     "header"
     "content"
-    "footer";
+    "bottom";
   grid-template-rows: min-content auto min-content;
   // grid-gap: 1em;
   align-content: stretch;
@@ -28,11 +28,15 @@
 
 .bottom {
   grid-area: bottom;
-  text-align: center;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+}
+
+.footer {
+  .about {
+  }
+}
+
+.time-logo {
+  height: 20px;
 }
 
 .huge {
@@ -58,14 +62,11 @@
   background-size: 100%;
 }
 
-// below not used now
-
-.app-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.rotating {
+  animation: rotating-spin infinite 20s linear;
 }
 
-@keyframes App-logo-spin {
+@keyframes rotating-spin {
   from {
     transform: rotate(0deg);
   }

@@ -2,6 +2,8 @@ import * as React from "react";
 import { Moment } from "moment";
 import moment from "moment";
 import * as g from "dreamspell-math";
+import { GraphicTheme } from "consts/GraphicTheme";
+import env from "env";
 
 export interface IAppContext {
   moment: Moment;
@@ -9,6 +11,8 @@ export interface IAppContext {
   inc: () => void;
   dec: () => void;
   setDate: (date: Moment) => void;
+  theme: GraphicTheme;
+  setTheme: (theme: GraphicTheme) => void;
 }
 
 export const AppContext = React.createContext<IAppContext | null>(null);
@@ -24,7 +28,7 @@ export function withAppContext<P extends {}>(
   return class extends React.Component<
     Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>,
     {}
-  > {
+    > {
     static displayName = `withAppContext(${WrappedComponent.displayName ||
       WrappedComponent.name})`;
 
@@ -38,6 +42,8 @@ export function withAppContext<P extends {}>(
   };
 }
 
+const DefaultTheme = env.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
+
 export class AppContextProvider extends React.Component<{}, IAppContext> {
   constructor(props: any) {
     super(props);
@@ -46,9 +52,8 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
       date: new Date(),
       moment: moment(),
       gdate: new g.DreamDate(moment()),
-      inc: this.inc,
-      dec: this.dec,
-      setDate: this.setDate
+      theme: DefaultTheme,
+      ...this
     } as IAppContext;
   }
 
@@ -71,6 +76,12 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
     });
   };
 
+  setTheme = (theme: GraphicTheme) => {
+    console.log(`Theme cahnged to ${theme}`)
+    this.setState({
+      theme
+    });
+  };
   public render() {
     return (
       <AppContext.Provider value={this.state}>

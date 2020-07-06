@@ -38,7 +38,9 @@ const WaveSpellPage = (props: {
         }
         render={i => (
           // <SignTone {...this.props} tone={props.tone} />
-          <Kin kin={i.kin} />
+          <Kin kin={i.kin} opt={{
+            active: i.moment === selDate.moment
+          }} />
         )}
       />
     </div>

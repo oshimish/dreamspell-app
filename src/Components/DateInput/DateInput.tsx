@@ -20,8 +20,13 @@ import { AppContext } from "Context/AppContextProvider";
 import Form from "react-bootstrap/Form";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 import Nav from "react-bootstrap/Nav";
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
 
 const DropDownHeader = (props: {
   backClick?: () => void;
@@ -33,6 +38,18 @@ const DropDownHeader = (props: {
         <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
       </ButtonGroup>
     </NavDropdown.Header>
+  )
+
+const DropDownHeader2 = (props: {
+  backClick?: () => void;
+  fwdClick?: () => void;
+}) => (
+    <Dropdown.Header>
+      <ButtonGroup className="mx-0">
+        <Button variant="light" onClick={props.backClick} >&lt;</Button>
+        <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
+      </ButtonGroup>
+    </Dropdown.Header>
   )
 
 export const DateInput = (props: {
@@ -91,6 +108,44 @@ export const DateInput = (props: {
         </div>
       </Form> */}
 
+      {/* <Dropdown as={NavItem}
+        id="day-nav-dropdown"
+        className="date-nav-dropdown"
+        alignRight>
+        <Dropdown.Toggle
+          id="day-nav-dropdown-toggle">
+          <Form inline>
+            <InputGroup>
+              <InputGroup.Append>
+                <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+              </InputGroup.Append>
+              <FormControl
+                placeholder="Username"
+                aria-label="Username"
+                defaultValue={selMoment.date()}
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
+          </Form>
+        </Dropdown.Toggle>
+        <Dropdown.Menu className="scroll-menu"
+          defaultValue={selMoment.date()}>
+          <DropDownHeader2
+            backClick={() => setMoment(selMoment.add("d", -1))}
+            fwdClick={() => setMoment(selMoment.add("d", 1))} />
+          <Dropdown.Divider />
+          {days.map((x, i) => (
+            <Dropdown.Item
+              key={i}
+              onSelect={onDaySelect}
+              eventKey={x.toString()}
+              active={selMoment.date() === x}>
+              {x}
+            </Dropdown.Item>)
+          )}
+        </Dropdown.Menu>
+      </Dropdown> */}
+
       <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" alignRight>
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("d", -1))}
@@ -108,6 +163,7 @@ export const DateInput = (props: {
           )}
         </DropdownMenu>
       </NavDropdown>
+
       <NavDropdown title={selMoment.format("MMMM")} id="month-nav-dropdown" className="date-nav-dropdown" alignRight>
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("months", -1))}
