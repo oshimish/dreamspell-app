@@ -3,7 +3,7 @@ import React from "react";
 import * as g from "dreamspell-math";
 
 // Internal
-import { Sign, SignTone } from "graphics";
+import { Sign, SignTone, Kin } from "graphics";
 import "./styles.scss";
 // Setup
 
@@ -31,8 +31,9 @@ const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
     }
     style={{ gridRow: props.kin.zolkinRow, gridColumn: props.kin.zolkinColumn }}
   >
-    <SignTone tone={props.kin.tone} />
-    <Sign sign={props.kin.sign} />
+    <Kin kin={props.kin} opt={{
+      active: props.selected
+    }} />
   </div>
 );
 

@@ -11,7 +11,7 @@ export const Footer = () => (
         <Navbar sticky="bottom"
             expand="lg"
             collapseOnSelect >
-            <Navbar.Toggle aria-controls="footer-navbar-nav" />
+            {/* <Navbar.Toggle aria-controls="footer-navbar-nav" />
             <Navbar.Brand
                 href="https://www.law-of-time.ru"
                 target="_blank"
@@ -24,7 +24,7 @@ export const Footer = () => (
                     alt="Law Of Time"
                 />
             </Navbar.Brand>
-            <Navbar.Collapse id="footer-navbar-nav">
+            <Navbar.Collapse id="footer-navbar-nav" className="hidden">
                 <Navbar.Brand
                     href="https://www.law-of-time.ru"
                     target="_blank"
@@ -35,7 +35,7 @@ export const Footer = () => (
                 <Navbar.Text className="about mr-auto">
                     <div>Единая Земля. Единое Время. Единое Человечество.</div>
                 </Navbar.Text>
-            </Navbar.Collapse>
+            </Navbar.Collapse> */}
             <Nav className="justify-content-end ">
                 <ThemeSelect />
             </Nav>

@@ -20,7 +20,7 @@ class TonePage extends React.Component<{
       i18n.t("tones:tone" + num + key, opt);
     return (
       <div className="tone-page">
-        <SignTone tone={kin.tone} />
+        <SignTone kin={kin} />
         <p className="tone-head">
           {i18n.t("tones:name")} {tt(".num_plural")}{" "}
         </p>

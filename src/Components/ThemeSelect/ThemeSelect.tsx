@@ -33,12 +33,12 @@ export default function ThemeSelect() {
             id="theme-nav-dropdown"
             className="theme-nav-dropdown justify-content-end" >
             <Dropdown.Toggle
-                id="theme-nav-dropdown-toggle"
+                id="theme-nav-dropdown-toggle dropup"
                 as={NavLink}>
                 {selTheme.toString()}
 
             </Dropdown.Toggle>
-            <Dropdown.Menu>
+            <Dropdown.Menu className='dropup'>
                 {CHOICES
                     .filter(x => !x.config?.isDisabled)
                     .map((x, i) => (

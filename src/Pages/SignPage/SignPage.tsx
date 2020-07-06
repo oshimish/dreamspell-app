@@ -19,7 +19,7 @@ class SignPage extends React.Component<{
 
     return (
       <div className="sign-page">
-        <Sign sign={kin.sign} />
+        <Sign kin={kin} />
         <h2 className="title ">
           {num}. {tt(".title")} ({tt(".maya_name")})
         </h2>

@@ -11,14 +11,14 @@ export const Kin = (props: {
 
   if (kin.graphics.kin) {
     return (
-      <div className={"kin" + (props.opt?.active && " selected")}>
+      <div className={"kin" + (props.opt?.active ? "" : " selected")}>
         <img src={kin.graphics.kin} alt={"Kin " + props.kin.number} />
       </div>
     );
   }
 
   return (
-    <div className={"kin" + (props.opt?.active && " selected")}>
+    <div className={"kin" + (props.opt?.active ? "" : " selected")}>
       <SignTone kin={props.kin} />
       <Sign kin={props.kin} />
     </div>
@@ -34,7 +34,7 @@ export const SignTone = (props: {
   let num = tone.number;
   return (
     <div className={"sign-tone"}>
-      <img src={kin.graphics.kin} alt={"Tone " + num} />
+      <img src={kin.graphics.tone} alt={"Tone " + num} />
     </div>
   );
 };

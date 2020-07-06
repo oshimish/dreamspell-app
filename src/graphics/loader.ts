@@ -66,7 +66,7 @@ export const initGraphics = (theme: GraphicTheme): {
                     } else if (signNum === 18) {
                         signNum = 19;
                     }
-                    const sign00 = (sign.number || 20).toString().padStart(2, '0');
+                    const sign00 = (signNum || 20).toString().padStart(2, '0');
                     const found = kinsKeys.find(k => new RegExp(`_${(signNum || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!;
                     const foundInactive = kinsInactiveKeys.find(k => new RegExp(`-inactive_${sign00}-.+-s.png$`).test(k))!;
                     //console.log('sign', sign, 'found:', found, ':', kins[found]);

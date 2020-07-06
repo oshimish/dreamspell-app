@@ -40,6 +40,7 @@ export const ThemesConfig: GraphicThemesData = {
     },
     'TzolkineGreen': {
         name: "Tzolkine Green",
+        isDisabled: true
     },
 }
 
