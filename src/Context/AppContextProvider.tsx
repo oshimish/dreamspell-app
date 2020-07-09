@@ -3,7 +3,7 @@ import { Moment } from "moment";
 import moment from "moment";
 import * as g from "dreamspell-math";
 import { GraphicTheme } from "consts/GraphicTheme";
-import env from "env";
+import config from "config";
 
 export interface IAppContext {
   moment: Moment;
@@ -42,7 +42,7 @@ export function withAppContext<P extends {}>(
   };
 }
 
-const DefaultTheme = env.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
+const DefaultTheme = config.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
 
 export class AppContextProvider extends React.Component<{}, IAppContext> {
   constructor(props: any) {

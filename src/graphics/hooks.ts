@@ -3,7 +3,7 @@ import * as g from 'dreamspell-math';
 import { AppContext } from "../Context/AppContextProvider";
 import { initGraphics } from "graphics/loader";
 import { DreamDate } from "dreamspell-math";
-import env from "env";
+import config from "config";
 import { GraphicOptions, GraphicRef, GraphicTheme } from "consts/GraphicTheme";
 
 
@@ -15,7 +15,7 @@ export function useSelDate() {
 
 export function useTheme() {
     const context = useContext(AppContext);
-    const theme = context?.theme ?? env.defaultTheme;
+    const theme = context?.theme ?? config.defaultTheme;
     return theme;
 }
 

@@ -1,0 +1,43 @@
+.ktoty {
+  body {
+    background: #fff;
+    color: #3f3f3f;
+    font-family: "Montserrat", "Roboto", sans-serif;
+    font-weight: 400;
+  }
+
+  a {
+    color: #3f3f3f;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+  a:hover {
+    color: #3f3f3f;
+  }
+
+  .menu {
+    /* padding: 0px; */
+  }
+
+  .screen {
+  }
+
+  .sign-tone {
+    opacity: 0.7;
+  }
+
+  .year-page .sign img {
+    border-radius: 3px;
+  }
+
+  .moon-grid .day-cell.selected.chromatic2 .kin {
+    box-shadow: 1px 0px 10px 8px rgb(117, 117, 117);
+  }
+
+  .wave-spell-page .kin.selected img {
+    box-shadow: 0px 0px 10px 4px rgb(117, 117, 117);
+    background-color: rgb(117, 117, 117);
+  }
+}

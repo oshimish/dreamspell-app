@@ -6,12 +6,12 @@ import styles from "./Layout.module.css";
 import { DateInput } from 'Components/DateInput/DateInput';
 
 import logo from "logo.png";
-import env from "env";
+import config from "config";
 import routes from "consts/routes";
 
 export const TopHeader = () => {
 
-  const darkTheme = env.lawoftime;
+  const darkTheme = config.lawoftime;
 
   return (
     <Navbar sticky="top"
@@ -22,7 +22,7 @@ export const TopHeader = () => {
       collapseOnSelect >
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      {env.lawoftime &&
+      {config.lawoftime &&
         <>
           <Navbar.Brand href="https://www.law-of-time.ru"
             className="mx-1">
