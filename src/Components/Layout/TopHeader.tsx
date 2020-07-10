@@ -17,7 +17,7 @@ export const TopHeader = () => {
     <Navbar sticky="top"
       bg={darkTheme ? "dark" : ""}
       variant={darkTheme ? "dark" : undefined}
-      expand="lg"
+      expand="md"
       className={styles.topHeader}
       collapseOnSelect >
 

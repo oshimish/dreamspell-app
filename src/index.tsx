@@ -7,7 +7,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./index.scss";
-
+import 'react-infinite-calendar/styles.css'; // Make sure to import the default stylesheet
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

@@ -4,6 +4,9 @@ import React, { useContext } from "react";
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import DayPickerInput from "react-day-picker/DayPickerInput";
+import DayPicker from "react-day-picker";
+
+import InfiniteCalendar from 'react-infinite-calendar';
 
 import "react-day-picker/lib/style.css";
 import moment, { Moment } from "moment";
@@ -87,15 +90,16 @@ export const DateInput = (props: {
 
   return (
     <Form inline className="date-nav">
-      {/* <Form inline>
+      <Form inline>
         <div className="date-input">
-          <DayPickerInput
-            onDayChange={handleDayClick}
-            value={selectedDay.moment.toDate()}
+          {/* <DatePicker
+            // onDayChange={handleDayClick}
+            value={selMoment.toDate()}
             format={"LL"}
             formatDate={MomentLocaleUtils.formatDate}
             parseDate={MomentLocaleUtils.parseDate}
-
+            showYearPicker
+            dateFormat="yyyy"
             // showOverlay={true}
             dayPickerProps={{
               locale: "ru",
@@ -104,9 +108,9 @@ export const DateInput = (props: {
             inputProps={{
               className: "form-control mr-sm-2"
             }}
-          />
+          /> */}
         </div>
-      </Form> */}
+      </Form>
 
       {/* <Dropdown as={NavItem}
         id="day-nav-dropdown"
