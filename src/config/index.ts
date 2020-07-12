@@ -1,6 +1,5 @@
 
 // handled now manually
-import './ktoty/style.scss';
 import { GraphicTheme } from 'consts/GraphicTheme';
 
 

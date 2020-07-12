@@ -85,21 +85,20 @@ export const DateInput = (props: {
   const onDaySelect = (key: string) => { setMoment(selMoment.date(parseInt(key))) };
   const onMonthSelect = (key: string) => { setMoment(selMoment.month(parseInt(key))) };
   const onYearSelect = (key: string) => { setMoment(selMoment.year(parseInt(key))) };
-
+  const handleDayClick = (day: Date) => { setMoment(moment(day)) };
   // moment().year(year).month(month).date(day)
 
   return (
     <Form inline className="date-nav">
       <Form inline>
         <div className="date-input">
-          {/* <DatePicker
-            // onDayChange={handleDayClick}
+          <DayPickerInput
+            onDayChange={handleDayClick}
             value={selMoment.toDate()}
             format={"LL"}
             formatDate={MomentLocaleUtils.formatDate}
             parseDate={MomentLocaleUtils.parseDate}
-            showYearPicker
-            dateFormat="yyyy"
+            // dateFormat="yyyy"
             // showOverlay={true}
             dayPickerProps={{
               locale: "ru",
@@ -108,7 +107,7 @@ export const DateInput = (props: {
             inputProps={{
               className: "form-control mr-sm-2"
             }}
-          /> */}
+          />
         </div>
       </Form>
 
@@ -150,7 +149,7 @@ export const DateInput = (props: {
         </Dropdown.Menu>
       </Dropdown> */}
 
-      <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" alignRight>
+      {/* <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" alignRight>
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("d", -1))}
           fwdClick={() => setMoment(selMoment.add("d", 1))} />
@@ -202,7 +201,7 @@ export const DateInput = (props: {
             </NavDropdown.Item>)
           )}
         </DropdownMenu>
-      </NavDropdown>
+      </NavDropdown> */}
     </Form>
   );
 };

@@ -4,6 +4,11 @@ export enum GraphicTheme {
     TzolkineGreen = 'TzolkineGreen'
 }
 
+export enum Theme {
+    Classic,
+    Ktoty
+}
+
 // export enum GraphicTypes {
 //     Plasma,
 //     Tone,

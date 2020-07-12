@@ -32,6 +32,8 @@ import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
 import { Footer } from './Components/Layout/Footer';
 import config from "config";
+import theme from 'theme';
+
 const Screen = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

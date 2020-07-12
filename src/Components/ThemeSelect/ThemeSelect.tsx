@@ -31,7 +31,7 @@ export default function ThemeSelect() {
 
         <Dropdown as={NavItem}
             id="theme-nav-dropdown"
-            className="theme-nav-dropdown justify-content-end" >
+            className="theme-nav-dropdown justify-content-end dropup" >
             <Dropdown.Toggle
                 id="theme-nav-dropdown-toggle dropup"
                 as={NavLink}>
