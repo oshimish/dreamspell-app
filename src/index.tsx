@@ -6,6 +6,7 @@ import "regenerator-runtime/runtime";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import 'semantic-ui-css/semantic.min.css';
 import "./index.scss";
 import 'react-infinite-calendar/styles.css'; // Make sure to import the default stylesheet
 import App from "./App";

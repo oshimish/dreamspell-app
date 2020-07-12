@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, Suspense } from "react";
+import React, { useEffect, useRef, useContext, Suspense, useMemo } from "react";
 import { HashRouter as Router, Route as OriginalRoute, Switch, Redirect, RouteProps, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group";
 import classNames from 'classnames';
@@ -30,9 +30,10 @@ import { AppContext } from "./Context";
 import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
-import { Footer } from './Components/Layout/Footer';
+import { Footer2 } from './Components/Layout/Footer';
 import config from "config";
-import theme from 'theme';
+import getTheme from 'theme';
+import { Theme } from "consts/GraphicTheme";
 
 const Screen = () => {
 
@@ -45,6 +46,9 @@ const Screen = () => {
 
   const keyDivRef = useRef<HTMLDivElement>(null);
   const context = useContext(AppContext)!;
+
+  const currentTheme = Theme.Ktoty;
+  const theme = useMemo(() => getTheme(currentTheme), [currentTheme])
 
   useEffect(() => {
     keyDivRef.current?.focus();
@@ -159,7 +163,8 @@ const Screen = () => {
               </div>
               {/* <div className="bottom vertical_pulsate"> <p>Scroll!</p> </div> */}
               <div className="bottom">
-                <Footer />
+                <Footer2 />
+                {/* <Footer /> */}
               </div>
             </div>
           );

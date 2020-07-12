@@ -23,6 +23,8 @@
     "react-transition-group": "^4.4.1",
     "regenerator-runtime": "^0.13.2",
     "require-context.macro": "^1.2.2",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
     "source-map-explorer": "^2.4.2"
   },
   "peerDependencies": {},

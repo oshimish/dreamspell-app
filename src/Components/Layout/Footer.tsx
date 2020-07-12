@@ -5,6 +5,41 @@ import logo from "united-eath.png";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from 'react-bootstrap/Nav';
 import ThemeSelect from 'Components/ThemeSelect/ThemeSelect';
+import { Menu, Dropdown } from 'semantic-ui-react';
+
+
+export const Footer2 = () => {
+    const state = { activeItem: '' }
+
+
+    const { activeItem } = state;
+
+    return (
+        <Menu className="footer">
+            <Menu.Item link>
+                <a
+                    href="https://www.law-of-time.ru"
+                    target="_blank"
+                    className="logo">
+
+                    <img
+                        src={logo}
+                        width="30"
+                        height="30"
+                        className=""
+                        alt="Единая Земля. Единое Время. Единое Человечество."
+                    />
+                </a>
+            </Menu.Item>
+            <Menu.Item >
+                Единая Земля. Единое Время. Единое Человечество.
+            </Menu.Item>
+            <Menu.Menu position='right'>
+                <ThemeSelect />
+            </Menu.Menu>
+        </Menu>
+    )
+}
 
 export const Footer = () => (
     <div className="footer">
