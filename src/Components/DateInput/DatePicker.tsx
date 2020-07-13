@@ -20,6 +20,7 @@ export function DatePicker() {
 
     return <DayPicker
         selectedDays={context.moment.toDate()}
+        month={context.moment.toDate()}
         onDayClick={date => context.setDate(moment(date))}
         localeUtils={MomentLocaleUtils}
         locale="ru" />;
