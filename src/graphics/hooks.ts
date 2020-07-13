@@ -38,8 +38,13 @@ export function useGdate(gdate: g.DreamDate, opt?: GraphicOptions) {
 }
 
 export const applyGraphicOptions = (gr: GraphicRef, opt?: GraphicOptions) => {
-    const src = opt?.active ? gr.active : (gr.inactive ?? gr.active);
-    return src;
+    if (opt?.active) {
+        return gr.active;
+    }
+    if (opt?.inactive) {
+        return gr.inactive ?? gr.active;
+    }
+    return gr.active;
 }
 
 export const getGraphics = (kin: g.Kin, theme: GraphicTheme, opt?: GraphicOptions): {

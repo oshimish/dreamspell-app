@@ -32,7 +32,8 @@ const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
     style={{ gridRow: props.kin.zolkinRow, gridColumn: props.kin.zolkinColumn }}
   >
     <Kin kin={props.kin} opt={{
-      active: props.selected
+      active: props.selected,
+      inactive: !props.selected
     }} />
   </div>
 );
