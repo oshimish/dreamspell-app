@@ -35,24 +35,26 @@
   z-index: 2;
 }
 
+$kinglow: 1px 0px 2px 1px;
+
 .moon-grid .day-cell.selected.chromatic1 .kin {
   background-color: red;
-  box-shadow: 1px 0px 10px 7px red;
+  box-shadow: $kinglow red;
 }
 
 .moon-grid .day-cell.selected.chromatic2 .kin {
   background-color: white;
-  box-shadow: 1px 0px 10px 7px white;
+  box-shadow: $kinglow white;
 }
 
 .moon-grid .day-cell.selected.chromatic3 .kin {
   background-color: blue;
-  box-shadow: 1px 0px 10px 7px blue;
+  box-shadow: $kinglow blue;
 }
 
 .moon-grid .day-cell.selected.chromatic4 .kin {
   background-color: yellow;
-  box-shadow: 1px 0px 10px 7px yellow;
+  box-shadow: $kinglow yellow;
 }
 
 .moon-grid .plasma-cell .plasma {

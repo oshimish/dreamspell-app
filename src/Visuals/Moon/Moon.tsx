@@ -4,7 +4,7 @@ import React from "react";
 import * as g from "dreamspell-math";
 
 // Internal
-import "./styles.css";
+import "./styles.scss";
 import { Plasma, Kin } from "graphics";
 
 // Setup

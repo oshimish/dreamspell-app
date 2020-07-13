@@ -14,7 +14,7 @@ class OraclePage extends React.Component<{
     return (
       <div className="oracle-view ">
         <h2>Крест Оракула</h2>
-        <table className="oracle-table mx-auto my-4">
+        <table className="oracle-table mx-auto my-2">
           <tbody>
             <tr>
               <td />
@@ -25,14 +25,14 @@ class OraclePage extends React.Component<{
               <td />
             </tr>
             <tr>
-              <td>
+              <td width="30%">
                 <Kin kin={oracle.antipod} />
                 Антипод
               </td>
-              <td>
+              <td width="30%">
                 <Kin kin={kin} />
               </td>
-              <td>
+              <td width="30%">
                 <Kin kin={oracle.analog} />
                 Аналог
               </td>

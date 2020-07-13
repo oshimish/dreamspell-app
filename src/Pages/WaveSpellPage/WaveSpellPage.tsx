@@ -32,7 +32,7 @@ const WaveSpellPage = (props: {
 
       <WaveSpell
         from={wavespellStart}
-        itemClassName="my-2 mx-4"
+        itemClassName="my-2 mx-2"
         iterator={(gdate: DreamDate) =>
           g.dreamdate(gdate.moment.clone().add(1, "d"))
         }

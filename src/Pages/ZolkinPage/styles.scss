@@ -1,113 +1,113 @@
-.zolkin-page {}
+.zolkin-page {
+}
 
-$cellSize : auto;
+$cellSize: auto;
 
 .zolkin-grid-container {
-    display: grid;
-    grid-template-columns: repeat(13, $cellSize);
-    grid-template-rows: repeat(20, auto);
-    grid-gap: 1px;
-    grid-auto-rows: minmax(100px, auto); // justify-items: center;
-    grid-auto-rows: minmax(100px, auto); // justify-items: center;
-    max-width: 520px;
-    // align-items: center;
+  display: grid;
+  grid-template-columns: repeat(13, $cellSize);
+  grid-template-rows: repeat(20, auto);
+  grid-gap: 1px;
+  grid-auto-rows: minmax(100px, auto); // justify-items: center;
+  grid-auto-rows: minmax(100px, auto); // justify-items: center;
+  max-width: 520px;
+  // align-items: center;
 }
 
 .kin-cell {
-    border-radius: 1px;
-    position: relative;
+  border-radius: 1px;
+  position: relative;
 
-    .sign {
-        opacity: 0.2;
+  .sign {
+    opacity: 0.2;
 
-        img {
-            margin: 0;
-        }
+    img {
+      margin: 0;
+    }
+  }
+
+  .sign-tone {
+    position: absolute;
+    margin: auto;
+    top: 23%;
+    opacity: 0.83;
+
+    img {
+      width: 79%;
+    }
+  }
+
+  @mixin sel_shadow($color) {
+    box-shadow: 1px 0px 10px 7px $color;
+  }
+
+  &.selected {
+    // box-shadow: 1px 0px 10px 7px inherit;
+    z-index: 2;
+
+    &.chromatic1,
+    &.chromatic1 .sign-tone {
+      background-color: red;
+      @include sel_shadow(red);
+    }
+
+    &.chromatic2,
+    &.chromatic2 .sign-tone {
+      background-color: white;
+      @include sel_shadow(white);
+    }
+
+    &.chromatic3,
+    &.chromatic3 .sign-tone {
+      background-color: blue;
+      @include sel_shadow(blue);
+    }
+
+    &.chromatic4,
+    &.chromatic4 .sign-tone {
+      background-color: yellow;
+      @include sel_shadow(yellow);
     }
 
     .sign-tone {
-        position: absolute;
-        margin: auto;
-        top: 23%;
-        opacity: 0.83;
+      top: -45%;
+      opacity: 0.9;
 
-        img {
-            width: 79%;
-        }
-
+      img {
+        border-radius: 3px;
+      }
     }
 
-    @mixin sel_shadow($color) {
-        box-shadow: 1px 0px 10px 7px $color
+    .sign {
+      opacity: 0.9;
     }
+  }
 
-    &.selected {
-        // box-shadow: 1px 0px 10px 7px inherit;
-        z-index: 2;
+  @mixin portal_mystic_shadow($color) {
+    background-color: $color;
+    box-shadow: 0px 0px 4px 2px $color;
+  }
 
-        &.chromatic1,
-        &.chromatic1 .sign-tone {
-            background-color: red;
-            @include sel_shadow(red);
-        }
+  @mixin portal_mystic_shadow_sel($color) {
+    background-color: $color;
+    box-shadow: 0px 0px 10px 11px $color;
+  }
 
-        &.chromatic2,
-        &.chromatic2 .sign-tone {
-            background-color: white;
-            @include sel_shadow(white);
-        }
+  &.portal {
+    @include portal_mystic_shadow(#c8e1b9);
 
-        &.chromatic3,
-        &.chromatic3 .sign-tone {
-            background-color: blue;
-            @include sel_shadow(blue);
-        }
-
-        &.chromatic4,
-        &.chromatic4 .sign-tone {
-            background-color: yellow;
-            @include sel_shadow(yellow);
-        }
-
-        .sign-tone {
-            top: -45%;
-            opacity: 0.9;
-
-            img {
-                border-radius: 3px;
-            }
-        }
-
-        .sign {
-            opacity: 0.9;
-        }
+    &.selected,
+    &.selected .sign-tone {
+      @include portal_mystic_shadow_sel(#c8e1b9);
     }
+  }
 
-    @mixin portal_mystic_shadow($color) {
-        background-color: $color;
-        box-shadow: 0px 0px 4px 2px $color
+  &.mystic {
+    @include portal_mystic_shadow(gray);
+
+    &.selected,
+    &.selected .sign-tone {
+      @include portal_mystic_shadow_sel(gray);
     }
-
-    @mixin portal_mystic_shadow_sel($color) {
-        background-color: $color;
-        box-shadow: 0px 0px 10px 11px $color
-    }
-
-    &.portal {
-        @include portal_mystic_shadow(green);
-
-        &.selected,
-        &.selected .sign-tone {
-            @include portal_mystic_shadow_sel(green);
-        }
-    }
-
-    &.mystic {
-        @include portal_mystic_shadow(gray);
-
-        &.selected,
-        &.selected .sign-tone {
-            @include portal_mystic_shadow_sel(gray);
-        }
-    }
+  }
 }
