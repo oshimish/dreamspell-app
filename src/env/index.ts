@@ -1,13 +1,13 @@
 
 // handled now manually
-import './ktoty/style.css';
+// import './ktoty/style.css';
 import { GraphicTheme } from 'consts/GraphicTheme';
 
 
 export const initCustoms = () => {
 }
 
-const lawoftime = false;
+const lawoftime = true;
 const ktoty = !lawoftime;
 const darkTheme = lawoftime;
 const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;

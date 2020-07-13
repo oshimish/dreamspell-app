@@ -35,8 +35,8 @@ export const TopHeader = () => {
             />
           </Navbar.Brand>
           <Navbar.Brand href="/" className="mr-auto">
-            Dream Spell
-            </Navbar.Brand>
+            Дрим Спелл
+          </Navbar.Brand>
         </>
       }
 
