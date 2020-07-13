@@ -74,26 +74,27 @@ function testTheme(theme: GraphicTheme) {
             });
         })
 
-        if (theme !== GraphicTheme.Classic) {
-            describe('kins', () => {
-                const keys = Array.from(Array<number>(260).keys()).map(k => g.kin(k + 1));
-                it('defined', () => {
-                    expect(actual.getKin).toBeDefined();
-                    expect(keys.length).toBe(260);
-                    expect(keys).toContainEqual(g.kin(1));
-                    expect(keys).toContainEqual(g.kin(260));
-                });
+        // per kin graphics not used
+        // if (theme !== GraphicTheme.Classic) {
+        //     describe('kins', () => {
+        //         const keys = Array.from(Array<number>(260).keys()).map(k => g.kin(k + 1));
+        //         it('defined', () => {
+        //             expect(actual.getKin).toBeDefined();
+        //             expect(keys.length).toBe(260);
+        //             expect(keys).toContainEqual(g.kin(1));
+        //             expect(keys).toContainEqual(g.kin(260));
+        //         });
 
-                keys.forEach(k => {
-                    const asset = actual.getKin!(k);
-                    it(`-- ${k}`, () => {
-                        expect(asset).toBeDefined();
-                        expect(asset.active).toBeDefined();
-                        expect(asset.inactive).toBeDefined();
-                    })
-                });
-            })
-        }
+        //         keys.forEach(k => {
+        //             const asset = actual.getKin!(k);
+        //             it(`-- ${k}`, () => {
+        //                 expect(asset).toBeDefined();
+        //                 expect(asset.active).toBeDefined();
+        //                 expect(asset.inactive).toBeDefined();
+        //             })
+        //         });
+        //     })
+        // }
 
     });
 

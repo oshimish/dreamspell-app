@@ -6,12 +6,12 @@ import * as g from 'dreamspell-math';
 import { shallow } from 'enzyme';
 
 // Internal
-import Sign from '../Sign';
+import Sign from '../Kin';
 
 describe('Sign: test', () => {
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<Sign sign={g.sign(1)} />);
+    const wrapper = shallow(<Sign kin={g.kin(1)} />);
 
     expect(wrapper).toBeDefined();
   });

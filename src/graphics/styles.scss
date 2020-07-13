@@ -1,3 +1,5 @@
+$graphics-min-width: 22px;
+
 .sign,
 .kin {
   max-width: 130px;
@@ -13,6 +15,7 @@
     width: auto;
     max-width: 100%;
     border-radius: 9px;
+    min-width: $graphics-min-width;
   }
 }
 
@@ -28,6 +31,7 @@
     max-height: 100%;
     max-width: 100%;
     border-radius: 3px;
+    min-width: $graphics-min-width;
   }
 }
 
@@ -44,5 +48,6 @@
     max-height: 100%;
     max-width: 100%;
     border-radius: 50%;
+    min-width: $graphics-min-width;
   }
 }

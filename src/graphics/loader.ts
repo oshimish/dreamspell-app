@@ -53,61 +53,34 @@ export const initGraphics = (theme: GraphicTheme): {
         case GraphicTheme.Tzolkine:
             {
                 const plasmas = importAll(requireContext('./tzolkine/plasmas', false, /\.(png|jpe?g|svg)$/));
-                const kins = importAll(requireContext('./tzolkine-normal/kins', false, /\.(png|jpe?g|svg)$/));
-                const kinsInactive = importAll(requireContext('./tzolkine-normal/kins/inactive', false, /\.(png|jpe?g|svg)$/));
+                const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
+                const kins = importAll(requireContext('./tzolkine-normal/signs', false, /\.(png|jpe?g|svg)$/));
 
                 const kinsKeys = Object.keys(kins);
-                const kinsInactiveKeys = Object.keys(kinsInactive);
+
                 const getSign = (sign: Sign) => {
                     let signNum = sign.number;
-                    // hack: blue storm and white mirror is replaced
-                    if (signNum === 19) {
-                        signNum = 18;
-                    } else if (signNum === 18) {
-                        signNum = 19;
-                    }
                     const sign00 = (signNum || 20).toString().padStart(2, '0');
-                    const found = kinsKeys.find(k => new RegExp(`_${(signNum || 20).toString().padStart(2, '0')}-.+-s.png$`).test(k))!;
-                    const foundInactive = kinsInactiveKeys.find(k => new RegExp(`-inactive_${sign00}-.+-s.png$`).test(k))!;
+                    const found = kinsKeys.find(k => new RegExp(`_${sign00}-.+-s.svg$`).test(k))!;
                     //console.log('sign', sign, 'found:', found, ':', kins[found]);
                     return {
-                        active: kins[found],
-                        inactive: kinsInactive[foundInactive]
+                        active: kins[found]
                     };
                 }
-                const getKin = (kin: Kin) => {
-                    let signNum = kin.sign.number;
-                    // hack: blue storm and white mirror is replaced
-                    if (signNum === 19) {
-                        signNum = 18;
-                    } else if (signNum === 18) {
-                        signNum = 19;
-                    }
-                    const sign00 = (signNum || 20).toString().padStart(2, '0');
-                    const tone00 = (kin.tone.number || 13).toString().padStart(2, '0');
-                    const found = kinsKeys.find(k => new RegExp(`_${sign00}-.+-tone${tone00}.png$`).test(k))!;
-                    const foundInactive = kinsInactiveKeys.find(k => new RegExp(`-inactive_${sign00}-.+-tone${tone00}.png$`).test(k))!;
-                    //console.log('kin', kin.number, 'found:', found, ':', kins[found], ' inactive:', foundInactive);
-                    return {
-                        active: kins[found],
-                        inactive: kinsInactive[foundInactive]
-                    };
-                }
-                const tones = importAll(requireContext('./tzolkine/tones', false, /\.(png|jpe?g|svg)$/));
+
 
                 return {
                     getPlasma: (plasma: number) => {
                         return {
-                            active: plasmas['plasma' + ((plasma + 1) ?? 7) + '.png']
+                            active: plasmas['plasma' + ((plasma + 1) ?? 7) + '.svg']
                         }
                     },
                     getTone: (tone: Tone) => {
                         return {
-                            active: tones['Tone' + ((tone.number) || 13).toString().padStart(2, '0') + '.png']
+                            active: tones['Tone' + ((tone.number) || 13).toString().padStart(2, '0') + '.svg']
                         }
                     },
-                    getSign,
-                    getKin
+                    getSign
                 };
             }
 
