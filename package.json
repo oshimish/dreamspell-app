@@ -49,8 +49,9 @@
   },
   "scripts": {
     "start": "craco start",
+    "start:ktp": "cross-env REACT_APP_KTOTY=true craco start",
     "build": "cross-env craco build",
-    "build:ktoty": "cross-env REACT_APP_KTOTY=true PUBLIC_URL=https://ktoty.info/dreamspell-app craco build",
+    "build:ktp": "cross-env REACT_APP_KTOTY=true craco build",
     "test": "craco test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check --watch",
