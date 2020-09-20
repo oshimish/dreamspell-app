@@ -42,7 +42,13 @@ i18n
       // returning a path:
       // function(lngs, namespaces) { return customPath; }
       // the returned path will interpolate lng, ns if provided like giving a static path
-      loadPath: process.env.PUBLIC_URL + '/locales/{{lng}}/{{ns}}.json',
+      loadPath: (lngs: any, namespaces: any) => {
+        const customPath = (window as any).REACT_APP_LOCALES_PATH as string;
+        if (customPath) {
+          return customPath + '/{{lng}}/{{ns}}.json'
+        }
+        return process.env.PUBLIC_URL + '/locales/{{lng}}/{{ns}}.json';
+      },
     }
   });
 
