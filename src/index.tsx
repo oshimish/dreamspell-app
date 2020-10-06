@@ -13,13 +13,16 @@ import * as serviceWorker from "./serviceWorker";
 
 import "./i18n";
 
-import { initCustoms } from "config";
+import config from "config";
+
 import { AppContextProvider } from "Context/AppContextProvider";
 
 import moment from "moment";
+import classNames from "classnames";
 moment.locale("ru");
 
-initCustoms();
+
+document.getElementsByTagName("body")[0].className = classNames({ ktoty: config.ktoty });
 
 ReactDOM.render(
   <AppContextProvider>

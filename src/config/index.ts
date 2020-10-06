@@ -3,10 +3,6 @@
 import './ktoty/style.scss';
 import { GraphicTheme } from 'consts/GraphicTheme';
 
-
-export const initCustoms = () => {
-}
-
 // check by url for ktoty customization
 const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
 
