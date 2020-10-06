@@ -1,5 +1,6 @@
 import i18n from "i18next";
 import Backend from "i18next-xhr-backend";
+//import Backend from 'i18next-locize-backend';
 //import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
 
@@ -38,6 +39,10 @@ i18n
       wait: true
     },
     backend: {
+      // todo: enabled localize
+      // projectId: 'af28d162-df0b-4217-8812-b11ae98c8582',
+      // apiKey: '0044119a-3b62-4d91-b8d5-f40d761496b3',
+      // referenceLng: 'ru',
       // path where resources get loaded from, or a function
       // returning a path:
       // function(lngs, namespaces) { return customPath; }
