@@ -1,7 +1,6 @@
 export enum GraphicTheme {
     Classic = 'Classic',
-    Tzolkine = 'Tzolkine',
-    TzolkineGreen = 'TzolkineGreen'
+    Tzolkine = 'Tzolkine'
 }
 
 // export enum GraphicTypes {
@@ -37,11 +36,7 @@ export const ThemesConfig: GraphicThemesData = {
     },
     'Tzolkine': {
         name: "Tzolkine",
-    },
-    'TzolkineGreen': {
-        name: "Tzolkine Green",
-        isDisabled: true
-    },
+    }
 }
 
 

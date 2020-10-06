@@ -17,7 +17,7 @@ export const TopHeader = () => {
     <Navbar sticky="top"
       bg={darkTheme ? "dark" : ""}
       variant={darkTheme ? "dark" : undefined}
-      expand="lg"
+      expand="md"
       className={styles.topHeader}
       collapseOnSelect >
 
@@ -35,7 +35,7 @@ export const TopHeader = () => {
             />
           </Navbar.Brand>
           <Navbar.Brand href="/" className="mr-auto">
-            Дрим Спелл
+            Dream Spell
           </Navbar.Brand>
         </>
       }

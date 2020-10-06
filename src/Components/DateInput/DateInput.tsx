@@ -146,12 +146,12 @@ export const DateInput = (props: {
         </Dropdown.Menu>
       </Dropdown> */}
 
-      <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" >
+      <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("d", -1))}
           fwdClick={() => setMoment(selMoment.add("d", 1))} />
         <NavDropdown.Divider />
-        <DropdownMenu className="scroll-menu" defaultValue={selMoment.date()}>
+        <DropdownMenu className="scroll-menu" defaultValue={selMoment.date()}  >
           {days.map((x, i) => (
             <NavDropdown.Item
               key={i}
@@ -164,12 +164,12 @@ export const DateInput = (props: {
         </DropdownMenu>
       </NavDropdown>
 
-      <NavDropdown title={selMoment.format("MMMM")} id="month-nav-dropdown" className="date-nav-dropdown">
+      <NavDropdown title={selMoment.format("MMMM")} id="month-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("months", -1))}
           fwdClick={() => setMoment(selMoment.add("months", 1))} />
         <NavDropdown.Divider />
-        <DropdownMenu className="scroll-menu" defaultValue={selMoment.month()}>
+        <DropdownMenu className="scroll-menu" defaultValue={selMoment.month()}  >
           {months.map((x, i) => (
             <NavDropdown.Item
               key={i}
@@ -182,12 +182,12 @@ export const DateInput = (props: {
           )}
         </DropdownMenu>
       </NavDropdown>
-      <NavDropdown title={selYear} id="year-nav-dropdown" className="date-nav-dropdown">
+      <NavDropdown title={selYear} id="year-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("years", -10))}
           fwdClick={() => setMoment(selMoment.add("years", 10))} />
         <NavDropdown.Divider />
-        <DropdownMenu className="scroll-menu" defaultValue={selYear}>
+        <DropdownMenu className="scroll-menu" defaultValue={selYear} >
           {years.map((x, i) => (
             <NavDropdown.Item
               key={x}

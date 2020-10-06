@@ -7,8 +7,10 @@ import { GraphicTheme } from 'consts/GraphicTheme';
 export const initCustoms = () => {
 }
 
-const lawoftime = !process.env.REACT_APP_KTOTY;
-const ktoty = !lawoftime;
+// check by url for ktoty customization
+const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
+
+const lawoftime = !ktoty;
 const darkTheme = lawoftime;
 const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
 
