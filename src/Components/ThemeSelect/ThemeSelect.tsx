@@ -44,7 +44,7 @@ export default function ThemeSelect() {
                     .map((x, i) => (
                         <Dropdown.Item
                             key={x.key}
-                            onSelect={(eventKey: string) => context?.setTheme(eventKey as GraphicTheme)}
+                            onSelect={(eventKey: string | null) => context?.setTheme(eventKey! as GraphicTheme)}
                             eventKey={x.theme.toString()}
                             active={selTheme === x.theme}>
                             {x.config.name}
