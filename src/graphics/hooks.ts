@@ -1,9 +1,8 @@
 import { useContext, useEffect, useMemo } from "react";
 import * as g from 'dreamspell-math';
-import { AppContext } from "../Context/AppContextProvider";
+import { AppContext, defaultTheme } from "../Context/AppContextProvider";
 import { initGraphics } from "graphics/loader";
 import { DreamDate } from "dreamspell-math";
-import config from "config";
 import { GraphicOptions, GraphicRef, GraphicTheme } from "consts/GraphicTheme";
 
 
@@ -15,7 +14,7 @@ export function useSelDate() {
 
 export function useTheme() {
     const context = useContext(AppContext);
-    const theme = context?.theme ?? config.defaultTheme;
+    const theme = context?.theme || defaultTheme();
     return theme;
 }
 

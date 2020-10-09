@@ -31,7 +31,7 @@ import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
 import { Footer } from './Components/Layout/Footer';
-import config from "config";
+
 const Screen = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -48,6 +48,12 @@ const Screen = () => {
     keyDivRef.current?.focus();
   }, [keyDivRef])
 
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+    body.className = classNames({ ktoty: context.ktoty });
+  }, [context, context.ktoty])
+
+
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.keyCode === 37 /* left arrow*/) {
       context && context.dec();
@@ -61,7 +67,7 @@ const Screen = () => {
       <Route
         render={({ location }) => {
           return (
-            <div className={classNames('screen', { ktoty: config.ktoty })}
+            <div className={classNames('screen', { ktoty: context.ktoty })}
               onKeyDown={onKeyDown}
               tabIndex={1}
               ref={keyDivRef} >
@@ -155,7 +161,6 @@ const Screen = () => {
                   </Row>
                 </Container>
               </div>
-              {/* <div className="bottom vertical_pulsate"> <p>Scroll!</p> </div> */}
               <div className="bottom">
                 <Footer />
               </div>

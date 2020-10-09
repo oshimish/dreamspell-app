@@ -6,23 +6,23 @@ import styles from "./Layout.module.css";
 import { DateInput } from 'Components/DateInput/DateInput';
 
 import logo from "logo.png";
-import config from "config";
 import routes from "consts/routes";
+import { useAppContext } from "Context";
 
 export const TopHeader = () => {
 
-  const darkTheme = config.lawoftime;
+  var context = useAppContext();
 
   return (
     <Navbar sticky="top"
-      bg={darkTheme ? "dark" : ""}
-      variant={darkTheme ? "dark" : undefined}
+      bg={context.darkTheme ? "dark" : ""}
+      variant={context.darkTheme ? "dark" : undefined}
       expand="md"
       className={styles.topHeader}
       collapseOnSelect >
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      {config.lawoftime &&
+      {context.lawoftime &&
         <>
           <Navbar.Brand href="https://www.law-of-time.ru"
             className="mx-1">

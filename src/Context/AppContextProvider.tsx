@@ -3,7 +3,9 @@ import { Moment } from "moment";
 import moment from "moment";
 import * as g from "dreamspell-math";
 import { GraphicTheme } from "consts/GraphicTheme";
-import config from "config";
+import { useContext } from "react";
+import { threadId } from "worker_threads";
+
 
 export interface IAppContext {
   moment: Moment;
@@ -13,6 +15,10 @@ export interface IAppContext {
   setDate: (date: Moment) => void;
   theme: GraphicTheme;
   setTheme: (theme: GraphicTheme) => void;
+  set: (context: IAppContext) => void;
+  lawoftime?: boolean,
+  ktoty?: boolean,
+  darkTheme?: boolean,
 }
 
 export const AppContext = React.createContext<IAppContext | null>(null);
@@ -21,10 +27,81 @@ export interface IWithAppContextProps {
   context: IAppContext;
 }
 
+export const useAppContext = () => useContext(AppContext)!;
+
+export const defaultTheme = () => {
+  const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
+  const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
+  return defaultTheme;
+}
+
+export class AppContextProvider extends React.Component<{}, IAppContext> {
+  constructor(props: any) {
+    super(props);
+    // check by url for ktoty customization
+    const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
+    const lawoftime = !ktoty;
+    const darkTheme = lawoftime;
+
+    this.state = {
+      moment: moment(),
+      gdate: new g.DreamDate(moment()),
+      theme: defaultTheme(),
+
+      lawoftime,
+      ktoty,
+      darkTheme,
+      ...this
+    } as IAppContext;
+
+    this.setTheme(defaultTheme());
+  }
+
+  inc = () => {
+    const date = this.state.moment.add(1, "d");
+    this.setDate(date);
+  };
+
+  dec = () => {
+    const date = this.state.moment.add(-1, "d");
+    this.setDate(date);
+  };
+  set = (state: Partial<IAppContext>) => {
+    this.setState(state as any);
+  };
+
+  setDate = (date: Moment) => {
+    var gdate = new g.DreamDate(date);
+
+    this.setState({
+      moment: moment(date),
+      gdate
+    });
+  };
+
+  setTheme = (theme: GraphicTheme) => {
+    console.log(`Theme cahnged to ${theme}`)
+    this.setState({
+      theme,
+      ktoty: theme === GraphicTheme.Tzolkine,
+      lawoftime: theme !== GraphicTheme.Tzolkine,
+      darkTheme: theme === GraphicTheme.Classic
+    });
+  };
+  public render() {
+    return (
+      <AppContext.Provider value={this.state}>
+        {this.props.children}
+      </AppContext.Provider>
+    );
+  }
+}
+
+
 export function withAppContext<P extends {}>(
   WrappedComponent: any | React.ComponentType<P & IWithAppContextProps>
 ) {
-  // ...and returns another component...
+  // ...and returns another component... 
   return class extends React.Component<
     Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>,
     {}
@@ -40,53 +117,4 @@ export function withAppContext<P extends {}>(
       );
     }
   };
-}
-
-const DefaultTheme = config.ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
-
-export class AppContextProvider extends React.Component<{}, IAppContext> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      date: new Date(),
-      moment: moment(),
-      gdate: new g.DreamDate(moment()),
-      theme: DefaultTheme,
-      ...this
-    } as IAppContext;
-  }
-
-  inc = () => {
-    const date = this.state.moment.add(1, "d");
-    this.setDate(date);
-  };
-
-  dec = () => {
-    const date = this.state.moment.add(-1, "d");
-    this.setDate(date);
-  };
-
-  setDate = (date: Moment) => {
-    var gdate = new g.DreamDate(date);
-
-    this.setState({
-      moment: moment(date),
-      gdate
-    });
-  };
-
-  setTheme = (theme: GraphicTheme) => {
-    console.log(`Theme cahnged to ${theme}`)
-    this.setState({
-      theme
-    });
-  };
-  public render() {
-    return (
-      <AppContext.Provider value={this.state}>
-        {this.props.children}
-      </AppContext.Provider>
-    );
-  }
 }

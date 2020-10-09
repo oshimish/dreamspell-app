@@ -36,7 +36,7 @@ export const Footer = () => (
                     <div>Единая Земля. Единое Время. Единое Человечество.</div>
                 </Navbar.Text>
             </Navbar.Collapse> */}
-            <Nav className="justify-content-end ">
+            <Nav className="justify-content-end " justify>
                 <ThemeSelect />
             </Nav>
         </Navbar>
