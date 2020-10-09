@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useContext, Suspense } from "react";
 import { HashRouter as Router, Route as OriginalRoute, Switch, Redirect, RouteProps, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group";
 import classNames from 'classnames';
+import ReactTooltip from 'react-tooltip';
 
 import KinPage from "./Pages/KinPage/KinPage";
 import SignPage from "./Pages/SignPage/SignPage";

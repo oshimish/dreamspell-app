@@ -25,6 +25,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
+    "react-swipeable-views": "^0.13.9",
+    "react-tooltip": "^4.2.10",
     "react-transition-group": "^4.4.1",
     "regenerator-runtime": "^0.13.7",
     "require-context.macro": "^1.2.2",
