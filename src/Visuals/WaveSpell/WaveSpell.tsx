@@ -1,8 +1,8 @@
 // Vendor
 import React, { ReactNode } from "react";
 import * as g from "dreamspell-math";
-import styled from "styled-components";
 import { dreamdate } from "dreamspell-math";
+import './styles.css';
 
 // Setup
 
@@ -47,11 +47,12 @@ const Item = (props: {
   tone: g.Tone;
   i: g.DreamDate;
   render: (item: g.DreamDate) => ReactNode;
+  className?: string;
 }) => {
   const cell = getCell(props.tone);
   return (
     <div
-      className={"wave-cell tone-cell-" + props.tone.number}
+      className={"wave-cell tone-cell-" + props.tone.number + " " + props.className}
       style={{ gridRow: cell.row, gridColumn: cell.col }}
     >
       {props.render(props.i)}
@@ -59,10 +60,6 @@ const Item = (props: {
   );
 };
 
-const WaveSpellContainer = styled.div`
-  display: grid;
-  grid-gap: 3px;
-`;
 
 /**
  * @class WaveSpell
@@ -70,13 +67,15 @@ const WaveSpellContainer = styled.div`
  */
 export const WaveSpell = (props: {
   from: g.DreamDate;
+
+  itemClassName?: string;
   iterator: (i: g.DreamDate) => g.DreamDate;
   render: (item: g.DreamDate) => ReactNode;
 }) => {
   let i = dreamdate(props.from);
   let iterator = props.iterator;
   return (
-    <WaveSpellContainer className={"wave-spell"}>
+    <div className={"wave-spell"}>
       {TONES.map(t => {
         const item = (
           <Item
@@ -84,12 +83,13 @@ export const WaveSpell = (props: {
             tone={g.tone(t.number)}
             i={dreamdate(i)}
             render={props.render}
+            className={props.itemClassName}
           />
         );
         i = iterator(dreamdate(i));
         return item;
       })}
-    </WaveSpellContainer>
+    </div>
   );
 };
 

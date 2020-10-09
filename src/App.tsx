@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { TransitionGroup } from "react-transition-group";
+import React, { useEffect, useRef, useContext, Suspense } from "react";
+import { HashRouter as Router, Route as OriginalRoute, Switch, Redirect, RouteProps, Route, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group";
+import classNames from 'classnames';
 
 import KinPage from "./Pages/KinPage/KinPage";
 import SignPage from "./Pages/SignPage/SignPage";
@@ -13,29 +14,47 @@ import WaveSpellPage from "./Pages/WaveSpellPage/WaveSpellPage";
 import YearPage from "./Pages/YearPage/YearPage";
 import JourneyPage from "./Pages/JourneyPage/JourneyPage";
 
-import logo from "./logo.svg";
-import "./App.css";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
+
+// import logo from "./logo.png";
+import "./App.scss";
 import "./transitions.css";
 
-import { RightSideBar, LeftSideBar, TopHeader, DateInput } from "./Components";
-import {
-  AppContextProvider,
-  AppContext,
-  IAppContext
-} from "./Context/AppContextProvider";
+import { TopHeader } from "./Components/Layout";
+import { AppContext } from "./Context";
 
-class App extends Component {
-  constructor(props: any) {
-    super(props);
-  }
 
-  nameInput: HTMLElement | null = null;
+import { DatePicker } from './Components/DateInput/DatePicker';
+import { useTranslation } from "react-i18next";
+import routes from "consts/routes";
+import { Footer } from './Components/Layout/Footer';
 
-  componentDidMount() {
-    this.nameInput && this.nameInput.focus();
-  }
+const Screen = () => {
 
-  onKeyDown = (e: React.KeyboardEvent, context?: IAppContext) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { i18n } = useTranslation();
+
+  // useEffect(() => {
+  // i18n.changeLanguage(i18n.language);
+  // }, [i18n])
+
+  const keyDivRef = useRef<HTMLDivElement>(null);
+  const context = useContext(AppContext)!;
+
+  useEffect(() => {
+    keyDivRef.current?.focus();
+  }, [keyDivRef])
+
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+    body.className = classNames({ ktoty: context.ktoty });
+  }, [context, context.ktoty])
+
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.keyCode === 37 /* left arrow*/) {
       context && context.dec();
     } else if (e.keyCode === 39 /* right arrow*/) {
@@ -43,123 +62,130 @@ class App extends Component {
     }
   };
 
-  render() {
-    return (
-      <AppContextProvider>
-        <AppContext.Consumer>
-          {context => (
-            <div
-              onKeyDown={e => this.onKeyDown(e, context || undefined)}
+  return (
+    <Router basename={process.env.PUBLIC_URL}>
+      <Route
+        render={({ location }) => {
+          return (
+            <div className={classNames('screen', { ktoty: context.ktoty })}
+              onKeyDown={onKeyDown}
               tabIndex={1}
-              className="App"
-              ref={input => {
-                this.nameInput = input;
-              }}
-            >
-              <Router>
-                <Route
-                  render={({ location }) => {
-                    return (
-                      <section className="screen">
-                        <div className="header-block">
-                          <TopHeader />
-                        </div>
-                        <div className="header-right">
-                          <DateInput />
-                        </div>
-                        <div className="left-block">
-                          <LeftSideBar />
-                        </div>
-                        <div className="center-block">
-                          <TransitionGroup
-                            key={location.key}
-                            transitionName="fade"
-                            transitionEnterTimeout={600}
-                            transitionLeaveTimeout={600}
-                            transitionAppear={true}
-                            transitionAppearTimeout={600}
-                          >
-                            <Switch location={location}>
-                              <Route
-                                exact={true}
-                                path="/"
-                                render={() => (
-                                  <KinPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/tone"
-                                render={() => (
-                                  <TonePage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/sign"
-                                render={() => (
-                                  <SignPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/plasma"
-                                render={() => (
-                                  <PlasmaPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/oracle"
-                                render={() => (
-                                  <OraclePage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/zolkin"
-                                render={() => (
-                                  <ZolkinPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/moon"
-                                render={() => (
-                                  <MoonPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/wavespell"
-                                render={() => (
-                                  <WaveSpellPage gdate={context!.gdate} />
-                                )}
-                              />
-                              <Route
-                                path="/journey"
-                                render={() => <JourneyPage />}
-                              />
-                              <Route
-                                path="/year"
-                                render={() => (
-                                  <YearPage gdate={context!.gdate} />
-                                )}
-                              />
+              ref={keyDivRef} >
+              <div className="header">
+                <TopHeader />
+              </div>
+              <div className="content">
+                <Container fluid className="h-100">
+                  <Row className="justify-content-around h-100">
+                    <Col md="8" className="align-self-center mx-auto my-4" >
 
-                              <Route render={() => <div>Not Found</div>} />
-                            </Switch>
-                          </TransitionGroup>
-                        </div>
-                        {/* <div className="bottom_block vertical_pulsate"> <p>Scroll!</p> </div> */}
-                        <div className="right-block">
-                          <RightSideBar />
-                        </div>
-                      </section>
-                    );
-                  }}
-                />
-              </Router>
+                      <SwitchTransition mode={"out-in"}>
+                        <CSSTransition key={location.pathname}
+                          classNames="fade"
+                          timeout={0}
+                          mountOnEnter={true}
+                          unmountOnExit={true}
+                        >
+                          <Switch location={location} >
+                            <Route
+                              exact={true}
+                              path="/kin"
+                              render={() => (
+                                <KinPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/tone"
+                              render={() => (
+                                <TonePage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/sign"
+                              render={() => (
+                                <SignPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/plasma"
+                              render={() => (
+                                <PlasmaPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/oracle"
+                              render={() => (
+                                <OraclePage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path={routes.zolkin.path}
+                              render={() => (
+                                <ZolkinPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/moon"
+                              render={() => (
+                                <MoonPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/wavespell"
+                              render={() => (
+                                <WaveSpellPage gdate={context!.gdate} />
+                              )}
+                            />
+                            <Route
+                              path="/journey"
+                              render={() => <JourneyPage />}
+                            />
+                            <Route
+                              path="/year"
+                              render={() => (
+                                <YearPage gdate={context!.gdate} />
+                              )}
+                            />
+
+                            {/* not found route */}
+                            <Route render={() => (
+                              <Redirect to="/kin" />
+                            )} />
+                          </Switch>
+                        </CSSTransition>
+                      </SwitchTransition>
+                    </Col>
+                    <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
+                      <DatePicker />
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
+              <div className="bottom">
+                <Footer />
+              </div>
             </div>
-          )}
-        </AppContext.Consumer>
-      </AppContextProvider>
-    );
-  }
+          );
+        }}
+      />
+    </Router>
+  );
 }
 
-//export default translate(withNamespaces()(App));
-export default App;
+// loading component for suspense fallback
+const Loader = () => (
+  <div className="spinner">
+    {/* <img src={logo} className="App-logo" alt="Law of time" /> */}
+    <Spinner animation="grow" />
+  </div>
+);
+
+// i18n translations might still be loaded by the http backend
+// use react's Suspense
+export default function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <Screen />
+    </Suspense>
+  );
+}

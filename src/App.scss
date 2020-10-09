@@ -1,0 +1,107 @@
+.screen {
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "bottom";
+  grid-template-rows: min-content auto min-content;
+  // grid-gap: 1em;
+  align-content: stretch;
+}
+
+.content {
+  grid-area: content;
+  text-align: center;
+  justify-self: stretch;
+  align-self: stretch;
+
+  h2 {
+    // margin: 0.7em auto;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.bottom {
+  grid-area: bottom;
+}
+
+.footer {
+  .about {
+  }
+}
+
+.time-logo {
+  height: 20px;
+}
+
+.huge {
+  font-size: 75px;
+  font-weight: 100;
+}
+
+@media (max-width: 50rem) {
+  .screen {
+    // grid-template-columns: 0.1fr 4fr 0.1fr;
+  }
+}
+
+.spinner {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  // background: url(./img/ajax-loader.gif);
+  background-size: 100%;
+}
+
+.rotating {
+  animation: rotating-spin infinite 20s linear;
+}
+
+@keyframes rotating-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vertical_pulsate {
+  animation: vertical_pulsate 3s infinite;
+}
+
+@keyframes vertical_pulsate {
+  0% {
+    transform: translate(-50%, 0px);
+  }
+
+  80% {
+    transform: translate(-50%, 0px);
+  }
+
+  85% {
+    transform: translate(-50%, 10px);
+  }
+
+  90% {
+    transform: translate(-50%, 0px);
+  }
+
+  95% {
+    transform: translate(-50%, 10px);
+  }
+
+  100% {
+    transform: translate(-50%, 0px);
+  }
+}

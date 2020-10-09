@@ -3,9 +3,8 @@ import React from "react";
 import * as g from "dreamspell-math";
 
 // Internal
-import { Sign, SignTone } from "../../Visuals";
-import "./styles.css";
-import styled from "styled-components";
+import { Sign, SignTone, Kin } from "graphics";
+import "./styles.scss";
 // Setup
 
 let kins = new Array<g.Kin>(260);
@@ -21,8 +20,6 @@ var portalStyle = (props: { kin: g.Kin }) =>
 var mysticStyle = (props: { kin: g.Kin }) =>
   props.kin.isMysticColumn ? " mystic" : "";
 
-const KinCellDiv = styled.div<{ kin: g.Kin }>``;
-
 const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
   <div
     className={
@@ -34,13 +31,15 @@ const KinCell = (props: { kin: g.Kin; selected?: boolean }) => (
     }
     style={{ gridRow: props.kin.zolkinRow, gridColumn: props.kin.zolkinColumn }}
   >
-    <SignTone tone={props.kin.tone} />
-    <Sign sign={props.kin.sign} />
+    <Kin kin={props.kin} opt={{
+      active: props.selected,
+      inactive: !props.selected
+    }} />
   </div>
 );
 
 const ZGrid = (props: { selKin: g.Kin }) => (
-  <div className="zolkin-grid-container">
+  <div className="zolkin-grid-container mx-auto my-4">
     {kins.map(kin => (
       <KinCell
         kin={kin}

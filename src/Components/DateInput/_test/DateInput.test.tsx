@@ -17,7 +17,7 @@ describe('DateInput: test', () => {
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<DateInput date={moment()} />);
+    const wrapper = shallow(<DateInput />);
 
     expect(wrapper).toBeDefined();
   });

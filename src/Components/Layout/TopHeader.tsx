@@ -1,58 +1,60 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
-import "./TopHeader.css";
+import styles from "./Layout.module.css";
+import { DateInput } from 'Components/DateInput/DateInput';
+
+import logo from "logo.png";
+import routes from "consts/routes";
+import { useAppContext } from "Context";
 
 export const TopHeader = () => {
+
+  var context = useAppContext();
+
   return (
-    <div className="top-header">
-      <div className="left-menu">
-        <ul className="menu">
-          <li>
-            <Link to="/">Кин</Link>
-          </li>
-          <li>
-            <Link to="/tone">Тон</Link>
-          </li>
-          <li>
-            <Link to="/sign">Печать</Link>
-          </li>
-          <li>
-            <Link to="/plasma">Плазма</Link>
-          </li>
-          <li>
-            <Link to="/oracle">Оракул</Link>
-          </li>
-          <li>
-            <Link to="/zolkin">Цолькин</Link>
-          </li>
-          <li>
-            <Link to="/moon">Луна</Link>
-          </li>
-          <li>
-            <Link to="/wavespell">Волновой модуль</Link>
-          </li>
-          {/* <li>
-            <Link to="/journey">Путешествие</Link>
-          </li> */}
-          <li>
-            <Link to="/year">Год</Link>
-          </li>
-        </ul>
-      </div>
-      {/* <div className="right-menu">
-        <ul className="menu">
-          <li>
-              <Link to="/">&lt;&lt;</Link>
-            </li>
-          <li>
-          </li>
-          <li>
-              <Link to="/sign">&gt;&gt;</Link>
-            </li>
-        </ul>
-      </div> */}
-    </div>
+    <Navbar sticky="top"
+      bg={context.darkTheme ? "dark" : ""}
+      variant={context.darkTheme ? "dark" : undefined}
+      expand="md"
+      className={styles.topHeader}
+      collapseOnSelect >
+
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      {context.lawoftime &&
+        <>
+          <Navbar.Brand href="https://www.law-of-time.ru"
+            className="mx-1">
+            <img
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top mx-2"
+              alt="Law Of Time"
+            />
+          </Navbar.Brand>
+          <Navbar.Brand href="/" className="mr-auto">
+            Dream Spell
+          </Navbar.Brand>
+        </>
+      }
+
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav fill className="my-2">
+          <Nav.Link href="#/kin">Кин</Nav.Link>
+          <Nav.Link href="#/tone">Тон</Nav.Link>
+          <Nav.Link href="#/sign">Печать</Nav.Link>
+          <Nav.Link href="#/plasma">Плазма</Nav.Link>
+          <Nav.Link href="#/oracle">Оракул</Nav.Link>
+          <Nav.Link href={routes.zolkin.href}>Цолькин</Nav.Link>
+          <Nav.Link href="#/moon">Луна</Nav.Link>
+          <Nav.Link href="#/wavespell">Волновой&nbsp;модуль</Nav.Link>
+          <Nav.Link href="#/year">Год</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+      <DateInput />
+    </Navbar>
   );
 };
 

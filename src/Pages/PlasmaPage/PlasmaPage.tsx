@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Plasma } from "../../Visuals";
+import { Plasma } from "graphics";
 import * as g from "dreamspell-math";
 
 // Internal
@@ -17,7 +17,7 @@ class PlasmaPage extends React.Component<{
       i18n.t("plasmas:plasma" + date.plasma + key, opt);
     return (
       <div className="plasma-page">
-        <div className="kin-view-plasma">
+        <div className="kin-view-plasma m-4">
           <Plasma plasma={date.plasma} />
         </div>
         <h2>

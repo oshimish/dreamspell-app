@@ -1,8 +1,8 @@
 // Vendor
 import React from "react";
-import { Kin } from "../../Visuals";
 import * as g from "dreamspell-math";
-import "./styles.css";
+import "./styles.scss";
+import { Kin } from "graphics";
 // Internal Setup
 
 class OraclePage extends React.Component<{
@@ -12,9 +12,9 @@ class OraclePage extends React.Component<{
     const kin = this.props.gdate.kin;
     const oracle = kin.getOracle();
     return (
-      <div className="oracle-view">
+      <div className="oracle-view ">
         <h2>Крест Оракула</h2>
-        <table className="oracle-table">
+        <table className="oracle-table mx-auto my-2">
           <tbody>
             <tr>
               <td />
@@ -25,14 +25,14 @@ class OraclePage extends React.Component<{
               <td />
             </tr>
             <tr>
-              <td>
+              <td width="30%">
                 <Kin kin={oracle.antipod} />
-                Вызов
+                Антипод
               </td>
-              <td>
+              <td width="30%">
                 <Kin kin={kin} />
               </td>
-              <td>
+              <td width="30%">
                 <Kin kin={oracle.analog} />
                 Аналог
               </td>
@@ -41,7 +41,7 @@ class OraclePage extends React.Component<{
               <td />
               <td>
                 <Kin kin={oracle.occult} />
-                Скрытая сила
+                Магический учитель
               </td>
               <td />
             </tr>

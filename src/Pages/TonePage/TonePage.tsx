@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { SignTone } from "../../Visuals";
+import { SignTone } from "graphics";
 import * as g from "dreamspell-math";
 // Internal
 
@@ -20,7 +20,7 @@ class TonePage extends React.Component<{
       i18n.t("tones:tone" + num + key, opt);
     return (
       <div className="tone-page">
-        <SignTone tone={kin.tone} />
+        <SignTone kin={kin} />
         <p className="tone-head">
           {i18n.t("tones:name")} {tt(".num_plural")}{" "}
         </p>

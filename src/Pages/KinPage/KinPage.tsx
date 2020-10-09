@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Kin, Plasma } from "../../Visuals/Kin";
+import { Kin, Plasma } from "../../graphics";
 import * as g from "dreamspell-math";
 import { NavLink } from "react-router-dom";
 
@@ -35,7 +35,7 @@ class KinPage extends React.Component<{
           </NavLink>
         </div>
         <div className="kin-view-number">
-          <NavLink to={"zolkin"}>кин {dsdate.kin.number}</NavLink>
+          <NavLink to={"tzolkin"}>кин {dsdate.kin.number}</NavLink>
         </div>
       </div>
     );

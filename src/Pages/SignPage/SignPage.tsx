@@ -1,6 +1,6 @@
 // Vendor
 import React from "react";
-import { Sign } from "../../Visuals";
+import { Sign } from "graphics";
 import * as g from "dreamspell-math";
 
 // Internal Import a pre-configured instance of i18next
@@ -19,11 +19,11 @@ class SignPage extends React.Component<{
 
     return (
       <div className="sign-page">
-        <Sign sign={kin.sign} />
-        <h2 className="title">
+        <Sign kin={kin} />
+        <h2 className="title ">
           {num}. {tt(".title")} ({tt(".maya_name")})
         </h2>
-        <p className="info">{tt(".info")}</p>
+        <p className="info lead">{tt(".info")}</p>
         <p className="about">
           {tt(".about", {
             joinArrays: "\n",
@@ -32,11 +32,13 @@ class SignPage extends React.Component<{
             }
           })}
         </p>
-        <p>
-          {tt(".direction")} {tt(".direction_action")}
+        <p className="direction">
+          <em>
+            {tt(".direction")} {tt(".direction_action")}
+          </em>
         </p>
-        <p>{tt(".chakra")}</p>
-        <p>{tt(".deviz")}</p>
+        <p className="chakra"><em>{tt(".chakra")}</em></p>
+        <p className="deviz lead">{tt(".deviz")}</p>
       </div>
     );
   }
