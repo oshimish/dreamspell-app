@@ -6,3 +6,6 @@ declare module 'require-context.macro' {
 }
 
 
+declare module 'react-swipeable-routes' {
+  export default class SwipeableRoutes extends React.Component<SwipeableViewsProps & WithBindKeyboardProps, any> { }
+}

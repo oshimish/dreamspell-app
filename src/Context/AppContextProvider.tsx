@@ -4,7 +4,6 @@ import moment from "moment";
 import * as g from "dreamspell-math";
 import { GraphicTheme } from "consts/GraphicTheme";
 import { useContext } from "react";
-import { threadId } from "worker_threads";
 
 
 export interface IAppContext {
@@ -29,8 +28,10 @@ export interface IWithAppContextProps {
 
 export const useAppContext = () => useContext(AppContext)!;
 
+export const isKtotyHosted = () => /(ktoty\.?|-kt)/gi.test(window.location.href);
+
 export const defaultTheme = () => {
-  const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
+  const ktoty = isKtotyHosted();
   const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
   return defaultTheme;
 }

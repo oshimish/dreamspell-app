@@ -1,18 +1,7 @@
 import React, { useEffect, useRef, useContext, Suspense } from "react";
 import { HashRouter as Router, Route as OriginalRoute, Switch, Redirect, RouteProps, Route, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition, SwitchTransition } from "react-transition-group";
 import classNames from 'classnames';
 
-import KinPage from "./Pages/KinPage/KinPage";
-import SignPage from "./Pages/SignPage/SignPage";
-import TonePage from "./Pages/TonePage/TonePage";
-import PlasmaPage from "./Pages/PlasmaPage/PlasmaPage";
-import OraclePage from "./Pages/OraclePage/OraclePage";
-import MoonPage from "./Pages/MoonPage/MoonPage";
-import ZolkinPage from "./Pages/ZolkinPage/ZolkinPage";
-import WaveSpellPage from "./Pages/WaveSpellPage/WaveSpellPage";
-import YearPage from "./Pages/YearPage/YearPage";
-import JourneyPage from "./Pages/JourneyPage/JourneyPage";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -31,6 +20,8 @@ import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
 import { Footer } from './Components/Layout/Footer';
+import { SwipeRouteView, SwipeableRoutesView } from './Components/Layout/SwipeView';
+import SwipeableViews from 'react-swipeable-views';
 
 const Screen = () => {
 
@@ -41,12 +32,12 @@ const Screen = () => {
   // i18n.changeLanguage(i18n.language);
   // }, [i18n])
 
-  const keyDivRef = useRef<HTMLDivElement>(null);
+  // const keyDivRef = useRef<HTMLDivElement>(null);
   const context = useContext(AppContext)!;
 
-  useEffect(() => {
-    keyDivRef.current?.focus();
-  }, [keyDivRef])
+  // useEffect(() => {
+  //   keyDivRef.current?.focus();
+  // }, [keyDivRef])
 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
@@ -54,13 +45,13 @@ const Screen = () => {
   }, [context, context.ktoty])
 
 
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.keyCode === 37 /* left arrow*/) {
-      context && context.dec();
-    } else if (e.keyCode === 39 /* right arrow*/) {
-      context && context.inc();
-    }
-  };
+  // const onKeyDown = (e: React.KeyboardEvent) => {
+  //   if (e.keyCode === 37 /* left arrow*/) {
+  //     context && context.dec();
+  //   } else if (e.keyCode === 39 /* right arrow*/) {
+  //     context && context.inc();
+  //   }
+  // };
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -68,9 +59,10 @@ const Screen = () => {
         render={({ location }) => {
           return (
             <div className={classNames('screen', { ktoty: context.ktoty })}
-              onKeyDown={onKeyDown}
+              // onKeyDown={onKeyDown}
               tabIndex={1}
-              ref={keyDivRef} >
+            // ref={keyDivRef} 
+            >
               <div className="header">
                 <TopHeader />
               </div>
@@ -79,81 +71,17 @@ const Screen = () => {
                   <Row className="justify-content-around h-100">
                     <Col md="8" className="align-self-center mx-auto my-4" >
 
-                      <SwitchTransition mode={"out-in"}>
-                        <CSSTransition key={location.pathname}
-                          classNames="fade"
-                          timeout={0}
-                          mountOnEnter={true}
-                          unmountOnExit={true}
-                        >
-                          <Switch location={location} >
-                            <Route
-                              exact={true}
-                              path="/kin"
-                              render={() => (
-                                <KinPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/tone"
-                              render={() => (
-                                <TonePage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/sign"
-                              render={() => (
-                                <SignPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/plasma"
-                              render={() => (
-                                <PlasmaPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/oracle"
-                              render={() => (
-                                <OraclePage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path={routes.zolkin.path}
-                              render={() => (
-                                <ZolkinPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/moon"
-                              render={() => (
-                                <MoonPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/wavespell"
-                              render={() => (
-                                <WaveSpellPage gdate={context!.gdate} />
-                              )}
-                            />
-                            <Route
-                              path="/journey"
-                              render={() => <JourneyPage />}
-                            />
-                            <Route
-                              path="/year"
-                              render={() => (
-                                <YearPage gdate={context!.gdate} />
-                              )}
-                            />
+                      <Switch location={location} >
 
-                            {/* not found route */}
-                            <Route render={() => (
-                              <Redirect to="/kin" />
-                            )} />
-                          </Switch>
-                        </CSSTransition>
-                      </SwitchTransition>
+                        <SwipeRouteView />
+                        {/* <SwipeableRoutesView /> */}
+
+                        {/* not found route */}
+                        <Route render={() => (
+                          <Redirect to="/kin" />
+                        )} />
+                      </Switch>
+
                     </Col>
                     <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
                       <DatePicker />

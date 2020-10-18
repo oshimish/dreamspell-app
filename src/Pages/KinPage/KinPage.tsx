@@ -3,12 +3,13 @@ import React from "react";
 import { Kin, Plasma } from "../../graphics";
 import * as g from "dreamspell-math";
 import { NavLink } from "react-router-dom";
+import { dreamdate } from "dreamspell-math";
 
 class KinPage extends React.Component<{
-  gdate: g.DreamDate;
+  gdate?: g.DreamDate;
 }> {
   render() {
-    var dsdate = this.props.gdate;
+    var dsdate = this.props.gdate || dreamdate(new Date());
     return (
       <div className="kin-view">
         <h2>{dsdate.moment.format("LL")}</h2>
