@@ -11,11 +11,10 @@ const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
 const slideRenderer = (props: SlideRenderProps) => (
     <div key={props.key}>
-        {`slide n°${props.index + 1}`}
         {Object.entries(routes).map((route, i) => {
             const p = route[1];
             return (
-                <Route key={i} {...p} />
+                <Route key={route[0]} {...p} />
             )
         })}
     </div>
@@ -32,7 +31,7 @@ export const SwipeableRoutesView = (props: Partial<SwipeableViewsProps>) => (
         {Object.entries(routes).map((route, i) => {
             const p = route[1];
             return (
-                <Route key={i} {...p} />
+                <Route key={route[0]} {...p} />
             )
         })}
     </SwipeableRoutes >
@@ -40,7 +39,7 @@ export const SwipeableRoutesView = (props: Partial<SwipeableViewsProps>) => (
 
 const onChangeIndex = (index: number, indexLatest: number) => { };
 
-export const SwipeRouteView = (props: Partial<SwipeableViewsProps>) => {
+const SwipeRouteView = (props: Partial<SwipeableViewsProps>) => {
     const [index, setIndex] = useState(0);
     return (
         <SwipeView index={index} onChangeIndex={setIndex} enableMouseEvents >
@@ -54,4 +53,4 @@ export const SwipeRouteView = (props: Partial<SwipeableViewsProps>) => {
     )
 };
 
-export default SwipeView;
+export default SwipeableRoutesView;

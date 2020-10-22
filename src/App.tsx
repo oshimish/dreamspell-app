@@ -18,10 +18,8 @@ import { AppContext } from "./Context";
 
 import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
-import routes from "consts/routes";
 import { Footer } from './Components/Layout/Footer';
-import { SwipeRouteView, SwipeableRoutesView } from './Components/Layout/SwipeView';
-import SwipeableViews from 'react-swipeable-views';
+import { SwipeableRoutesView } from './Components/Layout/SwipeView';
 
 const Screen = () => {
 
@@ -71,15 +69,6 @@ const Screen = () => {
                   <Row className="justify-content-around h-100">
                     <Col md="8" className="align-self-center mx-auto my-4" >
                       <SwipeableRoutesView />
-                      {/* <Switch location={location} >
-
-                        <SwipeRouteView />
-
-                        <Route render={() => (
-                          <Redirect to="/kin" />
-                        )} />
-                      </Switch> */}
-
                     </Col>
                     <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
                       <DatePicker />

@@ -20,46 +20,46 @@ const routes: {
         href: "#/tone",
         render: () => <TonePage />
     },
-    sign: {
-        path: "/sign",
-        href: "#/sign",
-        render: () => <SignPage />
-    },
-    plasma: {
-        path: "/plasma",
-        href: "#/plasma",
-        render: () => <PlasmaPage />
-    },
-    oracle: {
-        path: "/oracle",
-        href: "#/oracle",
-        render: () => <OraclePage />
-    },
-    zolkin: {
-        path: "/zolkin",
-        href: "#/zolkin",
-        render: () => <ZolkinPage />
-    },
-    moon: {
-        path: "/moon",
-        href: "#/moon",
-        render: () => <MoonPage />
-    },
-    wavespell: {
-        path: "/wavespell",
-        href: "#/wavespell",
-        render: () => <WaveSpellPage />
-    },
+    // sign: {
+    //     path: "/sign",
+    //     href: "#/sign",
+    //     render: () => <SignPage />
+    // },
+    // plasma: {
+    //     path: "/plasma",
+    //     href: "#/plasma",
+    //     render: () => <PlasmaPage />
+    // },
+    // oracle: {
+    //     path: "/oracle",
+    //     href: "#/oracle",
+    //     render: () => <OraclePage />
+    // },
+    // zolkin: {
+    //     path: "/zolkin",
+    //     href: "#/zolkin",
+    //     render: () => <ZolkinPage />
+    // },
+    // moon: {
+    //     path: "/moon",
+    //     href: "#/moon",
+    //     render: () => <MoonPage />
+    // },
+    // wavespell: {
+    //     path: "/wavespell",
+    //     href: "#/wavespell",
+    //     render: () => <WaveSpellPage />
+    // },
     // journey: {
     //     path: "/journey",
     //     href: "#/journey",
     //     render: () => <JourneyPage />
     // },
-    year: {
-        path: "/year",
-        href: "#/year",
-        render: () => <YearPage />
-    }
+    // year: {
+    //     path: "/year",
+    //     href: "#/year",
+    //     render: () => <YearPage />
+    // }
 }
 
 if (isKtotyHosted() && routes.zolkin) {
