@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { WaveSpell, Moon } from "../../Visuals";
 import { dreamdate, DreamDate } from "dreamspell-math";
+import { useAppContext } from "Context";
 // Setup
 
 /**
@@ -18,13 +19,16 @@ const getYearStart = (gdate: DreamDate) => dreamdate(
 );
 const iterator = (gdate: DreamDate) => dreamdate(gdate.moment.clone().add(28, "d"));
 
-const YearPage = (props: { gdate: DreamDate }) => {
+const YearPage = () => {
 
-  const [yearStart, setYearStart] = useState(getYearStart(props.gdate));
+  const context = useAppContext()
+  let gdate = context.gdate;
+
+  const [yearStart, setYearStart] = useState(getYearStart(gdate));
 
   useEffect(() => {
-    setYearStart(getYearStart(props.gdate))
-  }, [props.gdate])
+    setYearStart(getYearStart(gdate))
+  }, [gdate])
 
   return (
     <div className="year-page">
@@ -33,7 +37,7 @@ const YearPage = (props: { gdate: DreamDate }) => {
       <WaveSpell
         from={yearStart}
         iterator={iterator}
-        render={i => <Moon firstDay={i} selDate={props.gdate} />}
+        render={i => <Moon firstDay={i} selDate={gdate} />}
       />
     </div>
   );

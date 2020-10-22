@@ -5,6 +5,7 @@ import * as g from "dreamspell-math";
 // Internal
 import { Sign, SignTone, Kin } from "graphics";
 import "./styles.scss";
+import { useAppContext } from "Context";
 // Setup
 
 let kins = new Array<g.Kin>(260);
@@ -50,17 +51,16 @@ const ZGrid = (props: { selKin: g.Kin }) => (
   </div>
 );
 
-class ZolkinPage extends React.Component<{
-  gdate: g.DreamDate;
-}> {
-  render() {
-    return (
-      <div className="zolkin-page">
-        <h2>Цолькин</h2>
-        <ZGrid selKin={this.props.gdate.kin} />
-      </div>
-    );
-  }
+const ZolkinPage = () => {
+  const context = useAppContext()
+  let kin = context.gdate.kin;
+  return (
+    <div className="zolkin-page">
+      <h2>Цолькин</h2>
+      <ZGrid selKin={kin} />
+    </div>
+  );
 }
+
 
 export default ZolkinPage;
