@@ -20,36 +20,36 @@ const routes: {
         href: "#/tone",
         render: () => <TonePage />
     },
-    // sign: {
-    //     path: "/sign",
-    //     href: "#/sign",
-    //     render: () => <SignPage />
-    // },
-    // plasma: {
-    //     path: "/plasma",
-    //     href: "#/plasma",
-    //     render: () => <PlasmaPage />
-    // },
-    // oracle: {
-    //     path: "/oracle",
-    //     href: "#/oracle",
-    //     render: () => <OraclePage />
-    // },
-    // zolkin: {
-    //     path: "/zolkin",
-    //     href: "#/zolkin",
-    //     render: () => <ZolkinPage />
-    // },
+    sign: {
+        path: "/sign",
+        href: "#/sign",
+        render: () => <SignPage />
+    },
+    plasma: {
+        path: "/plasma",
+        href: "#/plasma",
+        render: () => <PlasmaPage />
+    },
+    oracle: {
+        path: "/oracle",
+        href: "#/oracle",
+        render: () => <OraclePage />
+    },
+    zolkin: {
+        path: "/zolkin",
+        href: "#/zolkin",
+        render: () => <ZolkinPage />
+    },
     // moon: {
     //     path: "/moon",
     //     href: "#/moon",
     //     render: () => <MoonPage />
     // },
-    // wavespell: {
-    //     path: "/wavespell",
-    //     href: "#/wavespell",
-    //     render: () => <WaveSpellPage />
-    // },
+    wavespell: {
+        path: "/wavespell",
+        href: "#/wavespell",
+        render: () => <WaveSpellPage />
+    },
     // journey: {
     //     path: "/journey",
     //     href: "#/journey",
