@@ -8,6 +8,7 @@ import "./styles.scss";
 import { DreamDate } from "dreamspell-math";
 import WaveSpell from "Visuals/WaveSpell/WaveSpell";
 import { Kin } from "graphics";
+import { useAppContext } from "Context";
 
 // Setup
 
@@ -16,12 +17,11 @@ import { Kin } from "graphics";
  * @description Brief description
  */
 
-const WaveSpellPage = (props: {
-  gdate: g.DreamDate;
-}) => {
+const WaveSpellPage = () => {
 
-  const selKin = props.gdate.kin;
-  const selDate = props.gdate;
+  const context = useAppContext()
+  const selKin = context.gdate.kin;
+  const selDate = context.gdate;
   // todo: use getWavespell from math
   let wavespellStart = g.dreamdate(
     selDate.moment.clone().add(-(selKin.tone.number - 1), "d")

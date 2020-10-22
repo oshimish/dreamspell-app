@@ -5,7 +5,6 @@ import {
     SignPage, TonePage, WaveSpellPage, YearPage, ZolkinPage
 } from "Pages";
 import { RouteProps } from "react-router";
-import { dreamdate } from "dreamspell-math";
 import { AppContext, isKtotyHosted } from "Context";
 
 const routes: {
@@ -19,47 +18,47 @@ const routes: {
     tone: {
         path: "/tone",
         href: "#/tone",
-        render: () => <TonePage gdate={dreamdate(Date.now)} />
+        render: () => <TonePage />
     },
     sign: {
         path: "/sign",
         href: "#/sign",
-        render: () => <SignPage gdate={dreamdate(Date.now)} />
+        render: () => <SignPage />
     },
     plasma: {
         path: "/plasma",
         href: "#/plasma",
-        render: () => <PlasmaPage gdate={dreamdate(Date.now)} />
+        render: () => <PlasmaPage />
     },
     oracle: {
         path: "/oracle",
         href: "#/oracle",
-        render: () => <OraclePage gdate={dreamdate(Date.now)} />
+        render: () => <OraclePage />
     },
     zolkin: {
         path: "/zolkin",
         href: "#/zolkin",
-        render: () => <ZolkinPage gdate={dreamdate(Date.now)} />
+        render: () => <ZolkinPage />
     },
     moon: {
         path: "/moon",
         href: "#/moon",
-        render: () => <MoonPage gdate={dreamdate(Date.now)} />
+        render: () => <MoonPage />
     },
     wavespell: {
         path: "/wavespell",
         href: "#/wavespell",
-        render: () => <WaveSpellPage gdate={dreamdate(Date.now)} />
+        render: () => <WaveSpellPage />
     },
-    journey: {
-        path: "/journey",
-        href: "#/journey",
-        render: () => <JourneyPage />
-    },
+    // journey: {
+    //     path: "/journey",
+    //     href: "#/journey",
+    //     render: () => <JourneyPage />
+    // },
     year: {
         path: "/year",
         href: "#/year",
-        render: () => <YearPage gdate={dreamdate(Date.now)} />
+        render: () => <YearPage />
     }
 }
 

@@ -70,17 +70,15 @@ const Screen = () => {
                 <Container fluid className="h-100">
                   <Row className="justify-content-around h-100">
                     <Col md="8" className="align-self-center mx-auto my-4" >
-
-                      <Switch location={location} >
+                      <SwipeableRoutesView />
+                      {/* <Switch location={location} >
 
                         <SwipeRouteView />
-                        {/* <SwipeableRoutesView /> */}
 
-                        {/* not found route */}
                         <Route render={() => (
                           <Redirect to="/kin" />
                         )} />
-                      </Switch>
+                      </Switch> */}
 
                     </Col>
                     <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">

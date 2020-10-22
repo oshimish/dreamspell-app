@@ -12,7 +12,7 @@ describe('OraclePage: test', () => {
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<OraclePage gdate={g.dreamdate(moment('2019-01-31'))} />);
+    const wrapper = shallow(<OraclePage />);
 
     expect(wrapper).toBeDefined();
   });
