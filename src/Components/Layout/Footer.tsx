@@ -7,11 +7,10 @@ import Nav from 'react-bootstrap/Nav';
 import ThemeSelect from 'Components/ThemeSelect/ThemeSelect';
 
 export const Footer = () => (
-    <div className="footer">
-        <Navbar sticky="bottom"
-            expand="lg"
-            collapseOnSelect >
-            {/* <Navbar.Toggle aria-controls="footer-navbar-nav" />
+    <Navbar sticky="bottom"
+        expand="lg"
+        collapseOnSelect >
+        {/* <Navbar.Toggle aria-controls="footer-navbar-nav" />
             <Navbar.Brand
                 href="https://www.law-of-time.ru"
                 target="_blank"
@@ -36,9 +35,8 @@ export const Footer = () => (
                     <div>Единая Земля. Единое Время. Единое Человечество.</div>
                 </Navbar.Text>
             </Navbar.Collapse> */}
-            <Nav className="justify-content-end " justify>
-                <ThemeSelect />
-            </Nav>
-        </Navbar>
-    </div>
+        <Nav className="justify-content-end " justify>
+            <ThemeSelect />
+        </Nav>
+    </Navbar>
 )

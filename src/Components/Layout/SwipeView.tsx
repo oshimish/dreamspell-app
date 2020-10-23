@@ -37,20 +37,5 @@ export const SwipeableRoutesView = (props: Partial<SwipeableViewsProps>) => (
     </SwipeableRoutes >
 );
 
-const onChangeIndex = (index: number, indexLatest: number) => { };
-
-const SwipeRouteView = (props: Partial<SwipeableViewsProps>) => {
-    const [index, setIndex] = useState(0);
-    return (
-        <SwipeView index={index} onChangeIndex={setIndex} enableMouseEvents >
-            {Object.entries(routes).map((route, i) => {
-                const p = route[1];
-                return (
-                    <Route key={i} {...p} />
-                )
-            })}
-        </SwipeView >
-    )
-};
 
 export default SwipeableRoutesView;

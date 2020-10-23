@@ -40,11 +40,11 @@ const routes: {
         href: "#/zolkin",
         render: () => <ZolkinPage />
     },
-    // moon: {
-    //     path: "/moon",
-    //     href: "#/moon",
-    //     render: () => <MoonPage />
-    // },
+    moon: {
+        path: "/moon",
+        href: "#/moon",
+        render: () => <MoonPage />
+    },
     wavespell: {
         path: "/wavespell",
         href: "#/wavespell",
@@ -55,11 +55,11 @@ const routes: {
     //     href: "#/journey",
     //     render: () => <JourneyPage />
     // },
-    // year: {
-    //     path: "/year",
-    //     href: "#/year",
-    //     render: () => <YearPage />
-    // }
+    year: {
+        path: "/year",
+        href: "#/year",
+        render: () => <YearPage />
+    }
 }
 
 if (isKtotyHosted() && routes.zolkin) {

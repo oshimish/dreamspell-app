@@ -15,7 +15,7 @@ export const TopHeader = () => {
   var context = useAppContext();
 
   return (
-    <Navbar sticky="top"
+    <Navbar
       bg={context.darkTheme ? "dark" : ""}
       variant={context.darkTheme ? "dark" : undefined}
       expand="md"
