@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import ThemeSelect from 'Components/ThemeSelect/ThemeSelect';
 
 export const Footer = () => (
-    <Navbar sticky="bottom"
+    <Navbar fixed="bottom"
         expand="lg"
         collapseOnSelect >
         {/* <Navbar.Toggle aria-controls="footer-navbar-nav" />

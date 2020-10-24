@@ -53,25 +53,18 @@ const Screen = () => {
 
   return (
     <Router basename={process.env.PUBLIC_URL}>
-
-      <div className={classNames('screen', { ktoty: context.ktoty })}
-        // onKeyDown={onKeyDown}
-        tabIndex={1}
-      // ref={keyDivRef} 
-      >
-        <TopHeader />
-        <Container fluid className="h-100">
-          <Row className="justify-content-around h-100">
-            <Col md="8" className="align-self-stretch mx-auto my-2 my-xl-4 text-center col-xl-8" >
-              <SwipeableRoutesView />
-            </Col>
-            <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
-              <DatePicker />
-            </Col>
-          </Row>
-        </Container>
-        <Footer />
-      </div>
+      <TopHeader />
+      <Container fluid className="main">
+        <Row className="justify-content-around h-100">
+          <Col md="8" className="align-self-stretch mx-auto my-2 my-xl-4 text-center col-xl-8" >
+            <SwipeableRoutesView />
+          </Col>
+          <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
+            <DatePicker />
+          </Col>
+        </Row>
+      </Container>
+      <Footer />
     </Router>
   );
 }

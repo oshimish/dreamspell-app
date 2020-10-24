@@ -97,25 +97,3 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
     );
   }
 }
-
-
-export function withAppContext<P extends {}>(
-  WrappedComponent: any | React.ComponentType<P & IWithAppContextProps>
-) {
-  // ...and returns another component... 
-  return class extends React.Component<
-    Pick<P, Exclude<keyof P, keyof IWithAppContextProps>>,
-    {}
-    > {
-    static displayName = `withAppContext(${WrappedComponent.displayName ||
-      WrappedComponent.name})`;
-
-    render() {
-      return (
-        <AppContext.Consumer>
-          {context => <WrappedComponent {...this.props} context={context!} />}
-        </AppContext.Consumer>
-      );
-    }
-  };
-}
