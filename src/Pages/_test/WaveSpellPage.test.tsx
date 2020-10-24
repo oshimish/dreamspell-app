@@ -1,18 +1,18 @@
 // Vendor
 import React from 'react';
-
 import * as g from 'dreamspell-math';
 import moment from 'moment';
 
 import { shallow } from 'enzyme';
 
 // Internal
-import PlasmaPage from '../PlasmaPage';
+import WaveSpellPage from '../WaveSpellPage';
 
-describe('PlasmaPage: test', () => {
+describe('WaveSpellPage: test', () => {
+
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<PlasmaPage gdate={g.dreamdate(moment('2019-01-31'))} />);
+    const wrapper = shallow(<WaveSpellPage />);
 
     expect(wrapper).toBeDefined();
   });

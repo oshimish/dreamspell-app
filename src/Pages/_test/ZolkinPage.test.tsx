@@ -1,18 +1,17 @@
 // Vendor
 import React from 'react';
+
 import * as g from 'dreamspell-math';
 import moment from 'moment';
-
 import { shallow } from 'enzyme';
 
 // Internal
-import SignPage from '../SignPage';
+import ZolkinPage from '../ZolkinPage/ZolkinPage';
 
-describe('SignPage: test', () => {
-
+describe('ZolkinPage: test', () => {
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<SignPage gdate={g.dreamdate(moment('2019-01-31'))} />);
+    const wrapper = shallow(<ZolkinPage />);
 
     expect(wrapper).toBeDefined();
   });

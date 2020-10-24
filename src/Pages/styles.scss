@@ -1,0 +1,132 @@
+.sign-page {
+  p {
+    margin: 1em;
+    font-stretch: condensed;
+  }
+
+  .title {
+    margin: 1em;
+  }
+
+  .about {
+    white-space: pre-line;
+  }
+
+  .sign {
+    margin: 2em auto;
+  }
+
+  .info {
+    font-weight: 600;
+  }
+
+  .deviz {
+    font-weight: 500;
+  }
+}
+
+.plasma-page {
+  h2 {
+    font-variant-caps: all-small-caps;
+  }
+
+  .about {
+    white-space: pre-line;
+  }
+}
+
+.moon-page {
+  // border: 1px solid #ccc;
+
+  .moon-grid {
+    width: 87%;
+
+    .moon-cell {
+      border: white 1px solid;
+      border-radius: 7px;
+    }
+
+    .plasma-cell {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.oracle-view {
+  .oracle-table {
+    td {
+      padding: 10px;
+    }
+    .kin.selected {
+      zoom: 1.2;
+    }
+  }
+}
+
+.tone-page {
+  .tone-head,
+  h2 {
+    font-variant-caps: all-petite-caps;
+  }
+
+  .about {
+    white-space: pre-line;
+  }
+
+  .sign-tone {
+    margin: 17px auto;
+  }
+}
+
+.wave-spell-page {
+  // min-width: 28em;
+
+  .wave-spell {
+    width: 91%;
+  }
+
+  .wave-cell {
+    width: 87%;
+  }
+
+  .kin .selected img {
+    box-shadow: 0px 0px 7px 4px #8314d1;
+    background-color: #8314d1;
+  }
+
+  .kin img {
+    // min-width: 22px;
+  }
+}
+
+.year-page {
+  // border: 1px solid #ccc;
+
+  .moon-grid {
+    grid-gap: 3px;
+    margin: 7px;
+
+    .day-cell {
+      margin: 0px;
+      padding: 0px;
+      border: none;
+      border-radius: 1px;
+      .kin {
+        margin: 0px;
+        width: 100%;
+      }
+      .num {
+        display: none;
+      }
+      .plasma-cell {
+        display: none;
+      }
+    }
+  }
+
+  .day-cell.portal {
+    box-shadow: 0px 0px 0.1em 0.01em #8ac48d;
+    background-color: #8ac48d;
+  }
+}

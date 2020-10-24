@@ -15,14 +15,14 @@ describe('YearPage: test', () => {
 
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<YearPage gdate={g.dreamdate(moment('2019-01-31'))} />);
+    const wrapper = shallow(<YearPage />);
 
     expect(wrapper).toBeDefined();
   });
 
   // Replace this with your own specs
   it('should start year from correct date', () => {
-    const wrapper = shallow(<YearPage gdate={g.dreamdate(moment('2019-01-31'))} />);
+    const wrapper = shallow(<YearPage />);
 
     const from = wrapper.find(WaveSpell).prop('from');
     const newYear = g.dreamdate(moment('2018-07-26'));

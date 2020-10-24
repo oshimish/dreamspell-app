@@ -4,7 +4,7 @@ import { Plasma } from "graphics";
 import * as g from "dreamspell-math";
 
 // Internal
-import i18n from "../../i18n";
+import i18n from "../i18n";
 import "./styles.scss";
 import { useAppContext } from "Context";
 

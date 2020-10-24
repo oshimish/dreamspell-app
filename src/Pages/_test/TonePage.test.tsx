@@ -1,18 +1,17 @@
 // Vendor
 import React from 'react';
-
-
 import * as g from 'dreamspell-math';
 import moment from 'moment';
+
 import { shallow } from 'enzyme';
 
 // Internal
-import KinPage from '../KinPage';
+import TonePage from '../TonePage';
 
-describe('KinPage: test', () => {
+describe('TonePage: test', () => {
   // test cases
   it('renders', () => {
-    const wrapper = shallow(<KinPage gdate={g.dreamdate(moment())} />);
+    const wrapper = shallow(<TonePage />);
 
     expect(wrapper).toBeDefined();
   });

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 // Internal
 import "./styles.scss";
-import { WaveSpell, Moon } from "../../Visuals";
+import { WaveSpell, Moon } from "../Visuals";
 import { dreamdate, DreamDate } from "dreamspell-math";
 import { useAppContext } from "Context";
 // Setup

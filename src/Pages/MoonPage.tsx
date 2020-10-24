@@ -6,7 +6,7 @@ import * as g from "dreamspell-math";
 // Internal import i18n from 'i18n';
 import "./styles.scss";
 
-import { Moon } from "../../Visuals/Moon/Moon";
+import { Moon } from "../Visuals/Moon/Moon";
 import { useAppContext } from "Context";
 
 // Setup

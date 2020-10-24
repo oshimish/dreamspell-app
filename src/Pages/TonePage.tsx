@@ -5,7 +5,7 @@ import * as g from "dreamspell-math";
 // Internal
 
 // Import a pre-configured instance of i18next
-import i18n from "../../i18n";
+import i18n from "../i18n";
 
 import "./styles.scss";
 import { useAppContext } from "Context";
