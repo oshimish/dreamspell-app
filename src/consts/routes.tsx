@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext, Suspense } from "react";
 
 import {
-    JourneyPage, KinPage, MoonPage, OraclePage, PlasmaPage,
+    KinPage, MoonPage, OraclePage, PlasmaPage,
     SignPage, TonePage, WaveSpellPage, YearPage, ZolkinPage
 } from "Pages";
 import { RouteProps } from "react-router";

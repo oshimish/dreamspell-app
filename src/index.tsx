@@ -16,10 +16,12 @@ import * as serviceWorker from "./serviceWorker";
 
 import "./i18n";
 
-
 import { AppContextProvider } from "Context/AppContextProvider";
-
 import moment from "moment";
+import LogRocket from 'logrocket';
+
+LogRocket.init('x1stbe/dreamtime');
+
 moment.locale("ru");
 
 

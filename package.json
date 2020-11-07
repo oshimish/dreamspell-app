@@ -15,6 +15,7 @@
     "i18next": "^19.8.2",
     "i18next-locize-backend": "^4.1.8",
     "i18next-xhr-backend": "^3.2.2",
+    "logrocket": "^1.0.14",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
