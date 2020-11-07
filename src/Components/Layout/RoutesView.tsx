@@ -6,6 +6,7 @@ import SwipeableRoutes from "react-swipeable-routes";
 import { Route } from 'react-router-dom';
 import routes from 'consts/routes';
 import PageView from './PageView';
+import i18n from 'i18n';
 
 
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
@@ -39,7 +40,7 @@ export const RoutesView = () => (
                         return (
                             <PageView
                                 key={route[0]}
-                                header={route[0]}
+                                header={i18n.t("routes." + route[0])}
                                 children={p.component}
                             />
                         )
