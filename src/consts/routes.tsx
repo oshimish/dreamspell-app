@@ -1,64 +1,67 @@
-import React, { useEffect, useRef, useContext, Suspense } from "react";
+import React, { useEffect, useRef, useContext, Suspense, ReactNode } from "react";
 
 import {
     KinPage, MoonPage, OraclePage, PlasmaPage,
     SignPage, TonePage, WaveSpellPage, YearPage, ZolkinPage
 } from "Pages";
-import { RouteProps } from "react-router";
 import { AppContext, isKtotyHosted } from "Context";
 
 const routes: {
-    [name: string]: RouteProps & { href: string }
+    [name: string]: {
+        path: string,
+        href: string,
+        component: ReactNode
+    }
 } = {
     kin: {
         path: "/kin",
         href: "#/kin",
-        render: () => <KinPage />
+        component: <KinPage />
     },
     tone: {
         path: "/tone",
         href: "#/tone",
-        render: () => <TonePage />
+        component: <TonePage />
     },
     sign: {
         path: "/sign",
         href: "#/sign",
-        render: () => <SignPage />
+        component: <SignPage />
     },
     plasma: {
         path: "/plasma",
         href: "#/plasma",
-        render: () => <PlasmaPage />
+        component: <PlasmaPage />
     },
     oracle: {
         path: "/oracle",
         href: "#/oracle",
-        render: () => <OraclePage />
+        component: <OraclePage />
     },
     zolkin: {
         path: "/zolkin",
         href: "#/zolkin",
-        render: () => <ZolkinPage />
+        component: <ZolkinPage />
     },
     moon: {
         path: "/moon",
         href: "#/moon",
-        render: () => <MoonPage />
+        component: <MoonPage />
     },
     wavespell: {
         path: "/wavespell",
         href: "#/wavespell",
-        render: () => <WaveSpellPage />
+        component: <WaveSpellPage />
     },
     // journey: {
     //     path: "/journey",
     //     href: "#/journey",
-    //     render: () => <JourneyPage />
+    //     component: <JourneyPage />
     // },
     year: {
         path: "/year",
         href: "#/year",
-        render: () => <YearPage />
+        component: <YearPage />
     }
 }
 

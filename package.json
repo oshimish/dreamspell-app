@@ -68,9 +68,6 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

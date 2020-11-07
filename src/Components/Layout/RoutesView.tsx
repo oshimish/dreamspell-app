@@ -5,18 +5,19 @@ import { virtualize, bindKeyboard, WithBindKeyboardProps, SlideRenderProps } fro
 import SwipeableRoutes from "react-swipeable-routes";
 import { Route } from 'react-router-dom';
 import routes from 'consts/routes';
+import PageView from './PageView';
 
 
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 
 const slideRenderer = (props: SlideRenderProps) => (
     <div key={props.key}>
-        {Object.entries(routes).map((route, i) => {
+        {/* {Object.entries(routes).map((route, i) => {
             const p = route[1];
             return (
                 <Route key={route[0]} {...p} />
             )
-        })}
+        })} */}
     </div>
 );
 
@@ -26,16 +27,33 @@ const SwipeView = (props: SwipeableViewsProps & WithBindKeyboardProps) => (
     <VirtualizeSwipeableViews slideRenderer={slideRenderer} {...props} />
 );
 
-export const SwipeableRoutesView = (props: Partial<SwipeableViewsProps>) => (
-    <SwipeableRoutes enableMouseEvents >
+export const RoutesView = () => (
+    <>
         {Object.entries(routes).map((route, i) => {
             const p = route[1];
             return (
-                <Route key={route[0]} {...p} />
+                <Route key={route[0]}
+                    path={route[1].path}
+                    href={route[1].href}
+                    render={() => {
+                        return (
+                            <PageView
+                                key={route[0]}
+                                header={route[0]}
+                                children={p.component}
+                            />
+                        )
+                    }
+                    } />
             )
         })}
+    </>
+);
+
+export const SwipeableRoutesView = (props: Partial<SwipeableViewsProps>) => (
+    <SwipeableRoutes enableMouseEvents >
+        <RoutesView />
     </SwipeableRoutes >
 );
 
-
-export default SwipeableRoutesView;
+export default RoutesView; 

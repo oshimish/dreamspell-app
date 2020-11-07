@@ -31,15 +31,11 @@ const YearPage = () => {
   }, [gdate])
 
   return (
-    <div className="year-page">
-      <h2>Год</h2>
-
-      <WaveSpell
-        from={yearStart}
-        iterator={iterator}
-        render={i => <Moon firstDay={i} selDate={gdate} />}
-      />
-    </div>
+    <WaveSpell
+      from={yearStart}
+      iterator={iterator}
+      render={i => <Moon firstDay={i} selDate={gdate} />}
+    />
   );
 };
 

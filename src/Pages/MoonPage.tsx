@@ -22,7 +22,8 @@ const MoonPage = () => {
   return (
     <div className="moon-page">
       {" "}
-      <h2>Луна</h2> <Moon firstDay={firstDay} selDate={sel_day} />{" "}
+      <h2>Луна</h2>
+      <Moon firstDay={firstDay} selDate={sel_day} />{" "}
     </div>
   );
 }
