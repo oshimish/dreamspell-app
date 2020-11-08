@@ -34,7 +34,7 @@ const MoonDay = (props: {
         gridColumn: props.col
       }}
     >
-      <div className="num">{props.gday.day}</div>
+      {/* <div className="num">{props.gday.day}</div> */}
       <Kin kin={props.gday.kin} /> {/* <p>{props.gday.Moment.format('L')}</p> */}
     </div>
   );
@@ -77,7 +77,7 @@ export const Moon = (props: {
   }
 
   return (
-    <div className="moon-grid">
+    <div className="moon-grid m-1">
       {moonDays
         .filter((val, i) => i < 7)
         .map(gday => (

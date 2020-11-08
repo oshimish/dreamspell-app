@@ -12,7 +12,6 @@ const OraclePage = () => {
   const oracle = useMemo(() => kin.getOracle(), [kin])
   return (
     <div className="oracle-view ">
-      <h2>Крест Оракула</h2>
       <table className="oracle-table mx-auto my-2">
         <tbody>
           <tr>

@@ -5,18 +5,21 @@ import {
     SignPage, TonePage, WaveSpellPage, YearPage, ZolkinPage
 } from "Pages";
 import { AppContext, isKtotyHosted } from "Context";
+import { Kin } from "graphics";
 
 const routes: {
     [name: string]: {
         path: string,
         href: string,
-        component: ReactNode
+        component: ReactNode,
+        thumb?: ReactNode
     }
 } = {
     kin: {
         path: "/kin",
         href: "#/kin",
-        component: <KinPage />
+        component: <KinPage />,
+        // thumb: <Kin />
     },
     tone: {
         path: "/tone",

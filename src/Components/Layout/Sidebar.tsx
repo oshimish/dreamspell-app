@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 
@@ -10,9 +10,14 @@ import { Link } from "react-router-dom";
 
 import './sidebar.scss';
 
+const SidebarThumb = (props: { component: ReactNode }) =>
+    <div className="thumb" >
+        {props.component!}
+    </div>;
+
 export function Sidebar() {
     return (
-        <ProSidebar collapsed={false} className="h-100">
+        <ProSidebar collapsed={false} className="sidebar h-100">
             {/* <SidebarHeader>
                 <img
                     src={logo}
@@ -23,17 +28,12 @@ export function Sidebar() {
                 />
             </SidebarHeader> */}
             <SidebarContent>
-                <Menu iconShape="square">
-                    {/* <MenuItem >Dashboard</MenuItem> */}
-                    {/* <SubMenu title="Components" >
-                        <MenuItem>Component 1</MenuItem>
-                        <MenuItem>Component 2</MenuItem>
-                    </SubMenu> */}
+                <Menu iconShape="square" >
                     {Object.entries(routes).map((route, i) => {
                         const p = route[1];
                         return (
-                            <MenuItem >
-                                <Link to={p.path}>{i18n.t("routes." + route[0])}</Link>
+                            <MenuItem icon={<SidebarThumb component={p.thumb || p.component} />}  >
+                                <Link to={p.path} >{i18n.t("routes." + route[0])}</Link>
                             </MenuItem>
                         )
                     })}

@@ -28,7 +28,6 @@ const WaveSpellPage = () => {
   );
   return (
     <div className="wave-spell-page px-4 py-2">
-      <h2>Волновой Модуль</h2>
 
       <WaveSpell
         from={wavespellStart}

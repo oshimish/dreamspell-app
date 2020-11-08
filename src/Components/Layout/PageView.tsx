@@ -7,7 +7,7 @@ const PageView = (props: {
     className?: string
 }) => {
     return (
-        <div className={classNames("page", props.className)}>
+        <div className={classNames("page", props.className, props.className + "-page")}>
             <h2 className="page-title">{props.header}</h2>
             <div className="page-content">
                 {props.children}

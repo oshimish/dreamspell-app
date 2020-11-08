@@ -9,30 +9,26 @@
   grid-gap: 3px;
   grid-auto-rows: auto minmax(100px, auto);
   grid-auto-columns: minmax(100px, auto);
-}
-
-.moon-grid .day-cell {
-  margin: 1px;
-  padding: 3px;
-}
-
-.moon-grid .day-cell .num {
-  float: left;
-  width: 28%;
-  font-size: 1em;
-  text-align: left;
-  margin-right: 1px;
-}
-
-.moon-grid .day-cell .kin {
-  float: right;
-  width: 100%;
-  margin-right: 2px;
-  margin-bottom: 2px;
-}
-
-.moon-grid .day-cell.selected {
-  z-index: 2;
+  .day-cell {
+    &.selected {
+      z-index: 2;
+    }
+    // margin: 1px;
+    // padding: 3px;
+    .num {
+      float: left;
+      width: 28%;
+      font-size: 1em;
+      text-align: left;
+      margin-right: 1px;
+    }
+    .kin {
+      float: right;
+      width: 100%;
+      margin-right: 2px;
+      margin-bottom: 2px;
+    }
+  }
 }
 
 $kinglow: 1px 0px 2px 1px;

@@ -56,7 +56,6 @@ const ZolkinPage = () => {
   let kin = context.gdate.kin;
   return (
     <div className="zolkin-page">
-      <h2>Цолькин</h2>
       <ZGrid selKin={kin} />
     </div>
   );
