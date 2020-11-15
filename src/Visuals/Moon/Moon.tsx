@@ -1,5 +1,5 @@
 // Vendor
-import React from "react";
+import React, { useMemo } from "react";
 
 import * as g from "dreamspell-math";
 
@@ -60,21 +60,24 @@ export const Moon = (props: {
   selDate?: g.DreamDate;
 }) => {
 
-  let day = props.firstDay;
-  let moonDays = new Array<g.DreamDate>(28);
-  for (let index = 0; index < moonDays.length; index++) {
-    let dayDate = new g.DreamDate(day);
-    moonDays[index] = dayDate;
-    day = new g.DreamDate(day.moment.add(1, "day"));
-
-    // todo: leaps and iterate move to math
-    // skip leap days
-    if (day.moment.month() === 1
-      && day.moment.date() === 29) {
+  let moonDays = useMemo(() => {
+    let day = props.firstDay;
+    let moonDays = new Array<g.DreamDate>(28);
+    for (let index = 0; index < moonDays.length; index++) {
+      let dayDate = new g.DreamDate(day);
+      moonDays[index] = dayDate;
       day = new g.DreamDate(day.moment.add(1, "day"));
-      continue;
+
+      // todo: leaps and iterate move to math
+      // skip leap days
+      if (day.moment.month() === 1
+        && day.moment.date() === 29) {
+        day = new g.DreamDate(day.moment.add(1, "day"));
+        continue;
+      }
     }
-  }
+    return moonDays;
+  }, [props.firstDay])
 
   return (
     <div className="moon-grid">
