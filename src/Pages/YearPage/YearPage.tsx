@@ -1,5 +1,5 @@
 // Vendor
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 // Internal
 import "./styles.scss";
@@ -13,18 +13,17 @@ import { dreamdate, DreamDate } from "dreamspell-math";
  */
 
 // todo: move to math
-const getYearStart = (gdate: DreamDate) => dreamdate(
-  gdate.moment.clone().add(-gdate.dayOfYear - 1, "d")
-);
+const getYearStart = (gdate: DreamDate) => {
+  let dd = dreamdate(
+    gdate.moment.clone().add(-gdate.dayOfYear, "d")
+  )
+  return dd;
+};
 const iterator = (gdate: DreamDate) => dreamdate(gdate.moment.clone().add(28, "d"));
 
 const YearPage = (props: { gdate: DreamDate }) => {
 
-  const [yearStart, setYearStart] = useState(getYearStart(props.gdate));
-
-  useEffect(() => {
-    setYearStart(getYearStart(props.gdate))
-  }, [props.gdate])
+  let yearStart = useMemo(() => getYearStart(props.gdate), [props.gdate])
 
   return (
     <div className="year-page">
