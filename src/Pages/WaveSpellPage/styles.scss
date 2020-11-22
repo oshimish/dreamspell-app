@@ -1,3 +1,17 @@
+@mixin sel_shadow($color) {
+  box-shadow: 1px 0px 10px 7px $color;
+}
+
+@mixin portal_mystic_shadow($color) {
+  background-color: $color;
+  box-shadow: 0px 0px 4px 2px $color;
+}
+
+@mixin portal_mystic_shadow_sel($color) {
+  background-color: $color;
+  box-shadow: 0px 0px 10px 11px $color;
+}
+
 .wave-spell-page {
   // min-width: 28em;
 
@@ -7,12 +21,72 @@
 
   .wave-cell {
     width: 87%;
+
+    &.selected {
+      // box-shadow: 1px 0px 10px 7px inherit;
+      z-index: 2;
+
+      &.chromatic1,
+      &.chromatic1 .sign-tone {
+        background-color: red;
+        @include sel_shadow(red);
+      }
+
+      &.chromatic2,
+      &.chromatic2 .sign-tone {
+        background-color: rgb(201, 201, 201);
+        @include sel_shadow(rgb(201, 201, 201));
+      }
+
+      &.chromatic3,
+      &.chromatic3 .sign-tone {
+        background-color: blue;
+        @include sel_shadow(blue);
+      }
+
+      &.chromatic4,
+      &.chromatic4 .sign-tone {
+        background-color: yellow;
+        @include sel_shadow(yellow);
+      }
+    }
+
+    &.portal {
+      @include portal_mystic_shadow(#c8e1b9);
+
+      &.selected,
+      &.selected .sign-tone {
+        @include portal_mystic_shadow_sel(#c8e1b9);
+      }
+    }
+
+    // &.mystic {
+    //   @include portal_mystic_shadow(gray);
+
+    //   &.selected,
+    //   &.selected .sign-tone {
+    //     @include portal_mystic_shadow_sel(gray);
+    //   }
+    // }
+
+    .sign-tone {
+      top: -45%;
+      opacity: 0.9;
+
+      img {
+        border-radius: 3px;
+      }
+    }
+
+    .sign {
+      opacity: 0.9;
+    }
   }
 
-  .kin .selected img {
-    box-shadow: 0px 0px 7px 4px #8314d1;
-    background-color: #8314d1;
-  }
+  // .kin .selected img {
+  //   box-shadow: 0px 0px 7px 4px #8314d1;
+  //   background-color: #8314d1;
+  // }
 
   .kin img {
     min-width: 22px;
