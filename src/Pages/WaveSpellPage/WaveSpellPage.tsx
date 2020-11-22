@@ -26,6 +26,16 @@ const WaveSpellPage = (props: {
   let wavespellStart = g.dreamdate(
     selDate.moment.clone().add(-(selKin.tone.number - 1), "d")
   );
+
+
+  var selStyle = (props: { kin: g.Kin }) =>
+    props.kin.number === selDate.kin.number ? " selected" : "";
+  var portalStyle = (props: { kin: g.Kin }) =>
+    props.kin.isGalacticPortal ? " portal" : "";
+  var mysticStyle = (props: { kin: g.Kin }) =>
+    props.kin.isMysticColumn ? " mystic" : "";
+
+
   return (
     <div className="wave-spell-page px-4 py-2">
       <h2>Волновой Модуль</h2>
@@ -37,10 +47,20 @@ const WaveSpellPage = (props: {
           g.dreamdate(gdate.moment.clone().add(1, "d"))
         }
         render={i => (
-          // <SignTone {...this.props} tone={props.tone} />
-          <Kin kin={i.kin} opt={{
-            active: i.moment === selDate.moment
-          }} />
+          <div
+            className={
+              "wave-cell chromatic" +
+              i.kin.color +
+              selStyle(i) +
+              portalStyle(i) +
+              mysticStyle(i)
+            }>
+            {/* <SignTone {...this.props} tone={props.tone} /> */}
+            <Kin kin={i.kin} opt={{
+              active: i.kin.number === selDate.kin.number,
+              inactive: i.kin.number !== selDate.kin.number
+            }} />
+          </div>
         )}
       />
     </div>
