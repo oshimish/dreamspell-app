@@ -52,11 +52,13 @@ const Screen = () => {
     let t = params.get('t') // 'chrome-instant'
     if (t) {
       // 1615211555
-      const m = moment(t);
+      const m = moment.unix(parseInt(t));
+      var day = moment.unix(1318781876.721);
+      console.debug('day=', day);
       console.log('t=', m);
       context.setDate(m);
     }
-  }, [context, window.location])
+  }, [window, window.location])
 
   useEffect(() => {
     keyDivRef.current?.focus();
