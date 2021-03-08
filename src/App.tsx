@@ -31,6 +31,8 @@ import { DatePicker } from './Components/DateInput/DatePicker';
 import { useTranslation } from "react-i18next";
 import routes from "consts/routes";
 import { Footer } from './Components/Layout/Footer';
+import querystring from 'querystring';
+import moment from "moment";
 
 const Screen = () => {
 
@@ -43,6 +45,17 @@ const Screen = () => {
 
   const keyDivRef = useRef<HTMLDivElement>(null);
   const context = useContext(AppContext)!;
+
+  useEffect(() => {
+    let params = new URLSearchParams(window.location?.search);
+    let t = params?.get('t') // 'chrome-instant'
+    if (t) {
+      // 1615211555 
+      const m = moment(t);
+      console.log('t=', m);
+      if (m) context.setDate(m);
+    }
+  }, [context, window.location])
 
   useEffect(() => {
     keyDivRef.current?.focus();
