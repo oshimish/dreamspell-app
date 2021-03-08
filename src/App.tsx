@@ -48,12 +48,12 @@ const Screen = () => {
 
   useEffect(() => {
     let params = new URLSearchParams(window.location?.search);
-    let t = params?.get('t') // 'chrome-instant'
+    let t = params.get('t') // 'chrome-instant'
     if (t) {
-      // 1615211555 
+      // 1615211555
       const m = moment(t);
       console.log('t=', m);
-      if (m) context.setDate(m);
+      context.setDate(m);
     }
   }, [context, window.location])
 
