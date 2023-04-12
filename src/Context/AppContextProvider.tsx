@@ -28,20 +28,17 @@ export interface IWithAppContextProps {
 
 export const useAppContext = () => useContext(AppContext)!;
 
-export const isKtotyHosted = () => /(ktoty\.?|-kt)/gi.test(window.location.href);
 
 export const defaultTheme = () => {
-  const ktoty = isKtotyHosted();
-  const defaultTheme = ktoty ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
+  const defaultTheme = false ? GraphicTheme.Tzolkine : GraphicTheme.Classic;
   return defaultTheme;
 }
 
-export class AppContextProvider extends React.Component<{}, IAppContext> {
+export class AppContextProvider extends React.Component<WithChildren, IAppContext> {
   constructor(props: any) {
     super(props);
     // check by url for ktoty customization
-    const ktoty = /(ktoty\.?|-kt)/gi.test(window.location.href);
-    const lawoftime = !ktoty;
+    const lawoftime = true;
     const darkTheme = lawoftime;
 
     this.state = {
@@ -50,7 +47,6 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
       theme: defaultTheme(),
 
       lawoftime,
-      ktoty,
       darkTheme,
       ...this
     } as IAppContext;
@@ -84,7 +80,6 @@ export class AppContextProvider extends React.Component<{}, IAppContext> {
     console.log(`Theme cahnged to ${theme}`)
     this.setState({
       theme,
-      ktoty: theme === GraphicTheme.Tzolkine,
       lawoftime: theme !== GraphicTheme.Tzolkine,
       darkTheme: theme === GraphicTheme.Classic
     });

@@ -6,21 +6,22 @@ import { Sign } from "graphics";
 import i18n from "../i18n";
 import "./styles.scss";
 import { useAppContext } from "Context";
+import { TOptionsBase } from "i18next";
 // Setup
 
 const SignPage = () => {
   const context = useAppContext()
   let kin = context.gdate.kin;
   let num = kin.sign.number;
-  const tt = (key: string, opt?: any) =>
-    i18n.t("signs:sign" + num + key, opt);
+  const tt = (key: string, opt?: TOptionsBase & object) =>
+    i18n.t("signs:sign" + num + key, opt ?? {});
 
   return (
     <div className="sign-page">
       <Sign kin={kin} />
       <h2 className="title ">
         {num}. {tt(".title")} ({tt(".maya_name")})
-        </h2>
+      </h2>
       <p className="info lead">{tt(".info")}</p>
       <p className="about">
         {tt(".about", {

@@ -10,7 +10,7 @@ import { shallow } from 'enzyme';
 import Moon from '../Moon';
 
 describe('Moon: test', () => {
-  // test cases
+  // test cases 
   it('renders', () => {
     const wrapper = shallow(<Moon firstDay={g.dreamdate(moment('2019-01-31'))} />);
 

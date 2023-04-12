@@ -8,5 +8,6 @@
   "autoimport.showNotifications": true,
   "autoimport.higherOrderComponents": "connect|withRouter|subscribe",
   "autoimport.autoComplete": false,
-  "autoimport.absolute": false
+  "autoimport.absolute": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

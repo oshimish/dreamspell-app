@@ -4,8 +4,6 @@ import {
     KinPage, MoonPage, OraclePage, PlasmaPage,
     SignPage, TonePage, WaveSpellPage, YearPage, ZolkinPage
 } from "Pages";
-import { AppContext, isKtotyHosted } from "Context";
-import { Kin } from "graphics";
 
 const routes: {
     [name: string]: {
@@ -66,11 +64,6 @@ const routes: {
         href: "#/year",
         component: <YearPage />
     }
-}
-
-if (isKtotyHosted() && routes.zolkin) {
-    routes.zolkin.href = "#/tzolkin";
-    routes.zolkin.path = "/tzolkin";
 }
 
 export default routes;

@@ -7,13 +7,14 @@ import * as g from "dreamspell-math";
 import i18n from "../i18n";
 import "./styles.scss";
 import { useAppContext } from "Context";
+import { TOptionsBase } from "i18next";
 
 // Setup
 const PlasmaPage = () => {
   const context = useAppContext()
   let date = context.gdate;
-  const tt = (key: string, opt?: any) =>
-    i18n.t("plasmas:plasma" + date.plasma + key, opt);
+  const tt = (key: string, opt?: TOptionsBase & object) =>
+    i18n.t("plasmas:plasma" + date.plasma + key, opt ?? {});
   return (
     <div className="plasma-page">
       <div className="kin-view-plasma m-4">

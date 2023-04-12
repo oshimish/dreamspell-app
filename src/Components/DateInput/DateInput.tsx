@@ -1,15 +1,9 @@
-// Vendor
-import React, { useContext } from "react";
+import { useContext } from "react";
 
-
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import DayPickerInput from "react-day-picker/DayPickerInput";
-
-import "react-day-picker/lib/style.css";
+import 'react-day-picker/dist/style.css';
 import moment, { Moment } from "moment";
 
 // Include the locale utils designed for moment
-import MomentLocaleUtils from 'react-day-picker/moment';
 
 // Make sure moment.js has the required locale data
 import "moment/locale/ru";
@@ -17,40 +11,32 @@ import "moment/locale/ru";
 // Internal
 import "./styles.scss";
 import { AppContext } from "Context/AppContextProvider";
-import Form from "react-bootstrap/Form";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Button from "react-bootstrap/Button";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownMenu from "react-bootstrap/DropdownMenu";
-import Nav from "react-bootstrap/Nav";
-import FormControl from 'react-bootstrap/FormControl';
-import InputGroup from 'react-bootstrap/InputGroup';
-import NavItem from 'react-bootstrap/NavItem';
-import NavLink from 'react-bootstrap/NavLink';
+import { NavDropdown, ButtonGroup, Button, Dropdown, Form } from "react-bootstrap";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
 const DropDownHeader = (props: {
   backClick?: () => void;
   fwdClick?: () => void;
 }) => (
-    <NavDropdown.Header>
-      <ButtonGroup className="mx-auto">
-        <Button variant="light" onClick={props.backClick} >&lt;</Button>
-        <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
-      </ButtonGroup>
-    </NavDropdown.Header>
-  )
+  <NavDropdown.Header>
+    <ButtonGroup className="mx-auto">
+      <Button variant="light" onClick={props.backClick} >&lt;</Button>
+      <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
+    </ButtonGroup>
+  </NavDropdown.Header>
+)
 
 const DropDownHeader2 = (props: {
   backClick?: () => void;
   fwdClick?: () => void;
 }) => (
-    <Dropdown.Header>
-      <ButtonGroup className="mx-0">
-        <Button variant="light" onClick={props.backClick} >&lt;</Button>
-        <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
-      </ButtonGroup>
-    </Dropdown.Header>
-  )
+  <Dropdown.Header>
+    <ButtonGroup className="mx-0">
+      <Button variant="light" onClick={props.backClick} >&lt;</Button>
+      <Button variant="light" onClick={props.fwdClick}>&gt;</Button>
+    </ButtonGroup>
+  </Dropdown.Header>
+)
 
 export const DateInput = (props: {
 }) => {
@@ -86,7 +72,7 @@ export const DateInput = (props: {
   // moment().year(year).month(month).date(day)
 
   return (
-    <Form inline className="date-nav">
+    <Form className="date-nav">
       {/* <Form inline>
         <div className="date-input">
           <DayPickerInput
@@ -146,7 +132,9 @@ export const DateInput = (props: {
         </Dropdown.Menu>
       </Dropdown> */}
 
-      <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
+      <NavDropdown title={selMoment.date()} id="day-nav-dropdown" className="date-nav-dropdown"
+        rootCloseEvent="mousedown"
+        onSelect={onDaySelect} >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("d", -1))}
           fwdClick={() => setMoment(selMoment.add("d", 1))} />
@@ -155,7 +143,6 @@ export const DateInput = (props: {
           {days.map((x, i) => (
             <NavDropdown.Item
               key={i}
-              onSelect={onDaySelect}
               eventKey={x.toString()}
               active={selMoment.date() === x}>
               {x}
@@ -164,7 +151,9 @@ export const DateInput = (props: {
         </DropdownMenu>
       </NavDropdown>
 
-      <NavDropdown title={selMoment.format("MMMM")} id="month-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
+      <NavDropdown title={selMoment.format("MMMM")} id="month-nav-dropdown" className="date-nav-dropdown"
+        rootCloseEvent="mousedown"
+        onSelect={onMonthSelect} >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("months", -1))}
           fwdClick={() => setMoment(selMoment.add("months", 1))} />
@@ -173,7 +162,6 @@ export const DateInput = (props: {
           {months.map((x, i) => (
             <NavDropdown.Item
               key={i}
-              onSelect={onMonthSelect}
               eventKey={i.toString()}
               active={selMoment.month() === i}
               className="text-left">
@@ -182,7 +170,9 @@ export const DateInput = (props: {
           )}
         </DropdownMenu>
       </NavDropdown>
-      <NavDropdown title={selYear} id="year-nav-dropdown" className="date-nav-dropdown" rootCloseEvent="mousedown" >
+      <NavDropdown title={selYear} id="year-nav-dropdown" className="date-nav-dropdown"
+        rootCloseEvent="mousedown"
+        onSelect={onYearSelect} >
         <DropDownHeader
           backClick={() => setMoment(selMoment.add("years", -10))}
           fwdClick={() => setMoment(selMoment.add("years", 10))} />
@@ -191,7 +181,6 @@ export const DateInput = (props: {
           {years.map((x, i) => (
             <NavDropdown.Item
               key={x}
-              onSelect={onYearSelect}
               eventKey={x.toString()}
               active={selYear === x}>
               {x}

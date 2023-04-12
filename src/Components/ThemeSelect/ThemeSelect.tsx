@@ -32,6 +32,7 @@ export default function ThemeSelect() {
         <Dropdown as={NavItem}
             id="theme-nav-dropdown"
             drop="up"
+            onSelect={(eventKey: string | null) => context?.setTheme(eventKey! as GraphicTheme)}
             className="theme-nav-dropdown justify-content-end" >
             <Dropdown.Toggle
                 id="theme-nav-dropdown-toggle"
@@ -45,7 +46,6 @@ export default function ThemeSelect() {
                     .map((x, i) => (
                         <Dropdown.Item
                             key={x.key}
-                            onSelect={(eventKey: string | null) => context?.setTheme(eventKey! as GraphicTheme)}
                             eventKey={x.theme.toString()}
                             active={selTheme === x.theme}>
                             {x.config.name}
