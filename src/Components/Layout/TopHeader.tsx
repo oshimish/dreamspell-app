@@ -46,7 +46,7 @@ export const TopHeader = () => {
           {Object.entries(routes).map((route, i) => {
             const p = route[1];
             return (
-              <Nav.Link href={p.href}>{i18n.t("routes." + route[0])}</Nav.Link>
+              <Nav.Link href={p.href} key={i}>{i18n.t("routes." + route[0])}</Nav.Link>
             )
           })}
         </Nav>

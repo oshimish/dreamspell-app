@@ -16,7 +16,7 @@ const SidebarThumb = (props: { component: ReactNode }) =>
 
 export function Sidebar() {
     return (
-        <ProSidebar defaultCollapsed={false} className="sidebar h-100">
+        <ProSidebar defaultCollapsed={true} className="sidebar h-100">
             {/* <SidebarHeader>
                 <img
                     src={logo}

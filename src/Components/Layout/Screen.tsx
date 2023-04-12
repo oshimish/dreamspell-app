@@ -45,10 +45,10 @@ export function Screen() {
             <TopHeader />
             <Container fluid className="main">
                 <Row className="justify-content-around h-100">
-                    <Col md="2" className="align-self-stretch  m-2 d-none d-lg-block">
+                    {/* <Col md="2" className="align-self-stretch  m-2 invisible d-lg-block">
                         <Sidebar />
-                    </Col>
-                    <Col md="6" className="align-self-stretch mx-auto my-2 my-xl-4 text-center col-xl-8">
+                    </Col> */}
+                    <Col md="6" className="align-self-stretch mx-auto my-2 my-xl-4 text-center col-xl-8  col-md-offset-2">
                         <RoutesView />
                     </Col>
                     <Col md="auto" className="align-self-start d-none d-lg-block ml-auto my-4">
