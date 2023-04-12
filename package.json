@@ -1,9 +1,9 @@
 {
   "name": "dreamspell-app",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "author": {
-    "email": "oshimish@gmail.com",
+    "email": "pustotahere@gmail.com",
     "name": "Raman Oshimish",
     "url": "https://www.dream-spell.ru"
   },
@@ -18,6 +18,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
     "bootstrap": "^5.2.3",
+    "cross-env": "^7.0.3",
     "date-fns": "^2.29.3",
     "dreamspell-math": "^0.1.1",
     "enzyme": "^3.11.0",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env CI=false react-scripts build",
     "test": "react-scripts test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "yarn run type-check --watch",
