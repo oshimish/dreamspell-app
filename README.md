@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Dreamspell App
+
+Dreamspell App is an interactive web application designed to explore and visualize the Dreamspell calendar. It provides users with tools to navigate through various aspects of the calendar, including Kins, Wavespells, Moons, and more.
+
+## Features
+
+- **Interactive Calendar**: Navigate through the Dreamspell calendar with ease.
+- **Kin Details**: View detailed information about each Kin.
+- **Wavespell Visualization**: Explore Wavespells and their significance.
+- **Localization**: Supports multiple languages, including Russian.
+- **Custom Themes**: Choose from various visual themes to personalize your experience.
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Prerequisites
 
-In the project directory, you can run:
+- Node.js (v14 or later)
+- Yarn package manager
 
-### `yarn start`
+### Installation
 
-Runs the app in the development mode.\
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/oshimish/dreamspell-app.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd dreamspell-app
+   ```
+3. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+### Running the App
+
+To start the development server:
+```bash
+yarn start
+```
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Building for Production
 
-### `yarn test`
+To create a production build:
+```bash
+yarn build
+```
+The build artifacts will be stored in the `build/` directory.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running Tests
 
-### `yarn build`
+To run tests in watch mode:
+```bash
+yarn test
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Folder Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **src/**: Contains the source code of the application.
+  - **Components/**: Reusable React components.
+  - **Pages/**: Page-level components for different views.
+  - **assets/**: Static assets like images and styles.
+  - **Context/**: Context providers for global state management.
+  - **lib.d.ts**: TypeScript type definitions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **public/**: Public assets and configuration files.
 
-### `yarn eject`
+- **docker/**: Docker-related configuration and scripts.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Learn More
+## Acknowledgments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Inspired by the Dreamspell calendar.
+- Built with [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/).
